@@ -50,7 +50,8 @@
 			"titleBar",
 			"resizeHandle",
 			"Mouse",
-			"mouseSprite"
+			"mouseSprite",
+			"taskbar"
 		],
 		"subfolders": []
 	},
@@ -95,6 +96,14 @@
 					"sid": 966193320614593,
 					"script-info": {
 						"purpose": "main"
+					}
+				},
+				{
+					"name": "script.js",
+					"type": "application/javascript",
+					"sid": 727970926184714,
+					"script-info": {
+						"purpose": "imports-for-events"
 					}
 				}
 			],
@@ -285,7 +294,7 @@
 		"gpuPreference": "high-performance",
 		"framerateMode": "vsync",
 		"fixedFramerate": 30,
-		"sampling": "trilinear",
+		"sampling": "bilinear",
 		"downscaling": "medium",
 		"renderingMode": "auto",
 		"anisotropicFiltering": "auto",

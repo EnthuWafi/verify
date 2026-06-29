@@ -6,6 +6,8 @@ runOnStartup(async runtime =>
 {
 	// Code to run on the loading screen.
 	// Note layouts, objects etc. are not yet available.
+    
+    // Mouse cursor logic
 	document.addEventListener("mouseover", (event) => {
         if (event.target.tagName === "BUTTON") {
             runtime.callFunction("ChangeCursorStyle", "Hand");

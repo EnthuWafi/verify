@@ -2,18 +2,18 @@
   "database": [
     {
       "tags": "bbc handle",
-      "truth": "BBCNews social media handle is @BBCNews"
+      "truth": "BBCNews official social media handle is @BBCNews"
     },
     {
       "tags": "reuters handle",
-      "truth": "Reuters social media handle is @Reuters"
+      "truth": "Reuters official social media handle is @Reuters"
     },
     {
-      "tags": "bbc emergency campus shutdown",
+      "tags": "bbc news emergency campus shutdown",
       "truth": "No campus alerts are active. Reports of power grid failures are completely fabricated."
     },
     {
-      "tags": "reuters copper supply maritime",
+      "tags": "reuters news copper supply maritime",
       "truth": "Global copper supply has stabilized. The maritime trade agreements are authentic."
     },
     {

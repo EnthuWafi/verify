@@ -292,13 +292,12 @@
 					"isInverted": true
 				},
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 971472429476270,
+					"id": "is-animation-playing",
+					"objectClass": "mouseSprite",
+					"sid": 601114085650782,
 					"parameters": {
-						"object": "html_windows"
-					},
-					"isInverted": true
+						"animation": "\"Resize\""
+					}
 				}
 			],
 			"actions": [

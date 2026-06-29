@@ -1,0 +1,317 @@
+{
+	"name": "os_logic",
+	"events": [
+		{
+			"functionName": "createWindow",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 623759033725770,
+					"parameters": {
+						"object-to-create": "windowBody",
+						"layer": "0",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "titleBar",
+					"sid": 906481219883859,
+					"parameters": {
+						"x": "windowBody.X",
+						"y": "windowBody.Y"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "resizeHandle",
+					"sid": 831864739836677,
+					"parameters": {
+						"x": "windowBody.X + windowBody.Width",
+						"y": "windowBody.Y + windowBody.Height"
+					}
+				}
+			],
+			"sid": 819528059976518
+		},
+		{
+			"eventType": "comment",
+			"text": "Windows properties"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-dragging",
+					"objectClass": "titleBar",
+					"sid": 627246121942373,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "windowBody",
+					"sid": 933310724949647,
+					"parameters": {
+						"x": "titleBar.X",
+						"y": "titleBar.Y"
+					}
+				}
+			],
+			"sid": 403256857163062
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "titleBar",
+					"sid": 536861651838528,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "resizeHandle",
+					"sid": 743642839577322,
+					"parameters": {
+						"x": "windowBody.X + windowBody.Width - resizeHandle.Width",
+						"y": "windowBody.Y + windowBody.Height  - resizeHandle.Height"
+					}
+				}
+			],
+			"sid": 209274913496639
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-dragging",
+					"objectClass": "resizeHandle",
+					"sid": 163007992270428,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "windowBody",
+					"sid": 797253497365450,
+					"parameters": {
+						"width": "min(max(windowBody.min_width, resizeHandle.X - windowBody.X), windowBody.max_width)",
+						"height": "min(max(windowBody.min_height, resizeHandle.Y - windowBody.Y), windowBody.max_height)"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "titleBar",
+					"sid": 975281280758622,
+					"parameters": {
+						"width": "windowBody.Width"
+					}
+				}
+			],
+			"sid": 678563250544752
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "resizeHandle",
+					"sid": 469806320680402,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "resizeHandle",
+					"sid": 547050973873563,
+					"parameters": {
+						"x": "windowBody.X + windowBody.Width - resizeHandle.Width",
+						"y": "windowBody.Y + windowBody.Height  - resizeHandle.Height"
+					}
+				}
+			],
+			"sid": 890725123573520
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drag-start",
+					"objectClass": "titleBar",
+					"sid": 418571167318305,
+					"behaviorType": "DragDrop"
+				},
+				{
+					"id": "on-clicked-class",
+					"objectClass": "html_windows",
+					"sid": 230471997261303,
+					"parameters": {
+						"class": "\"window\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "windowBody",
+					"sid": 417264177546936
+				}
+			],
+			"sid": 658390809542204,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 312951400073302
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "mouseSprite",
+					"sid": 761318009259949,
+					"parameters": {
+						"x": "Mouse.X",
+						"y": "Mouse.Y"
+					}
+				}
+			],
+			"sid": 564175349702278
+		},
+		{
+			"eventType": "comment",
+			"text": "cursor logic"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 365638924997955
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style2",
+					"objectClass": "Mouse",
+					"sid": 659321691256506,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				}
+			],
+			"sid": 285255901458972
+		},
+		{
+			"functionName": "ChangeCursorStyle",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "animName",
+					"type": "string",
+					"initialValue": "Normal",
+					"comment": "",
+					"sid": 840473518983774
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "mouseSprite",
+					"sid": 572641991182936,
+					"parameters": {
+						"animation": "animName",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 393151626602968
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 881173815626094,
+					"parameters": {
+						"object": "resizeHandle"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ChangeCursorStyle",
+					"sid": 384737614223519,
+					"parameters": [
+						"\"Resize\""
+					]
+				}
+			],
+			"sid": 422746323488557
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 533546727518329,
+					"parameters": {
+						"object": "resizeHandle"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 971472429476270,
+					"parameters": {
+						"object": "html_windows"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ChangeCursorStyle",
+					"sid": 242554530487908,
+					"parameters": [
+						"\"Normal\""
+					]
+				}
+			],
+			"sid": 814545553491902
+		}
+	],
+	"sid": 735513248348554
+}

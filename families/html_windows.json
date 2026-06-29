@@ -1,0 +1,39 @@
+{
+	"name": "html_windows",
+	"plugin-id": "HTMLElement",
+	"sid": 301048825325369,
+	"instanceVariables": [
+		{
+			"name": "min_width",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 757297363853421
+		},
+		{
+			"name": "min_height",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 583636480948977
+		},
+		{
+			"name": "max_width",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 578221713063818
+		},
+		{
+			"name": "max_height",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 332190839203021
+		}
+	],
+	"behaviorTypes": [],
+	"members": [
+		"windowBody"
+	]
+}

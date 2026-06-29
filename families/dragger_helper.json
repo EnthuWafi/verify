@@ -1,0 +1,18 @@
+{
+	"name": "dragger_helper",
+	"plugin-id": "Sprite",
+	"sid": 952336037759848,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 822386551286053
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"resizeHandle",
+		"titleBar"
+	]
+}

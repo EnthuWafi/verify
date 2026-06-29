@@ -1,0 +1,54 @@
+{
+	"name": "game_logic",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "os_logic"
+		},
+		{
+			"eventType": "comment",
+			"text": "current shift var"
+		},
+		{
+			"eventType": "variable",
+			"name": "PlatformCredibility",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 536690842872913
+		},
+		{
+			"eventType": "variable",
+			"name": "ShiftSalary",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 636740049332932
+		},
+		{
+			"eventType": "variable",
+			"name": "ShiftFines",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 840685346778090
+		},
+		{
+			"eventType": "variable",
+			"name": "ShiftTimer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 725210302800693
+		}
+	],
+	"sid": 442786421369605
+}

@@ -1,0 +1,10 @@
+{
+	"name": "generalText",
+	"plugin-id": "Text",
+	"sid": 187538307436384,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

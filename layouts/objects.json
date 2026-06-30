@@ -11,7 +11,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "monogram-extended",
+						"font": "sans-serif",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -234,6 +234,58 @@
 						"y": 680,
 						"width": 1280,
 						"height": 40,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "desktopIcon",
+					"properties": {
+						"tag": "div",
+						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span style=\"font-size: 11px; text-align: center; margin-top: 4px; color: white;\">My Computer</span>\n</div>",
+						"content-type": "html",
+						"initially-visible": true,
+						"id": "",
+						"class": "",
+						"allow-context-menu": false,
+						"stop-input-events": "no",
+						"origin": "top-left",
+						"set-color": true,
+						"default-color": [
+							0,
+							0,
+							0,
+							0
+						],
+						"set-background-color": false,
+						"default-background-color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"auto-font-size": true,
+						"allow-text-selection": false,
+						"style-attribute": ""
+					},
+					"uid": 9,
+					"sid": 985357467099132,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 49,
+						"y": 102,
+						"width": 84,
+						"height": 71,
 						"originX": 0,
 						"originY": 0,
 						"color": [

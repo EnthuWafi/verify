@@ -2,6 +2,36 @@
 	"name": "os_logic",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "cursorWaiting",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 686727751731916
+		},
+		{
+			"eventType": "variable",
+			"name": "screenWidth",
+			"type": "number",
+			"initialValue": "1280",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 637691083973186
+		},
+		{
+			"eventType": "variable",
+			"name": "screenHeight",
+			"type": "number",
+			"initialValue": "720",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 268605107009740
+		},
+		{
 			"functionName": "createWindow",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -62,9 +92,22 @@
 			],
 			"actions": [
 				{
+					"type": "comment",
+					"text": "should be bounded to the game screen, ik windows let you drag out of screen but its kinda problematic"
+				},
+				{
+					"id": "set-position",
+					"objectClass": "titleBar",
+					"sid": 617903670648689,
+					"parameters": {
+						"x": "clamp(titleBar.X, 0, 1280 - windowBody.Width)",
+						"y": "clamp(titleBar.Y, 0, 680 - windowBody.Height)"
+					}
+				},
+				{
 					"id": "set-position",
 					"objectClass": "windowBody",
-					"sid": 933310724949647,
+					"sid": 152480956630124,
 					"parameters": {
 						"x": "titleBar.X",
 						"y": "titleBar.Y"
@@ -84,6 +127,15 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "windowBody",
+					"sid": 924865712753665,
+					"parameters": {
+						"x": "titleBar.X",
+						"y": "titleBar.Y"
+					}
+				},
 				{
 					"id": "set-position",
 					"objectClass": "resizeHandle",
@@ -108,12 +160,16 @@
 			],
 			"actions": [
 				{
+					"type": "comment",
+					"text": "looks complicated but it just make sure window size dont exceed min and max size, and resize also cant escape boundaries"
+				},
+				{
 					"id": "set-size",
 					"objectClass": "windowBody",
-					"sid": 797253497365450,
+					"sid": 292847081381217,
 					"parameters": {
-						"width": "min(max(windowBody.min_width, resizeHandle.X - windowBody.X), windowBody.max_width)",
-						"height": "min(max(windowBody.min_height, resizeHandle.Y - windowBody.Y), windowBody.max_height)"
+						"width": "clamp(resizeHandle.X - windowBody.X, windowBody.min_width, min(windowBody.max_width, 1280 - windowBody.X))",
+						"height": "clamp(resizeHandle.Y - windowBody.Y, windowBody.min_height, min(windowBody.max_height, 680 - windowBody.Y))"
 					}
 				},
 				{
@@ -310,6 +366,38 @@
 				}
 			],
 			"sid": 814545553491902
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 813575177107256,
+					"parameters": {
+						"variable": "cursorWaiting"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "mouseSprite",
+					"sid": 456253208127027,
+					"parameters": {
+						"animation": "\"Wait\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ChangeCursorStyle",
+					"sid": 799323912993434,
+					"parameters": [
+						"\"Normal\""
+					]
+				}
+			],
+			"sid": 700292537778020
 		}
 	],
 	"sid": 735513248348554

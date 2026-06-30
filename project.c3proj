@@ -51,7 +51,8 @@
 			"resizeHandle",
 			"Mouse",
 			"mouseSprite",
-			"taskbar"
+			"taskbar",
+			"desktopIcon"
 		],
 		"subfolders": []
 	},
@@ -230,7 +231,270 @@
 					}
 				}
 			],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "world.png",
+							"type": "image/png",
+							"sid": 386612695822957,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "aseprite.png",
+							"type": "image/png",
+							"sid": 853723381275203,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "steam.png",
+							"type": "image/png",
+							"sid": 691144026631882,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "briefcase.png",
+							"type": "image/png",
+							"sid": 308719877571082,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "mail.png",
+							"type": "image/png",
+							"sid": 878270119269371,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "folder_open.png",
+							"type": "image/png",
+							"sid": 547460821044217,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "tools.png",
+							"type": "image/png",
+							"sid": 470576265475554,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "phone.png",
+							"type": "image/png",
+							"sid": 346600691445564,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "recycle_bin_empty.png",
+							"type": "image/png",
+							"sid": 616856815295572,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "recycle_bin_full.png",
+							"type": "image/png",
+							"sid": 323189520156728,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "this_computer.png",
+							"type": "image/png",
+							"sid": 366176355022729,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "calculator.png",
+							"type": "image/png",
+							"sid": 130620206642177,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "cd_drive.png",
+							"type": "image/png",
+							"sid": 178086713563859,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "folder_closed.png",
+							"type": "image/png",
+							"sid": 336871013173304,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "movies.png",
+							"type": "image/png",
+							"sid": 204239191088896,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "search.png",
+							"type": "image/png",
+							"sid": 283569694370989,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "slack.png",
+							"type": "image/png",
+							"sid": 661400988803010,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "parsec.png",
+							"type": "image/png",
+							"sid": 180554586177972,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "discord.png",
+							"type": "image/png",
+							"sid": 242008594051314,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "chrome.png",
+							"type": "image/png",
+							"sid": 668184421924439,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "minecraft.png",
+							"type": "image/png",
+							"sid": 272150505383945,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "notepad.png",
+							"type": "image/png",
+							"sid": 431833350113905,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "sounds.png",
+							"type": "image/png",
+							"sid": 484251038128813,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "clock.png",
+							"type": "image/png",
+							"sid": 911734270041641,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "program.png",
+							"type": "image/png",
+							"sid": 725855681452672,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "folder_dark.png",
+							"type": "image/png",
+							"sid": 856119223017540,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "drive.png",
+							"type": "image/png",
+							"sid": 975680891457541,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "flop_drive.png",
+							"type": "image/png",
+							"sid": 165033460451116,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "calendar.png",
+							"type": "image/png",
+							"sid": 345150877570037,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "text_file_2.png",
+							"type": "image/png",
+							"sid": 961221756712617,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "text_file.png",
+							"type": "image/png",
+							"sid": 560085248988566,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "music.png",
+							"type": "image/png",
+							"sid": 465241989613486,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "image_icon"
+				}
+			]
 		}
 	},
 	"timelines": {

@@ -59,7 +59,7 @@
 					"type": "windowBody",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"window\" style=\"display: flex; flex-direction: column; width: 100%; height: 100%; box-sizing: border-box;\">\n  <div class=\"title-bar\" style=\"flex-shrink: 0;\">\n    <div class=\"title-bar-text\">Reported Content Feed</div>\n  </div>\n  \n  <div class=\"window-body\" style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; overflow-y: auto; padding: 8px; margin: 0;\">\n    \n    <div class=\"main-text-area\">\n      <p style=\"margin-top: 0; font-weight: bold;\">User Report Ticket</p>\n      <p>Handle: @BBC_Nevvs</p>\n    </div>\n    \n    <div class=\"button-row\" style=\"display: flex; gap: 8px; flex-shrink: 0; width: 100%;\">\n      <button class=\"delete-btn\" style=\"flex: 1; padding: 6px 0;\">Delete Post</button>\n      <button class=\"keep-btn\" style=\"flex: 1; padding: 6px 0;\">Keep Post</button>\n    </div>\n\n  </div>\n</div>",
+						"content": "<div class=\"window window-construct\">\n  <div class=\"title-bar window-construct\">\n    <div class=\"title-bar-text\">Window</div>\n  </div>\n  \n  <div class=\"window-body window-construct\">\n    \n    <div class=\"main-text-area\">\n      <p style=\"margin-top: 0; font-weight: bold;\">User Report Ticket</p>\n      <p>Handle: @BBC_Nevvs</p>\n    </div>\n    \n\n  </div>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -92,7 +92,10 @@
 						"min_width": 200,
 						"min_height": 130,
 						"max_width": 1280,
-						"max_height": 720
+						"max_height": 720,
+						"is_minimized": false,
+						"appName": "",
+						"desktopIconUID": 0
 					},
 					"behaviors": {},
 					"showing": true,
@@ -196,7 +199,7 @@
 					"type": "taskbar",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n    <button class=\"taskbar-tab\">Feed_App</button>\n  </div>\n\n  <div class=\"status-bar-field\" id=\"system-clock\">\n    00:00 AM\n  </div>\n</div>",
+						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\" id=\"system-clock\">\n    00:00 AM\n  </div>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -248,7 +251,7 @@
 					"type": "desktopIcon",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span style=\"font-size: 11px; text-align: center; margin-top: 4px; color: white;\">My Computer</span>\n</div>",
+						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span style=\"text-align: center; margin-top: 4px; color: white;\">My Computer</span>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -277,15 +280,18 @@
 					"uid": 9,
 					"sid": 985357467099132,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"appName": "Feed_App",
+						"currentlyOpen": false
+					},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 49,
-						"y": 102,
-						"width": 84,
-						"height": 71,
+						"x": 18,
+						"y": 16,
+						"width": 80,
+						"height": 75,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -315,6 +321,41 @@
 				1
 			],
 			"isTransparent": false,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "windows_layer",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 355183643917033,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
 			"sampling": "auto",
 			"parallaxX": 1,
 			"parallaxY": 1,

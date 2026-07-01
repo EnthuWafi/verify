@@ -7,6 +7,20 @@
 		},
 		{
 			"eventType": "comment",
+			"text": "upgrades"
+		},
+		{
+			"eventType": "variable",
+			"name": "UpgradeCPUTime",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 495071627971653
+		},
+		{
+			"eventType": "comment",
 			"text": "current shift var"
 		},
 		{

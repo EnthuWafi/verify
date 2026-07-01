@@ -4,6 +4,21 @@
 	"sid": 585837690600466,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "appName",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 183251104196918
+		},
+		{
+			"name": "currentlyOpen",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 133063272677278
+		}
+	],
 	"behaviorTypes": []
 }

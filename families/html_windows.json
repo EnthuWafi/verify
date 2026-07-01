@@ -30,6 +30,27 @@
 			"desc": "",
 			"show": true,
 			"sid": 332190839203021
+		},
+		{
+			"name": "is_minimized",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 898827367055784
+		},
+		{
+			"name": "appName",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 715233378935692
+		},
+		{
+			"name": "desktopIconUID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 542141743154089
 		}
 	],
 	"behaviorTypes": [],

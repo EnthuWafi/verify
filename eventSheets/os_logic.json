@@ -32,372 +32,1424 @@
 			"sid": 268605107009740
 		},
 		{
-			"functionName": "createWindow",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 623759033725770,
-					"parameters": {
-						"object-to-create": "windowBody",
-						"layer": "0",
-						"x": "0",
-						"y": "0",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "titleBar",
-					"sid": 906481219883859,
-					"parameters": {
-						"x": "windowBody.X",
-						"y": "windowBody.Y"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "resizeHandle",
-					"sid": 831864739836677,
-					"parameters": {
-						"x": "windowBody.X + windowBody.Width",
-						"y": "windowBody.Y + windowBody.Height"
-					}
-				}
-			],
-			"sid": 819528059976518
-		},
-		{
 			"eventType": "comment",
 			"text": "Windows properties"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "WINDOW",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "is-dragging",
-					"objectClass": "titleBar",
-					"sid": 627246121942373,
-					"behaviorType": "DragDrop"
-				}
-			],
-			"actions": [
-				{
-					"type": "comment",
-					"text": "should be bounded to the game screen, ik windows let you drag out of screen but its kinda problematic"
+					"functionName": "createWindow",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 353435116736256,
+							"parameters": {
+								"object-to-create": "windowBody",
+								"layer": "\"windows_layer\"",
+								"x": "150",
+								"y": "200",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-content",
+							"objectClass": "windowBody",
+							"sid": 176110603396204,
+							"parameters": {
+								"content-type": "html",
+								"string": "\"<div class='window window-construct'><div class='title-bar window-construct'><div class='title-bar-text'>Window</div></div><div class='window-body window-construct'><div class='main-text-area'><p></p></div></div></div>\"",
+								"selector": "\"\"",
+								"type": "one"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "titleBar",
+							"sid": 990870058397326,
+							"parameters": {
+								"x": "windowBody.X",
+								"y": "windowBody.Y"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "titleBar",
+							"sid": 452805709936155,
+							"parameters": {
+								"height": "23"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "resizeHandle",
+							"sid": 827356873463877,
+							"parameters": {
+								"x": "windowBody.X + windowBody.Width",
+								"y": "windowBody.Y + windowBody.Height"
+							}
+						}
+					],
+					"sid": 468725697469935,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 724642890307269,
+									"parameters": {
+										"value": "windowBody.UID"
+									}
+								}
+							],
+							"sid": 749145335184256
+						}
+					]
 				},
 				{
-					"id": "set-position",
-					"objectClass": "titleBar",
-					"sid": 617903670648689,
-					"parameters": {
-						"x": "clamp(titleBar.X, 0, 1280 - windowBody.Width)",
-						"y": "clamp(titleBar.Y, 0, 680 - windowBody.Height)"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "titleBar",
+							"sid": 455260000042725,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "should be bounded to the game screen, ik windows let you drag out of screen but its kinda problematic"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "titleBar",
+							"sid": 952768751816301,
+							"parameters": {
+								"x": "clamp(titleBar.X, 0, 1280 - windowBody.Width)",
+								"y": "clamp(titleBar.Y, 0, 680 - windowBody.Height)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "windowBody",
+							"sid": 117224690001189,
+							"parameters": {
+								"x": "titleBar.X",
+								"y": "titleBar.Y"
+							}
+						}
+					],
+					"sid": 924690285409183
 				},
 				{
-					"id": "set-position",
-					"objectClass": "windowBody",
-					"sid": 152480956630124,
-					"parameters": {
-						"x": "titleBar.X",
-						"y": "titleBar.Y"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "titleBar",
+							"sid": 950456658948696,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "windowBody",
+							"sid": 374691174143177,
+							"parameters": {
+								"x": "titleBar.X",
+								"y": "titleBar.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "resizeHandle",
+							"sid": 195535143270066,
+							"parameters": {
+								"x": "windowBody.X + windowBody.Width - resizeHandle.Width",
+								"y": "windowBody.Y + windowBody.Height  - resizeHandle.Height"
+							}
+						}
+					],
+					"sid": 465020610900889
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "resizeHandle",
+							"sid": 629271734435581,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "looks complicated but it just make sure window size dont exceed min and max size, and resize also cant escape boundaries"
+						},
+						{
+							"id": "set-size",
+							"objectClass": "windowBody",
+							"sid": 728677056758762,
+							"parameters": {
+								"width": "clamp(resizeHandle.X - windowBody.X, windowBody.min_width, min(windowBody.max_width, 1280 - windowBody.X))",
+								"height": "clamp(resizeHandle.Y - windowBody.Y, windowBody.min_height, min(windowBody.max_height, 680 - windowBody.Y))"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "titleBar",
+							"sid": 443066465860685,
+							"parameters": {
+								"width": "windowBody.Width"
+							}
+						}
+					],
+					"sid": 733312230892526
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "resizeHandle",
+							"sid": 413265464770342,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "resizeHandle",
+							"sid": 953494464238820,
+							"parameters": {
+								"x": "windowBody.X + windowBody.Width - resizeHandle.Width",
+								"y": "windowBody.Y + windowBody.Height  - resizeHandle.Height"
+							}
+						}
+					],
+					"sid": 816979983949835
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drag-start",
+							"objectClass": "titleBar",
+							"sid": 311077633552055,
+							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "on-clicked-class",
+							"objectClass": "html_windows",
+							"sid": 107891897164560,
+							"parameters": {
+								"class": "\"window\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-top",
+							"objectClass": "windowBody",
+							"sid": 952714726567747
+						}
+					],
+					"sid": 904506410831564,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "windowBody",
+							"sid": 711623200433409,
+							"parameters": {
+								"id": "\"minimize-\" & windowBody.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "windowBody",
+							"sid": 186324451783236,
+							"parameters": {
+								"instance-variable": "is_minimized",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "windowBody",
+							"sid": 866637405320073,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "titleBar",
+							"sid": 365930896195186,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "resizeHandle",
+							"sid": 592168855484687,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 958344460547962
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "windowBody",
+							"sid": 360828172440677,
+							"parameters": {
+								"id": "\"close-\" & windowBody.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 638221473754056,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "windowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 364043505838969
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 694709402689450,
+									"parameters": {
+										"variable": "windowUID",
+										"value": "windowBody.UID"
+									}
+								}
+							],
+							"sid": 622682658006836
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "windowBody",
+									"sid": 496517243443344,
+									"parameters": {
+										"unique-id": "windowUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 316473023789330,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "desktopIcon",
+											"sid": 558535759168340,
+											"parameters": {
+												"unique-id": "windowBody.desktopIconUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "desktopIcon",
+											"sid": 883847577958247,
+											"parameters": {
+												"instance-variable": "currentlyOpen",
+												"value": "false"
+											}
+										},
+										{
+											"callFunction": "RemoveFromTaskbar",
+											"sid": 765047453630039,
+											"parameters": [
+												"windowUID"
+											]
+										},
+										{
+											"id": "destroy",
+											"objectClass": "windowBody",
+											"sid": 332438304922602
+										}
+									],
+									"sid": 393645355983669
+								}
+							]
+						}
+					]
 				}
 			],
-			"sid": 403256857163062
+			"sid": 183734986365241
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-drop",
-					"objectClass": "titleBar",
-					"sid": 536861651838528,
-					"behaviorType": "DragDrop"
-				}
-			],
-			"actions": [
-				{
-					"id": "set-position",
-					"objectClass": "windowBody",
-					"sid": 924865712753665,
-					"parameters": {
-						"x": "titleBar.X",
-						"y": "titleBar.Y"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "resizeHandle",
-					"sid": 743642839577322,
-					"parameters": {
-						"x": "windowBody.X + windowBody.Width - resizeHandle.Width",
-						"y": "windowBody.Y + windowBody.Height  - resizeHandle.Height"
-					}
-				}
-			],
-			"sid": 209274913496639
+			"eventType": "comment",
+			"text": "desktop app logic"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "DESKTOP APP",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "is-dragging",
-					"objectClass": "resizeHandle",
-					"sid": 163007992270428,
-					"behaviorType": "DragDrop"
-				}
-			],
-			"actions": [
-				{
-					"type": "comment",
-					"text": "looks complicated but it just make sure window size dont exceed min and max size, and resize also cant escape boundaries"
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 166878519536690
+						}
+					],
+					"actions": [
+						{
+							"id": "clear",
+							"objectClass": "taskBarArray",
+							"sid": 776067133358076,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 321836737217399
 				},
 				{
-					"id": "set-size",
-					"objectClass": "windowBody",
-					"sid": 292847081381217,
-					"parameters": {
-						"width": "clamp(resizeHandle.X - windowBody.X, windowBody.min_width, min(windowBody.max_width, 1280 - windowBody.X))",
-						"height": "clamp(resizeHandle.Y - windowBody.Y, windowBody.min_height, min(windowBody.max_height, 680 - windowBody.Y))"
-					}
+					"functionName": "LaunchApplication",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "desktopIconUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 188840014723502
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 574698987695425,
+							"parameters": {
+								"variable": "cursorWaiting",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 757799226470789,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "createdWindowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 916237106244176
+						},
+						{
+							"eventType": "variable",
+							"name": "titleBarHTML",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 520985902485005
+						},
+						{
+							"eventType": "variable",
+							"name": "windowBodyHTML",
+							"type": "string",
+							"initialValue": "\"\"",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 492159924695373
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 249573714693835,
+									"parameters": {
+										"variable": "createdWindowUID",
+										"value": "Functions.createWindow"
+									}
+								}
+							],
+							"sid": 584056553961465
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "windowBody",
+									"sid": 235688570263197,
+									"parameters": {
+										"unique-id": "createdWindowUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 654704432612263,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "desktopIcon",
+											"sid": 217621885631511,
+											"parameters": {
+												"unique-id": "desktopIconUID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 174219847709480,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "desktopIcon",
+													"sid": 943541024292086,
+													"parameters": {
+														"instance-variable": "appName",
+														"comparison": 0,
+														"value": "\"Feed_App\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "insert-content",
+													"objectClass": "windowBody",
+													"sid": 367319757583394,
+													"parameters": {
+														"content-type": "html",
+														"string": "\"<div class='title-bar-controls'><button aria-label='Minimize' id='minimize-\" & windowBody.UID & \"'></button>\n<button aria-label='Close' id='close-\" & windowBody.UID & \"'></button></div>\"",
+														"position": "end",
+														"selector": "\".title-bar\"",
+														"type": "one"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 288658985711131,
+													"parameters": {
+														"variable": "titleBarHTML",
+														"value": "desktopIcon.appName"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 721953157762775,
+													"parameters": {
+														"variable": "windowBodyHTML",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "desktopIcon",
+													"sid": 162464658419407,
+													"parameters": {
+														"instance-variable": "currentlyOpen",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 187948017176697
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "windowBody",
+											"sid": 903305944453088,
+											"parameters": {
+												"instance-variable": "desktopIconUID",
+												"value": "desktopIconUID"
+											}
+										},
+										{
+											"callFunction": "AddToTaskbar",
+											"sid": 352665562996210,
+											"parameters": [
+												"createdWindowUID"
+											]
+										}
+									],
+									"sid": 736763418610693
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 137177459959278,
+											"parameters": {
+												"first-value": "titleBarHTML",
+												"comparison": 0,
+												"second-value": "\"\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 320878845925153,
+											"parameters": {
+												"content-type": "html",
+												"string": "titleBarHTML",
+												"selector": "\".title-bar-text\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 954058189954804,
+											"parameters": {
+												"seconds": "UpgradeCPUTime",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 607488357466027,
+											"parameters": {
+												"variable": "cursorWaiting",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 482049462863476,
+											"parameters": {
+												"content-type": "html",
+												"string": "windowBodyHTML",
+												"selector": "\".main-text-area\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 956513693263361
+								}
+							]
+						}
+					]
 				},
 				{
-					"id": "set-width",
-					"objectClass": "titleBar",
-					"sid": 975281280758622,
-					"parameters": {
-						"width": "windowBody.Width"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-class",
+							"objectClass": "desktopIcon",
+							"sid": 222088526177431,
+							"parameters": {
+								"class": "\"desktop-icon\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 583607851810946,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "desktopIcon",
+									"sid": 120423672524427,
+									"parameters": {
+										"instance-variable": "currentlyOpen"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "LaunchApplication",
+									"sid": 618265419075813,
+									"parameters": [
+										"desktopIcon.UID"
+									]
+								}
+							],
+							"sid": 611125697404998
+						}
+					]
 				}
 			],
-			"sid": 678563250544752
+			"sid": 747115466004879
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "taskbar logic",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-drop",
-					"objectClass": "resizeHandle",
-					"sid": 469806320680402,
-					"behaviorType": "DragDrop"
-				}
-			],
-			"actions": [
-				{
-					"id": "set-position",
-					"objectClass": "resizeHandle",
-					"sid": 547050973873563,
-					"parameters": {
-						"x": "windowBody.X + windowBody.Width - resizeHandle.Width",
-						"y": "windowBody.Y + windowBody.Height  - resizeHandle.Height"
-					}
-				}
-			],
-			"sid": 890725123573520
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-drag-start",
-					"objectClass": "titleBar",
-					"sid": 418571167318305,
-					"behaviorType": "DragDrop"
+					"functionName": "AddToTaskbar",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "windowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 803794020952012
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "taskBarArray",
+							"sid": 227687214618422,
+							"parameters": {
+								"where": "front",
+								"value": "windowUID",
+								"axis": "x"
+							}
+						},
+						{
+							"callFunction": "RefreshTaskbar",
+							"sid": 987562589480606
+						}
+					],
+					"sid": 905553704986486,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 595108672379250,
+									"disabled": true,
+									"parameters": {
+										"name": "\"tab\"",
+										"start-index": "1",
+										"end-index": "taskBarArray.Width - 1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 653792079662127,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "taskBarArray",
+											"sid": 795083441934838,
+											"disabled": true,
+											"parameters": {
+												"x": "loopindex(\"tab\")",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "taskBarArray",
+											"sid": 731899810090664,
+											"parameters": {
+												"x": "loopindex(\"tab\")",
+												"value": "windowUID"
+											}
+										},
+										{
+											"callFunction": "RefreshTaskbar",
+											"sid": 934386836522005
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 900685321127137
+										}
+									],
+									"sid": 741978364977065,
+									"disabled": true
+								}
+							]
+						}
+					]
 				},
 				{
-					"id": "on-clicked-class",
-					"objectClass": "html_windows",
-					"sid": 230471997261303,
-					"parameters": {
-						"class": "\"window\""
-					}
-				}
-			],
-			"actions": [
+					"functionName": "RemoveFromTaskbar",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "windowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 805380493981804
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 395854434962672,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 165044898614155,
+									"parameters": {
+										"name": "\"tab\"",
+										"start-index": "1",
+										"end-index": "taskBarArray.Width - 1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 180507395248309,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "taskBarArray",
+											"sid": 623296645061535,
+											"parameters": {
+												"x": "loopindex(\"tab\")",
+												"comparison": 0,
+												"value": "windowUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "delete",
+											"objectClass": "taskBarArray",
+											"sid": 259815001122550,
+											"parameters": {
+												"index": "loopindex(\"tab\")",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 643334127534662,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 316354532001393
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "RefreshTaskbar",
+													"sid": 146041808165845
+												},
+												{
+													"id": "stop-loop",
+													"objectClass": "System",
+													"sid": 824337040003931
+												}
+											],
+											"sid": 216997169547954
+										}
+									]
+								}
+							]
+						}
+					]
+				},
 				{
-					"id": "move-to-top",
-					"objectClass": "windowBody",
-					"sid": 417264177546936
-				}
-			],
-			"sid": 658390809542204,
-			"isOrBlock": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
+					"functionName": "RefreshTaskbar",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 187479002480838,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "tabsHTML",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 432107644571104
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 353078176839961,
+									"parameters": {
+										"name": "\"tab\"",
+										"start-index": "1",
+										"end-index": "taskBarArray.Width - 1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 876342876688802,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "taskBarArray",
+											"sid": 548029564577037,
+											"parameters": {
+												"x": "loopindex(\"tab\")",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 652361832006462,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "windowBody",
+													"sid": 453648633951368,
+													"parameters": {
+														"unique-id": "taskbarArray.At(loopindex)"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 258568745355132,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "desktopIcon",
+															"sid": 459691903105886,
+															"parameters": {
+																"unique-id": "windowBody.desktopIconUID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 870398535244655,
+															"parameters": {
+																"variable": "tabsHTML",
+																"value": "\"<button class='taskbar-tab' id='tab-\" & windowBody.UID & \"'>\" & desktopIcon.appName & \"</button>\""
+															}
+														}
+													],
+													"sid": 700120390178298
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-content",
+									"objectClass": "taskbar",
+									"sid": 803019090453060,
+									"parameters": {
+										"content-type": "html",
+										"string": "tabsHTML",
+										"selector": "\".taskbar-tabs\"",
+										"type": "one"
+									}
+								}
+							],
+							"sid": 101797685922260
+						}
+					]
+				},
 				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 312951400073302
-				}
-			],
-			"actions": [
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 332128247380687
+				},
 				{
-					"id": "set-position",
-					"objectClass": "mouseSprite",
-					"sid": 761318009259949,
-					"parameters": {
-						"x": "Mouse.X",
-						"y": "Mouse.Y"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-class",
+							"objectClass": "taskbar",
+							"sid": 540645830960235,
+							"parameters": {
+								"class": "\"taskbar-tab\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 463976022789425,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "windowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 654466106802787
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 405401804151734,
+									"parameters": {
+										"variable": "windowUID",
+										"value": "tokenat(taskbar.TargetID, 1, \"-\")"
+									}
+								}
+							],
+							"sid": 432387195259781
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "windowBody",
+									"sid": 883555678856402,
+									"parameters": {
+										"unique-id": "windowUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 303295402717803,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "windowBody",
+											"sid": 122862359266329,
+											"parameters": {
+												"instance-variable": "is_minimized"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "windowBody",
+											"sid": 974107898120243,
+											"parameters": {
+												"instance-variable": "is_minimized",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "windowBody",
+											"sid": 876461021723359,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "titleBar",
+											"sid": 814282520427743,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "resizeHandle",
+											"sid": 851052798814430,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "move-to-top",
+											"objectClass": "windowBody",
+											"sid": 818946882873220
+										}
+									],
+									"sid": 881730287820723
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 214912820235984
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "windowBody",
+											"sid": 326444303807141,
+											"parameters": {
+												"instance-variable": "is_minimized",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "windowBody",
+											"sid": 541617380629947,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "titleBar",
+											"sid": 698689522362844,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "resizeHandle",
+											"sid": 547149379000696,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 557304150062560
+								}
+							]
+						}
+					]
 				}
 			],
-			"sid": 564175349702278
+			"sid": 989918022767757
 		},
 		{
 			"eventType": "comment",
 			"text": "cursor logic"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "CURSOR",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 365638924997955
-				}
-			],
-			"actions": [
-				{
-					"id": "set-cursor-style2",
-					"objectClass": "Mouse",
-					"sid": 659321691256506,
-					"parameters": {
-						"cursor-style": "none"
-					}
-				}
-			],
-			"sid": 285255901458972
-		},
-		{
-			"functionName": "ChangeCursorStyle",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "animName",
-					"type": "string",
-					"initialValue": "Normal",
-					"comment": "",
-					"sid": 840473518983774
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "mouseSprite",
-					"sid": 572641991182936,
-					"parameters": {
-						"animation": "animName",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 393151626602968
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 881173815626094,
-					"parameters": {
-						"object": "resizeHandle"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "ChangeCursorStyle",
-					"sid": 384737614223519,
-					"parameters": [
-						"\"Resize\""
-					]
-				}
-			],
-			"sid": 422746323488557
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 533546727518329,
-					"parameters": {
-						"object": "resizeHandle"
-					},
-					"isInverted": true
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 477855995181088
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "mouseSprite",
+							"sid": 394773876140378,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						}
+					],
+					"sid": 136936380425044
 				},
 				{
-					"id": "is-animation-playing",
-					"objectClass": "mouseSprite",
-					"sid": 601114085650782,
-					"parameters": {
-						"animation": "\"Resize\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "ChangeCursorStyle",
-					"sid": 242554530487908,
-					"parameters": [
-						"\"Normal\""
-					]
-				}
-			],
-			"sid": 814545553491902
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 813575177107256,
-					"parameters": {
-						"variable": "cursorWaiting"
-					},
-					"isInverted": true
+					"functionName": "ChangeCursorStyle",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "animName",
+							"type": "string",
+							"initialValue": "Normal",
+							"comment": "",
+							"sid": 840473518983774
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "mouseSprite",
+							"sid": 725721087199600,
+							"parameters": {
+								"animation": "animName",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 656971139648675
 				},
 				{
-					"id": "is-animation-playing",
-					"objectClass": "mouseSprite",
-					"sid": 456253208127027,
-					"parameters": {
-						"animation": "\"Wait\""
-					}
-				}
-			],
-			"actions": [
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 883074414357931
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 460962885894148,
+							"parameters": {
+								"cursor-style": "none"
+							}
+						}
+					],
+					"sid": 959028450655829
+				},
 				{
-					"callFunction": "ChangeCursorStyle",
-					"sid": 799323912993434,
-					"parameters": [
-						"\"Normal\""
-					]
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 723593769151287,
+							"parameters": {
+								"object": "resizeHandle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ChangeCursorStyle",
+							"sid": 673811115350146,
+							"parameters": [
+								"\"Resize\""
+							]
+						}
+					],
+					"sid": 935467340812218
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 929458875429944,
+							"parameters": {
+								"object": "resizeHandle"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "mouseSprite",
+							"sid": 143594260252235,
+							"parameters": {
+								"animation": "\"Resize\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ChangeCursorStyle",
+							"sid": 861343940841742,
+							"parameters": [
+								"\"Normal\""
+							]
+						}
+					],
+					"sid": 230497269116153
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 830823984322511,
+							"parameters": {
+								"variable": "cursorWaiting"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "mouseSprite",
+							"sid": 780986195719059,
+							"parameters": {
+								"animation": "\"Wait\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ChangeCursorStyle",
+							"sid": 522647302635376,
+							"parameters": [
+								"\"Normal\""
+							]
+						}
+					],
+					"sid": 851802857095401
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 564904526834435,
+							"parameters": {
+								"variable": "cursorWaiting"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 546049833565426
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ChangeCursorStyle",
+							"sid": 739244954593663,
+							"parameters": [
+								"\"Wait\""
+							]
+						}
+					],
+					"sid": 103090820119371
 				}
 			],
-			"sid": 700292537778020
+			"sid": 857804455623547
 		}
 	],
 	"sid": 735513248348554

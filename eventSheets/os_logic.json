@@ -3,7 +3,7 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "cursorWaiting",
+			"name": "systemWaiting",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
@@ -30,6 +30,20 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 268605107009740
+		},
+		{
+			"eventType": "comment",
+			"text": "vars"
+		},
+		{
+			"eventType": "variable",
+			"name": "startMenuOpen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 304068063201335
 		},
 		{
 			"eventType": "comment",
@@ -484,7 +498,7 @@
 							"objectClass": "System",
 							"sid": 574698987695425,
 							"parameters": {
-								"variable": "cursorWaiting",
+								"variable": "systemWaiting",
 								"value": "true"
 							}
 						}
@@ -690,7 +704,7 @@
 											"objectClass": "System",
 											"sid": 607488357466027,
 											"parameters": {
-												"variable": "cursorWaiting",
+												"variable": "systemWaiting",
 												"value": "false"
 											}
 										},
@@ -1244,6 +1258,192 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "start"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-class",
+							"objectClass": "taskbar",
+							"sid": 773557176833623,
+							"parameters": {
+								"class": "\"start-btn\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 717345954081533,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 977588594031575,
+									"parameters": {
+										"variable": "startMenuOpen"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "startMenu",
+									"sid": 209544832642957,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 425754221545373,
+									"parameters": {
+										"variable": "startMenuOpen",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 454283056870469
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 286177104310227
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "startMenu",
+									"sid": 584516921125704,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 943312886858684,
+									"parameters": {
+										"variable": "startMenuOpen",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 592365927130819
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 243242045157194,
+							"parameters": {
+								"variable": "startMenuOpen"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 969162767526931,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-id",
+									"objectClass": "startMenu",
+									"sid": 992151693104245,
+									"parameters": {
+										"id": "\"menu-shutdown\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 570718727587015,
+									"parameters": {
+										"layout": "game"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "startMenu",
+									"sid": 490933955678104,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 492685269684274,
+									"parameters": {
+										"variable": "startMenuOpen",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 585512542259514
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 243887270830680,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 144779193969871,
+									"parameters": {
+										"object": "startMenu"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "startMenu",
+									"sid": 327279563767027,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 644206010549534,
+									"parameters": {
+										"variable": "startMenuOpen",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 128328844573262
+						}
+					]
 				}
 			],
 			"sid": 989918022767757
@@ -1396,7 +1596,7 @@
 							"objectClass": "System",
 							"sid": 830823984322511,
 							"parameters": {
-								"variable": "cursorWaiting"
+								"variable": "systemWaiting"
 							},
 							"isInverted": true
 						},
@@ -1428,7 +1628,7 @@
 							"objectClass": "System",
 							"sid": 564904526834435,
 							"parameters": {
-								"variable": "cursorWaiting"
+								"variable": "systemWaiting"
 							}
 						},
 						{

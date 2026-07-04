@@ -1,9 +1,3 @@
-
-*, button, div, span, a {
-    cursor: none !important;
-}
-
-/* Structural taskbar shell */
 .taskbar {
   position: fixed;
   bottom: 0;
@@ -18,10 +12,11 @@
   box-sizing: border-box;
   padding: 3px;
 }
+
 .start-wrapper {
-    display: flex; 
-    align-items: center; 
-    flex-shrink: 0;
+  display: flex; 
+  align-items: center; 
+  flex-shrink: 0;
 }
 
 .start-btn {
@@ -31,7 +26,6 @@
   align-items: center;
 }
 
-/* Classic 3D vertical separator groove line */
 .taskbar-divider {
   width: 2px;
   height: 28px;
@@ -42,7 +36,6 @@
   box-sizing: border-box;
 }
 
-/* Center area expanding to hold active window tags */
 .taskbar-tabs {
   display: flex;
   flex-grow: 1;
@@ -51,7 +44,6 @@
   align-items: center;
 }
 
-/* Fixed sizing for individual task tabs */
 .taskbar-tab {
   min-width: 120px;
   max-width: 120px;
@@ -64,6 +56,7 @@
   text-overflow: ellipsis;
   box-sizing: border-box;
 }
+
 .status-bar-field {
   max-width: 65px; 
   flex-shrink: 0;
@@ -75,7 +68,6 @@
   font-size: 11px;
   white-space: nowrap;
 }
- /* icon */
 
 .desktop-icon {
   display: flex; 
@@ -88,7 +80,16 @@
   font-size: 11px;
 }
 
-/* window */
+.desktop-span {
+  text-align: center; 
+  margin-top: 4px; 
+  color: white;
+}
+
+.desktop-icon.selected {
+  background-color: #000080;
+  color: #ffffff;
+}
 
 .window.window-construct {
   display: flex; 
@@ -108,11 +109,17 @@
   margin: 0;
 }
 
+.main-text-area {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
 .title-bar.window-construct {
   flex-shrink: 0;
 }
 
-/* start menu */
 .start-menu {
   position: absolute;
   bottom: 0;
@@ -125,7 +132,6 @@
   border-left: 2px solid #ffffff;
   border-right: 2px solid #808080;
   border-bottom: 2px solid #808080;
-  
   padding: 2px;
   box-sizing: border-box;
 }
@@ -176,4 +182,89 @@
   border-top: 1px solid #808080;
   border-bottom: 1px solid #ffffff;
   margin: 4px 2px;
+}
+
+/* .dialog-box {
+  width: 310px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.dialog-content {
+  display: flex;
+  gap: 16px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.report-workspace {
+  display: flex;
+  gap: 12px;
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.feed-column, .details-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.feed-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feed-item {
+  padding: 6px;
+  border-bottom: 1px dashed #808080;
+}
+
+.feed-item:hover {
+  background-color: #000080;
+  color: #ffffff;
+}
+
+.feed-preview {
+  margin: 2px 0 0 0;
+  color: #404040;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feed-item:hover .feed-preview {
+  color: #ffffff;
+}
+
+.details-fieldset {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 10px;
+}
+
+.field-row label, .field-box label, .section-title, .feed-item {
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 11px;
 }

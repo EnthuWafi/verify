@@ -13,7 +13,7 @@
 			"eventType": "variable",
 			"name": "UpgradeCPUTime",
 			"type": "number",
-			"initialValue": "3",
+			"initialValue": "2",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -22,6 +22,16 @@
 		{
 			"eventType": "comment",
 			"text": "current shift var"
+		},
+		{
+			"eventType": "variable",
+			"name": "StartHour",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 439011423581224
 		},
 		{
 			"eventType": "variable",
@@ -62,6 +72,162 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 725210302800693
+		},
+		{
+			"eventType": "variable",
+			"name": "isWinning",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 808311251008330
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TIMER LOGIC",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 774290220781156
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 419082261667869,
+							"parameters": {
+								"variable": "ShiftTimer",
+								"value": "dt * 60"
+							}
+						}
+					],
+					"sid": 512939371069024
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 131657002607764,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 241396531576700,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "gameHour",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 862333727410078
+						},
+						{
+							"eventType": "variable",
+							"name": "gameMinute",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 309863076162606
+						},
+						{
+							"eventType": "variable",
+							"name": "formattedTime",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 657021004097113
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 335813801617383,
+									"parameters": {
+										"variable": "gameHour",
+										"value": "startHour + floor(ShiftTimer / 3600)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 374774582209725,
+									"parameters": {
+										"variable": "gameMinute",
+										"value": "floor((ShiftTimer % 3600) / 60)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 670133757846449,
+									"parameters": {
+										"variable": "formattedTime",
+										"value": "zeropad(gameHour, 2) & \":\" & zeropad(gameMinute, 2)"
+									}
+								},
+								{
+									"id": "set-content",
+									"objectClass": "taskbar",
+									"sid": 699963171647761,
+									"parameters": {
+										"content-type": "html",
+										"string": "formattedTime",
+										"selector": "\".status-bar-field\"",
+										"type": "one"
+									}
+								}
+							],
+							"sid": 864038584770660
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 499374997676275,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 5,
+								"second-value": "21600"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 652241008140117
+						}
+					],
+					"actions": [],
+					"sid": 376220468077672
+				}
+			],
+			"sid": 629140581142858
 		}
 	],
 	"sid": 442786421369605

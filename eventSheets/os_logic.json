@@ -46,6 +46,16 @@
 			"sid": 304068063201335
 		},
 		{
+			"eventType": "variable",
+			"name": "currentReportID",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 538100216940714
+		},
+		{
 			"eventType": "comment",
 			"text": "Windows properties"
 		},
@@ -63,17 +73,25 @@
 					"functionReturnType": "number",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "creation_layer",
+							"type": "string",
+							"initialValue": "windows_layer",
+							"comment": "",
+							"sid": 594122752660837
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 353435116736256,
+							"sid": 510448953707825,
 							"parameters": {
 								"object-to-create": "windowBody",
-								"layer": "\"windows_layer\"",
+								"layer": "creation_layer",
 								"x": "150",
 								"y": "200",
 								"create-hierarchy": false,
@@ -103,18 +121,18 @@
 						{
 							"id": "set-height",
 							"objectClass": "titleBar",
-							"sid": 452805709936155,
+							"sid": 867147380734357,
 							"parameters": {
-								"height": "23"
+								"height": "30"
 							}
 						},
 						{
 							"id": "set-position",
 							"objectClass": "resizeHandle",
-							"sid": 827356873463877,
+							"sid": 887135045680558,
 							"parameters": {
-								"x": "windowBody.X + windowBody.Width",
-								"y": "windowBody.Y + windowBody.Height"
+								"x": "windowBody.X + windowBody.Width - 20",
+								"y": "windowBody.Y + windowBody.Height  - 20"
 							}
 						}
 					],
@@ -254,10 +272,10 @@
 						{
 							"id": "set-position",
 							"objectClass": "resizeHandle",
-							"sid": 953494464238820,
+							"sid": 590176709292208,
 							"parameters": {
-								"x": "windowBody.X + windowBody.Width - resizeHandle.Width",
-								"y": "windowBody.Y + windowBody.Height  - resizeHandle.Height"
+								"x": "windowBody.X + windowBody.Width - 20",
+								"y": "windowBody.Y + windowBody.Height  - 20"
 							}
 						}
 					],
@@ -267,18 +285,18 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-drag-start",
-							"objectClass": "titleBar",
-							"sid": 311077633552055,
-							"behaviorType": "DragDrop"
-						},
-						{
 							"id": "on-clicked-class",
-							"objectClass": "html_windows",
-							"sid": 107891897164560,
+							"objectClass": "windowBody",
+							"sid": 637111795794834,
 							"parameters": {
 								"class": "\"window\""
 							}
+						},
+						{
+							"id": "is-dragging",
+							"objectClass": "titleBar",
+							"sid": 382539595986262,
+							"behaviorType": "DragDrop"
 						}
 					],
 					"actions": [
@@ -447,6 +465,16 @@
 			"text": "desktop app logic"
 		},
 		{
+			"eventType": "variable",
+			"name": "desktopIconSelectedUID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 222121726292629
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "DESKTOP APP",
@@ -545,7 +573,7 @@
 									"sid": 249573714693835,
 									"parameters": {
 										"variable": "createdWindowUID",
-										"value": "Functions.createWindow"
+										"value": "Functions.createWindow(\"windows_layer\")"
 									}
 								}
 							],
@@ -620,10 +648,10 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 721953157762775,
+													"sid": 653012946304719,
 													"parameters": {
 														"variable": "windowBodyHTML",
-														"value": "\"\""
+														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n      <li class='feed-item' id='report-101'>\n        <strong>@NewsHubb</strong>\n        <p class='feed-preview'>Local power plant shutting down tonight!</p>\n      </li>\n      <li class='feed-item' id='report-102'>\n        <strong>@StudentUnion</strong>\n        <p class='feed-preview'>Tomorrow will be a public holiday for all students.</p>\n      </li>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' readonly value='@NewsHubb' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'>'Local power plant shutting down tonight!'</textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep Entry</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete Entry</button>\n      </div>\n    </fieldset>\n  </div>\n\n</div>\""
 													}
 												},
 												{
@@ -633,6 +661,24 @@
 													"parameters": {
 														"instance-variable": "currentlyOpen",
 														"value": "true"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "windowBody",
+													"sid": 815481982253975,
+													"parameters": {
+														"instance-variable": "min_width",
+														"value": "500"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "windowBody",
+													"sid": 890896892914293,
+													"parameters": {
+														"instance-variable": "min_height",
+														"value": "300"
 													}
 												}
 											],
@@ -718,6 +764,15 @@
 												"selector": "\".main-text-area\"",
 												"type": "one"
 											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "windowBody",
+											"sid": 104106054123992,
+											"parameters": {
+												"width": "windowBody.min_width",
+												"height": "windowBody.min_height"
+											}
 										}
 									],
 									"sid": 956513693263361
@@ -745,25 +800,188 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "desktopIcon",
-									"sid": 120423672524427,
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 408916111794577,
 									"parameters": {
-										"instance-variable": "currentlyOpen"
-									},
-									"isInverted": true
+										"variable": "desktopIconSelectedUID",
+										"comparison": 0,
+										"value": "desktopIcon.UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 396203572192849,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "desktopIcon",
+											"sid": 975742215554397,
+											"parameters": {
+												"unique-id": "desktopIconSelectedUID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 981989865320098,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "desktopIcon",
+													"sid": 712138491571198,
+													"parameters": {
+														"instance-variable": "currentlyOpen"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "LaunchApplication",
+													"sid": 750105114270117,
+													"parameters": [
+														"desktopIcon.UID"
+													]
+												}
+											],
+											"sid": 536270632048013
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 754737794955210
+								}
+							],
+							"actions": [],
+							"sid": 776897309529490,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "desktopIcon",
+											"sid": 733578076346444,
+											"parameters": {
+												"unique-id": "desktopIconSelectedUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-content-class",
+											"objectClass": "desktopIcon",
+											"sid": 481998205935993,
+											"parameters": {
+												"mode": "remove",
+												"class": "\"selected\"",
+												"selector": "\".desktop-icon\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 714736418556725
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-content-class",
+											"objectClass": "desktopIcon",
+											"sid": 668287310039723,
+											"parameters": {
+												"mode": "add",
+												"class": "\"selected\"",
+												"selector": "\".desktop-icon\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 543411996400827,
+											"parameters": {
+												"variable": "desktopIconSelectedUID",
+												"value": "desktopIcon.UID"
+											}
+										}
+									],
+									"sid": 728192767758348
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 171024587664618
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 320784931402944,
+							"parameters": {
+								"object": "desktopIcon"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 456456683234564,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "desktopIcon",
+									"sid": 368194044821107,
+									"parameters": {
+										"unique-id": "desktopIconSelectedUID"
+									}
 								}
 							],
 							"actions": [
 								{
-									"callFunction": "LaunchApplication",
-									"sid": 618265419075813,
-									"parameters": [
-										"desktopIcon.UID"
-									]
+									"id": "set-content-class",
+									"objectClass": "desktopIcon",
+									"sid": 729337488093574,
+									"parameters": {
+										"mode": "remove",
+										"class": "\"selected\"",
+										"selector": "\".desktop-icon\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 628615254056088,
+									"parameters": {
+										"variable": "desktopIconSelectedUID",
+										"value": "0"
+									}
 								}
 							],
-							"sid": 611125697404998
+							"sid": 890048536521734
 						}
 					]
 				}
@@ -1308,6 +1526,14 @@
 										"variable": "startMenuOpen",
 										"value": "true"
 									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "startMenu",
+									"sid": 839163662613458,
+									"parameters": {
+										"y": "Mouse.Y"
+									}
 								}
 							],
 							"sid": 454283056870469
@@ -1373,14 +1599,6 @@
 							],
 							"actions": [
 								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 570718727587015,
-									"parameters": {
-										"layout": "game"
-									}
-								},
-								{
 									"id": "set-visible",
 									"objectClass": "startMenu",
 									"sid": 490933955678104,
@@ -1396,6 +1614,10 @@
 										"variable": "startMenuOpen",
 										"value": "false"
 									}
+								},
+								{
+									"callFunction": "shutDownOS",
+									"sid": 475279530623722
 								}
 							],
 							"sid": 585512542259514
@@ -1404,13 +1626,9 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-click",
+									"id": "on-any-click",
 									"objectClass": "Mouse",
-									"sid": 243887270830680,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked"
-									}
+									"sid": 170173674513237
 								},
 								{
 									"id": "cursor-is-over-object",
@@ -1479,7 +1697,8 @@
 							}
 						}
 					],
-					"sid": 136936380425044
+					"sid": 136936380425044,
+					"disabled": true
 				},
 				{
 					"functionName": "ChangeCursorStyle",
@@ -1490,7 +1709,7 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "animName",
+							"name": "cursorName",
 							"type": "string",
 							"initialValue": "Normal",
 							"comment": "",
@@ -1504,13 +1723,94 @@
 							"id": "set-animation",
 							"objectClass": "mouseSprite",
 							"sid": 725721087199600,
+							"disabled": true,
 							"parameters": {
-								"animation": "animName",
+								"animation": "cursorName",
 								"from": "beginning"
 							}
 						}
 					],
-					"sid": 656971139648675
+					"sid": 656971139648675,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 622480140881035,
+									"parameters": {
+										"first-value": "cursorName",
+										"comparison": 0,
+										"second-value": "\"Normal\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style2",
+									"objectClass": "Mouse",
+									"sid": 610008801657991,
+									"parameters": {
+										"cursor-style": "normal"
+									}
+								}
+							],
+							"sid": 275741411166328
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 918727234136039,
+									"parameters": {
+										"first-value": "cursorName",
+										"comparison": 0,
+										"second-value": "\"Wait\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style2",
+									"objectClass": "Mouse",
+									"sid": 356411334495527,
+									"parameters": {
+										"cursor-style": "wait"
+									}
+								}
+							],
+							"sid": 317480475232721
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 143589412991905,
+									"parameters": {
+										"first-value": "cursorName",
+										"comparison": 0,
+										"second-value": "\"Resize\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style2",
+									"objectClass": "Mouse",
+									"sid": 975562305735840,
+									"parameters": {
+										"cursor-style": "nwse-resize"
+									}
+								}
+							],
+							"sid": 268529356857295
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1525,9 +1825,9 @@
 						{
 							"id": "set-cursor-style2",
 							"objectClass": "Mouse",
-							"sid": 460962885894148,
+							"sid": 341940200657016,
 							"parameters": {
-								"cursor-style": "none"
+								"cursor-style": "normal"
 							}
 						}
 					],
@@ -1543,6 +1843,11 @@
 							"parameters": {
 								"object": "resizeHandle"
 							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 901328865513110
 						}
 					],
 					"actions": [
@@ -1555,6 +1860,35 @@
 						}
 					],
 					"sid": 935467340812218
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 775076408103243,
+							"parameters": {
+								"object": "resizeHandle"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 524759516615592
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ChangeCursorStyle",
+							"sid": 695146969970583,
+							"parameters": [
+								"\"Normal\""
+							]
+						}
+					],
+					"sid": 825992856939066
 				},
 				{
 					"eventType": "block",
@@ -1594,38 +1928,6 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 830823984322511,
-							"parameters": {
-								"variable": "systemWaiting"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "mouseSprite",
-							"sid": 780986195719059,
-							"parameters": {
-								"animation": "\"Wait\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "ChangeCursorStyle",
-							"sid": 522647302635376,
-							"parameters": [
-								"\"Normal\""
-							]
-						}
-					],
-					"sid": 851802857095401
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
 							"sid": 564904526834435,
 							"parameters": {
 								"variable": "systemWaiting"
@@ -1647,9 +1949,448 @@
 						}
 					],
 					"sid": 103090820119371
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 434442254775126,
+							"parameters": {
+								"variable": "systemWaiting"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 344069844721341
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ChangeCursorStyle",
+							"sid": 522647302635376,
+							"parameters": [
+								"\"Normal\""
+							]
+						}
+					],
+					"sid": 408606325011864
 				}
 			],
 			"sid": 857804455623547
+		},
+		{
+			"eventType": "variable",
+			"name": "ShutdownAction",
+			"type": "string",
+			"initialValue": "restart",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 744291710821499
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SHUTDOWN",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "shutDownOS",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 677223963292862,
+							"parameters": {
+								"variable": "systemWaiting",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 376179907572597,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "createdWindowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 573452541151935
+						},
+						{
+							"eventType": "variable",
+							"name": "titleBarHTML",
+							"type": "string",
+							"initialValue": "Exit the Game?",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 739496237131749
+						},
+						{
+							"eventType": "variable",
+							"name": "windowBodyHTML",
+							"type": "string",
+							"initialValue": "<div class=\"dialog-content\">       <img src=\"image_icon/this_computer.png\" style=\"width: 32px; height: 32px; image-rendering: pixelated;\" />       <div>         <p style=\"margin-top: 0; margin-bottom: 12px; font-family: 'MS Sans Serif', Arial, sans-serif; font-size: 11px;\">What do you want the computer to do?</p>                  <div class=\"field-row\">           <input id=\"radio-restart\" type=\"radio\" name=\"shutdown-action\" checked>           <label for=\"radio-restart\">Restart level</label>         </div>                  <div class=\"field-row\">           <input id=\"radio-quit\" type=\"radio\" name=\"shutdown-action\">           <label for=\"radio-quit\">Quit level</label>         </div>       </div>     </div>          <div class=\"dialog-buttons\">       <button id=\"confirm-ok\" style=\"min-width: 75px;\">OK</button>       <button id=\"confirm-cancel\" style=\"min-width: 75px;\">Cancel</button>     </div>   </div>",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 744061474908746
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 669795150927236,
+									"parameters": {
+										"variable": "createdWindowUID",
+										"value": "Functions.createWindow(\"critical_layer\")"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 435389423752110,
+									"parameters": {
+										"layer": "\"critical_layer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 754975544085954,
+									"parameters": {
+										"layer": "\"windows_layer\"",
+										"interactive": false
+									}
+								}
+							],
+							"sid": 513596499821897
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "windowBody",
+									"sid": 871182662858297,
+									"parameters": {
+										"unique-id": "createdWindowUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 368057717157431,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "insert-content",
+											"objectClass": "windowBody",
+											"sid": 742969834555283,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"<div class='title-bar-controls'>\n<button aria-label='Close' id='dialog-close'></button></div>\"",
+												"position": "end",
+												"selector": "\".title-bar\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 190165423483257,
+											"parameters": {
+												"content-type": "html",
+												"string": "titleBarHTML",
+												"selector": "\".title-bar-text\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 808524006848029,
+											"parameters": {
+												"seconds": "UpgradeCPUTime",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 326963699383967,
+											"parameters": {
+												"variable": "systemWaiting",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 301820086575994,
+											"parameters": {
+												"content-type": "html",
+												"string": "windowBodyHTML",
+												"selector": "\".window-body\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "windowBody",
+											"sid": 652702271299687,
+											"parameters": {
+												"instance-variable": "min_width",
+												"value": "300"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "windowBody",
+											"sid": 288834239186471,
+											"parameters": {
+												"instance-variable": "min_height",
+												"value": "200"
+											}
+										}
+									],
+									"sid": 664695671157011
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "windowBody",
+							"sid": 998804508908754,
+							"parameters": {
+								"id": "\"confirm-ok\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 841237676681552,
+							"parameters": {
+								"variable": "ShutdownAction",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 281181832586036,
+							"parameters": {
+								"layer": "\"critical_layer\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 145810193466282,
+							"parameters": {
+								"layer": "\"windows_layer\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "windowBody",
+							"sid": 105396630272823
+						}
+					],
+					"sid": 886477827958431,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 430544818332945,
+									"parameters": {
+										"variable": "ShutdownAction",
+										"comparison": 0,
+										"value": "\"restart\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 318481292693180
+								}
+							],
+							"sid": 270271088272705
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 363719506426250,
+									"parameters": {
+										"variable": "ShutdownAction",
+										"comparison": 0,
+										"value": "\"quit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 607690108603250,
+									"parameters": {
+										"layout": "game"
+									}
+								}
+							],
+							"sid": 895043402049714
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "windowBody",
+							"sid": 148352026816007,
+							"parameters": {
+								"id": "\"confirm-cancel\""
+							}
+						},
+						{
+							"id": "on-clicked-id",
+							"objectClass": "windowBody",
+							"sid": 271646278370530,
+							"parameters": {
+								"id": "\"dialog-close\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 466065450996112,
+							"parameters": {
+								"layer": "\"critical_layer\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 267081265579832,
+							"parameters": {
+								"layer": "\"windows_layer\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 472362676163213,
+							"parameters": {
+								"variable": "ShutdownAction",
+								"value": "\"restart\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "windowBody",
+							"sid": 644603708450288
+						}
+					],
+					"sid": 291634132293985,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "windowBody",
+							"sid": 954942082560557,
+							"parameters": {
+								"id": "\"radio-restart\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 125379586766988,
+							"parameters": {
+								"variable": "ShutdownAction",
+								"value": "\"restart\""
+							}
+						}
+					],
+					"sid": 375461232547287
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "windowBody",
+							"sid": 631260054765895,
+							"parameters": {
+								"id": "\"radio-quit\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 157033226954070,
+							"parameters": {
+								"variable": "ShutdownAction",
+								"value": "\"quit\""
+							}
+						}
+					],
+					"sid": 686560156705745
+				}
+			],
+			"sid": 316600856130308
 		}
 	],
 	"sid": 735513248348554

@@ -5,6 +5,41 @@
 			"name": "Layer 0",
 			"overriden": 0,
 			"subLayers": [],
+			"instances": [],
+			"sid": 538530691765770,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "windows_layer",
+			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "generalText",
@@ -39,8 +74,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 228,
-						"y": 256,
+						"x": 501,
+						"y": 25,
 						"width": 40.01257449578196,
 						"height": 30,
 						"originX": 0,
@@ -142,7 +177,7 @@
 						"x": 343.13372802734375,
 						"y": 237.2807846069336,
 						"width": 344.1194634746961,
-						"height": 23.382262701702615,
+						"height": 30.382263,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -179,10 +214,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 661.1224794943724,
-						"y": 461.23676782445057,
-						"width": 26.2158168060757,
-						"height": 25.2158168060757,
+						"x": 665.3765579590552,
+						"y": 459.1882044701027,
+						"width": 35.30114378098818,
+						"height": 36.7925269029916,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -199,7 +234,7 @@
 					"type": "taskbar",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\" id=\"system-clock\">\n    00:00 AM\n  </div>\n</div>",
+						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\" id=\"system-clock\">\n    00:00\n  </div>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -251,7 +286,7 @@
 					"type": "desktopIcon",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span style=\"text-align: center; margin-top: 4px; color: white;\">My Computer</span>\n</div>",
+						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -301,50 +336,14 @@
 							1
 						]
 					}
-				}
-			],
-			"sid": 538530691765770,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
-			"isHTMLElementsLayer": true,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
-				1
-			],
-			"isTransparent": false,
-			"sampling": "auto",
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
-			"forceOwnTexture": false,
-			"renderingMode": "3d",
-			"drawOrder": "z-order",
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"zElevation": 0,
-			"global": false
-		},
-		{
-			"name": "windows_layer",
-			"overriden": 0,
-			"subLayers": [],
-			"instances": [
+				},
 				{
 					"type": "startMenu",
 					"properties": {
 						"tag": "div",
 						"content": "<div class=\"start-menu\" id=\"start-menu-container\">\n  <div class=\"start-menu-accent\"></div>\n\n  <ul class=\"start-menu-list\">\n    <li class=\"menu-item\" id=\"menu-feed\">\n      <img src=\"feed-icon.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Feed App</span>\n    </li>\n    \n    <hr class=\"menu-divider\" />\n    \n    <li class=\"menu-item\" id=\"menu-shutdown\">\n      <img src=\"shutdown-icon.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Shut Down...</span>\n    </li>\n  </ul>\n</div>",
 						"content-type": "html",
-						"initially-visible": true,
+						"initially-visible": false,
 						"id": "",
 						"class": "",
 						"allow-context-menu": false,
@@ -376,8 +375,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": -1,
-						"y": 689,
+						"x": 1,
+						"y": 680,
 						"width": 310,
 						"height": 55,
 						"originX": 0,
@@ -422,44 +421,45 @@
 			"global": false
 		},
 		{
+			"name": "critical_layer",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 264537118227429,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
 			"name": "mouse_layer",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [
-				{
-					"type": "mouseSprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wait",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 4,
-					"sid": 132030460057379,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 241.5794950683195,
-						"y": 128.9218057189393,
-						"width": 20.70094797167886,
-						"height": 28.463803461058433,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 943346883605262,
 			"effectTypes": [],
 			"isInitiallyVisible": true,

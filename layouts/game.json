@@ -37,11 +37,311 @@
 			"global": false
 		},
 		{
-			"name": "desktop_icon",
+			"name": "windows_layer",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
-			"sid": 231393445407854,
+			"instances": [
+				{
+					"type": "windowBody",
+					"properties": {
+						"tag": "div",
+						"content": "<div class=\"window window-construct\">\n  <div class=\"title-bar window-construct\">\n    <div class=\"title-bar-text\">Window</div>\n  </div>\n  \n  <div class=\"window-body window-construct\">\n    \n    <div class=\"main-text-area\">\n      <p style=\"margin-top: 0; font-weight: bold;\">User Report Ticket</p>\n      <p>Handle: @BBC_Nevvs</p>\n    </div>\n    \n\n  </div>\n</div>",
+						"content-type": "html",
+						"initially-visible": true,
+						"id": "",
+						"class": "",
+						"allow-context-menu": false,
+						"stop-input-events": "no",
+						"origin": "top-left",
+						"set-color": true,
+						"default-color": [
+							0,
+							0,
+							0,
+							0
+						],
+						"set-background-color": false,
+						"default-background-color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"auto-font-size": true,
+						"allow-text-selection": false,
+						"style-attribute": ""
+					},
+					"uid": 15,
+					"sid": 588878105979923,
+					"tags": "",
+					"instanceVariables": {
+						"min_width": 200,
+						"min_height": 130,
+						"max_width": 1280,
+						"max_height": 720,
+						"is_minimized": false,
+						"appName": "",
+						"desktopIconUID": 0
+					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 344.1888370513916,
+						"y": 234.59442138671875,
+						"width": 344.0736824387686,
+						"height": 248.689281017114,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "titleBar",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 16,
+					"sid": 791279104726560,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 344.1888370513916,
+						"y": 235.59442138671875,
+						"width": 344.1194634746961,
+						"height": 23.382262701702615,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "resizeHandle",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"sid": 139684303361311,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 662.1888370513916,
+						"y": 459.59442138671875,
+						"width": 26.2158168060757,
+						"height": 25.2158168060757,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "taskbar",
+					"properties": {
+						"tag": "div",
+						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\" id=\"system-clock\">\n    00:00\n  </div>\n</div>",
+						"content-type": "html",
+						"initially-visible": true,
+						"id": "",
+						"class": "",
+						"allow-context-menu": false,
+						"stop-input-events": "no",
+						"origin": "bottom-left",
+						"set-color": true,
+						"default-color": [
+							0,
+							0,
+							0,
+							0
+						],
+						"set-background-color": false,
+						"default-background-color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"auto-font-size": true,
+						"allow-text-selection": false,
+						"style-attribute": ""
+					},
+					"uid": 18,
+					"sid": 366117385549960,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 0,
+						"y": 720,
+						"width": 1280,
+						"height": 80,
+						"originX": 0,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "desktopIcon",
+					"properties": {
+						"tag": "div",
+						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
+						"content-type": "html",
+						"initially-visible": true,
+						"id": "",
+						"class": "",
+						"allow-context-menu": false,
+						"stop-input-events": "no",
+						"origin": "top-left",
+						"set-color": true,
+						"default-color": [
+							0,
+							0,
+							0,
+							0
+						],
+						"set-background-color": false,
+						"default-background-color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"auto-font-size": true,
+						"allow-text-selection": false,
+						"style-attribute": ""
+					},
+					"uid": 19,
+					"sid": 980204113760079,
+					"tags": "",
+					"instanceVariables": {
+						"appName": "Feed_App",
+						"currentlyOpen": false
+					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 19.1888370513916,
+						"y": 14.59442138671875,
+						"width": 80,
+						"height": 75,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "startMenu",
+					"properties": {
+						"tag": "div",
+						"content": "<div class=\"start-menu\" id=\"start-menu-container\">\n  <div class=\"start-menu-accent\"></div>\n\n  <ul class=\"start-menu-list\">\n    <li class=\"menu-item\" id=\"menu-feed\">\n      <img src=\"feed-icon.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Feed App</span>\n    </li>\n    \n    <hr class=\"menu-divider\" />\n    \n    <li class=\"menu-item\" id=\"menu-shutdown\">\n      <img src=\"shutdown-icon.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Shut Down...</span>\n    </li>\n  </ul>\n</div>",
+						"content-type": "html",
+						"initially-visible": false,
+						"id": "",
+						"class": "",
+						"allow-context-menu": false,
+						"stop-input-events": "no",
+						"origin": "bottom-left",
+						"set-color": true,
+						"default-color": [
+							0,
+							0,
+							0,
+							0
+						],
+						"set-background-color": false,
+						"default-background-color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"auto-font-size": true,
+						"allow-text-selection": false,
+						"style-attribute": ""
+					},
+					"uid": 20,
+					"sid": 688777668642340,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 6,
+						"y": 701,
+						"width": 310,
+						"height": 55,
+						"originX": 0,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				}
+			],
+			"sid": 321740256315007,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -72,46 +372,55 @@
 			"global": false
 		},
 		{
-			"name": "inactive_windows_layer",
+			"name": "critical_layer",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
-			"sid": 934318683332783,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
-			"isHTMLElementsLayer": false,
-			"color": [
-				1,
-				1,
-				1,
-				1
+			"instances": [
+				{
+					"type": "screenDimmer",
+					"properties": {
+						"initially-visible": false,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 10,
+					"sid": 594803197054974,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -72,
+						"y": -34,
+						"width": 1546,
+						"height": 849,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				}
 			],
-			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
-				1
-			],
-			"isTransparent": true,
-			"sampling": "auto",
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
-			"forceOwnTexture": false,
-			"renderingMode": "3d",
-			"drawOrder": "z-order",
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"zElevation": 0,
-			"global": false
-		},
-		{
-			"name": "windows_layer",
-			"overriden": 0,
-			"subLayers": [],
-			"instances": [],
-			"sid": 321740256315007,
+			"sid": 231393445407854,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,

@@ -1,0 +1,8 @@
+{
+	"name": "ticketsJSON",
+	"plugin-id": "Json",
+	"sid": 922928449496062,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": []
+}

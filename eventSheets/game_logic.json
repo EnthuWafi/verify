@@ -2,10 +2,6 @@
 	"name": "game_logic",
 	"events": [
 		{
-			"eventType": "include",
-			"includeSheet": "os_logic"
-		},
-		{
 			"eventType": "comment",
 			"text": "upgrades"
 		},
@@ -55,7 +51,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "ShiftFines",
+			"name": "ShiftPenalty",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -75,6 +71,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "PenaltyFreeMistakes",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 372156841277460
+		},
+		{
+			"eventType": "variable",
 			"name": "isWinning",
 			"type": "boolean",
 			"initialValue": "false",
@@ -82,6 +88,64 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 808311251008330
+		},
+		{
+			"eventType": "comment",
+			"text": "difficulty"
+		},
+		{
+			"eventType": "variable",
+			"name": "SpawnCooldown",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 201056737196975
+		},
+		{
+			"eventType": "variable",
+			"name": "TimeSinceLastSpawn",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 315244599025855
+		},
+		{
+			"eventType": "variable",
+			"name": "MinAllowedDiff",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 659448424109574
+		},
+		{
+			"eventType": "variable",
+			"name": "MaxAllowedDiff",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 914707883522751
+		},
+		{
+			"eventType": "comment",
+			"text": "shift timer activations"
+		},
+		{
+			"eventType": "variable",
+			"name": "Level",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 208412348019359
 		},
 		{
 			"eventType": "group",
@@ -107,6 +171,15 @@
 							"parameters": {
 								"variable": "ShiftTimer",
 								"value": "dt * 60"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 606248186332920,
+							"parameters": {
+								"variable": "TimeSinceLastSpawn",
+								"value": "dt"
 							}
 						}
 					],
@@ -228,6 +301,926 @@
 				}
 			],
 			"sid": 629140581142858
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "reward and punishment",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "AddToShiftSalary",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "score",
+							"type": "number",
+							"initialValue": "10",
+							"comment": "",
+							"sid": 800315946399497
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 935066850504685,
+							"parameters": {
+								"variable": "ShiftSalary",
+								"value": "score"
+							}
+						}
+					],
+					"sid": 494012164659471
+				},
+				{
+					"functionName": "AddToShiftPenalty",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "penalty",
+							"type": "number",
+							"initialValue": "10",
+							"comment": "",
+							"sid": 873643734054693
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 628221603799287,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 373004560425870,
+									"parameters": {
+										"first-value": "PenaltyFreeMistakes",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 732465231926362,
+									"parameters": {
+										"variable": "PenaltyFreeMistakes",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 439595417878626
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 968602207053572
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 982165733493242,
+									"parameters": {
+										"variable": "ShiftPenalty",
+										"value": "penalty"
+									}
+								}
+							],
+							"sid": 718294194067781
+						}
+					]
+				}
+			],
+			"sid": 714901718004550
+		},
+		{
+			"eventType": "comment",
+			"text": "tickets"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 247889327677388
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 555334699194060,
+					"parameters": {
+						"tag": "\"ticket\"",
+						"file": {
+							"path": "ticket.json"
+						}
+					}
+				}
+			],
+			"sid": 452925653729510
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 824399166428040,
+					"parameters": {
+						"tag": "\"ticket\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "ticketsJSON",
+					"sid": 922583180809608,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 142417903973787
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SPAWN CONTROL",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 901699324044179,
+							"parameters": {
+								"first-value": "TimeSinceLastSpawn",
+								"comparison": 5,
+								"second-value": "SpawnCooldown"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 443007418060830
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "reportTicketPoolArray",
+							"sid": 987394124619160,
+							"parameters": {
+								"width": "0",
+								"height": "4",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 822819026973805,
+							"parameters": {
+								"variable": "TimeSinceLastSpawn",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 255989943567537,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "ticketsJSON",
+									"sid": 557082591097075,
+									"parameters": {
+										"path": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 629689791376240,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 445209551022533,
+											"parameters": {
+												"first-value": "ticketsJSON.Get(ticketsJSON.CurrentKey & \".difficulty\")",
+												"comparison": 5,
+												"second-value": "MinAllowedDiff"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 401628865227389,
+											"parameters": {
+												"first-value": "ticketsJSON.Get(ticketsJSON.CurrentKey & \".difficulty\")",
+												"comparison": 3,
+												"second-value": "MaxAllowedDiff"
+											}
+										},
+										{
+											"id": "evaluate-expression",
+											"objectClass": "System",
+											"sid": 843867898104682,
+											"parameters": {
+												"value": "Functions.IsTicketSpent(ticketsJSON.Get(ticketsJSON.CurrentKey  & \".id\"))"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "AddToReportTicketPool",
+											"sid": 905849410082968,
+											"parameters": [
+												"ticketsJSON.CurrentKey"
+											]
+										}
+									],
+									"sid": 859286088770054
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 936547212827555,
+									"parameters": {
+										"first-value": "reportTicketPoolArray.Width",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 632687346856383,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "randomIndex",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 165032771690268
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 701438314587424,
+											"parameters": {
+												"variable": "randomIndex",
+												"value": "Functions.PickRandomIndexFromPool"
+											}
+										},
+										{
+											"callFunction": "AddToReportFeed",
+											"sid": 167637441795969,
+											"parameters": [
+												"randomIndex"
+											]
+										}
+									],
+									"sid": 571526463876333
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "IsTicketSpent",
+					"functionDescription": "simple function, if ticket spent mark as 1, otherwise 0",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ticketID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 822589310301832
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 804300052728985,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-key",
+									"objectClass": "usedTicketDictionary",
+									"sid": 251412533397390,
+									"parameters": {
+										"key": "str(ticketID)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 802413503131170,
+									"parameters": {
+										"value": "1"
+									}
+								}
+							],
+							"sid": 624859866649301
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 342696491572357
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 799291678059545,
+									"parameters": {
+										"value": "0"
+									}
+								}
+							],
+							"sid": 735111752822429
+						}
+					]
+				},
+				{
+					"functionName": "MarkTicketAsSpent",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ticketID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 308652338976613
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "usedTicketDictionary",
+							"sid": 848088922905576,
+							"parameters": {
+								"key": "ticketID",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 356268660611690
+				},
+				{
+					"functionName": "ClearUsedTicket",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "clear",
+							"objectClass": "usedTicketDictionary",
+							"sid": 137066331999441
+						}
+					],
+					"sid": 971994500671049
+				},
+				{
+					"functionName": "AddToReportTicketPool",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ticketKey",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 837893852882781
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 143099675578832,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "newID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 813728912814465
+						},
+						{
+							"eventType": "variable",
+							"name": "newUser",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 580821129073085
+						},
+						{
+							"eventType": "variable",
+							"name": "newText",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 427962022529067
+						},
+						{
+							"eventType": "variable",
+							"name": "newCorrectAction",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 339612982419097
+						},
+						{
+							"eventType": "variable",
+							"name": "newIndex",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 964952869883950
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 616454544803224,
+									"parameters": {
+										"variable": "newID",
+										"value": "ticketsJSON.Get(ticketKey  & \".id\")"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 878105223385768,
+									"parameters": {
+										"variable": "newUser",
+										"value": "ticketsJSON.Get(ticketKey  & \".user\")"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 432626872484906,
+									"parameters": {
+										"variable": "newText",
+										"value": "ticketsJSON.Get(ticketKey  & \".text\")"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 331500303905977,
+									"parameters": {
+										"variable": "newCorrectAction",
+										"value": "ticketsJSON.Get(ticketKey & \".correctAction\")"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "reportTicketPoolArray",
+									"sid": 520353595680716,
+									"parameters": {
+										"where": "back",
+										"value": "newID",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "reportTicketPoolArray",
+									"sid": 488258751316942,
+									"parameters": {
+										"x": "reportTicketPoolArray.Width - 1",
+										"y": "1",
+										"value": "newUser"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "reportTicketPoolArray",
+									"sid": 522446490059228,
+									"parameters": {
+										"x": "reportTicketPoolArray.Width - 1",
+										"y": "2",
+										"value": "newText"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "reportTicketPoolArray",
+									"sid": 912480777555444,
+									"parameters": {
+										"x": "reportTicketPoolArray.Width - 1",
+										"y": "3",
+										"value": "newCorrectAction"
+									}
+								}
+							],
+							"sid": 338392724492816
+						}
+					]
+				},
+				{
+					"functionName": "PickRandomIndexFromPool",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 938550996037121,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "randomIndex",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 791748943383413
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 274508733263001,
+									"parameters": {
+										"variable": "randomIndex",
+										"value": "floor(random(0, reportTicketPoolArray.Width))"
+									}
+								},
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 846462092813214,
+									"parameters": {
+										"value": "randomIndex"
+									}
+								}
+							],
+							"sid": 469497971695814
+						}
+					]
+				},
+				{
+					"functionName": "AddToReportFeed",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ticketIndex",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 228063993928720
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 849698174972985,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "newID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 467629439212201
+						},
+						{
+							"eventType": "variable",
+							"name": "newUser",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 258071014579020
+						},
+						{
+							"eventType": "variable",
+							"name": "newText",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 785895573808117
+						},
+						{
+							"eventType": "variable",
+							"name": "newCorrectAction",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 828332557747252
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "extract report ticket from pooling"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 194251477731252,
+									"parameters": {
+										"variable": "newID",
+										"value": "reportTicketPoolArray.At(ticketIndex, 0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 666346589863352,
+									"parameters": {
+										"variable": "newUser",
+										"value": "reportTicketPoolArray.At(ticketIndex, 1)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 344021114699400,
+									"parameters": {
+										"variable": "newText",
+										"value": "reportTicketPoolArray.At(ticketIndex, 2)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 581352512499613,
+									"parameters": {
+										"variable": "newCorrectAction",
+										"value": "reportTicketPoolArray.At(ticketIndex, 3)"
+									}
+								},
+								{
+									"id": "delete",
+									"objectClass": "reportTicketPoolArray",
+									"sid": 525298737779915,
+									"parameters": {
+										"index": "ticketIndex",
+										"axis": "x"
+									}
+								},
+								{
+									"callFunction": "MarkTicketAsSpent",
+									"sid": 944639048425988,
+									"parameters": [
+										"newID"
+									]
+								},
+								{
+									"type": "comment",
+									"text": "add new report ticket"
+								},
+								{
+									"id": "push",
+									"objectClass": "reportTicketArray",
+									"sid": 602866297972747,
+									"parameters": {
+										"where": "back",
+										"value": "newID",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "reportTicketArray",
+									"sid": 347646206857782,
+									"parameters": {
+										"x": "reportTicketArray.Width - 1",
+										"y": "1",
+										"value": "newUser"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "reportTicketArray",
+									"sid": 566496051880642,
+									"parameters": {
+										"x": "reportTicketArray.Width - 1",
+										"y": "2",
+										"value": "newText"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "reportTicketArray",
+									"sid": 227164659468418,
+									"parameters": {
+										"x": "reportTicketArray.Width - 1",
+										"y": "3",
+										"value": "newCorrectAction"
+									}
+								},
+								{
+									"id": "insert-content",
+									"objectClass": "windowBody",
+									"sid": 955653446456031,
+									"parameters": {
+										"content-type": "html",
+										"string": "\"<li class='feed-item' id='report-\" & newID & \"'><strong>\" & newUser & \"</strong><p class='feed-preview'>\" & newText & \"</p></li>\"",
+										"position": "end",
+										"selector": "\".feed-list\"",
+										"type": "one"
+									}
+								}
+							],
+							"sid": 402683565343340
+						}
+					]
+				},
+				{
+					"functionName": "DeleteFromReportFeed",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ticketID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 200750855814802
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 287727971119420,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "reportTicketArray",
+									"sid": 853984050590176,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 780448749828953,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-xy",
+											"objectClass": "reportTicketArray",
+											"sid": 263058258418055,
+											"parameters": {
+												"x": "reportTicketArray.CurX",
+												"y": "0",
+												"comparison": 0,
+												"value": "str(ticketID)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "delete",
+											"objectClass": "reportTicketArray",
+											"sid": 368803897320401,
+											"parameters": {
+												"index": "reportTicketArray.CurX",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "remove-content",
+											"objectClass": "windowBody",
+											"sid": 543973029539074,
+											"parameters": {
+												"mode": "remove",
+												"selector": "\"#report-\" & ticketID",
+												"type": "one"
+											}
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 942309054736435
+										}
+									],
+									"sid": 854367592815546
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 663524606568494
 		}
 	],
 	"sid": 442786421369605

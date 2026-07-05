@@ -42,146 +42,6 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "windowBody",
-					"properties": {
-						"tag": "div",
-						"content": "<div class=\"window window-construct\">\n  <div class=\"title-bar window-construct\">\n    <div class=\"title-bar-text\">Window</div>\n  </div>\n  \n  <div class=\"window-body window-construct\">\n    \n    <div class=\"main-text-area\">\n      <p style=\"margin-top: 0; font-weight: bold;\">User Report Ticket</p>\n      <p>Handle: @BBC_Nevvs</p>\n    </div>\n    \n\n  </div>\n</div>",
-						"content-type": "html",
-						"initially-visible": true,
-						"id": "",
-						"class": "",
-						"allow-context-menu": false,
-						"stop-input-events": "no",
-						"origin": "top-left",
-						"set-color": true,
-						"default-color": [
-							0,
-							0,
-							0,
-							0
-						],
-						"set-background-color": false,
-						"default-background-color": [
-							1,
-							1,
-							1,
-							0
-						],
-						"auto-font-size": true,
-						"allow-text-selection": false,
-						"style-attribute": ""
-					},
-					"uid": 15,
-					"sid": 588878105979923,
-					"tags": "",
-					"instanceVariables": {
-						"min_width": 200,
-						"min_height": 130,
-						"max_width": 1280,
-						"max_height": 720,
-						"is_minimized": false,
-						"appName": "",
-						"desktopIconUID": 0
-					},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 344.1888370513916,
-						"y": 234.59442138671875,
-						"width": 344.0736824387686,
-						"height": 248.689281017114,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
-					"type": "titleBar",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 16,
-					"sid": 791279104726560,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 344.1888370513916,
-						"y": 235.59442138671875,
-						"width": 344.1194634746961,
-						"height": 23.382262701702615,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "resizeHandle",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 17,
-					"sid": 139684303361311,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 662.1888370513916,
-						"y": 459.59442138671875,
-						"width": 26.2158168060757,
-						"height": 25.2158168060757,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "taskbar",
 					"properties": {
 						"tag": "div",
@@ -237,7 +97,7 @@
 					"type": "desktopIcon",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
+						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -276,7 +136,7 @@
 					"world": {
 						"x": 19.1888370513916,
 						"y": 14.59442138671875,
-						"width": 80,
+						"width": 82,
 						"height": 75,
 						"originX": 0,
 						"originY": 0,
@@ -424,7 +284,7 @@
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
-			"isHTMLElementsLayer": true,
+			"isHTMLElementsLayer": false,
 			"color": [
 				1,
 				1,
@@ -451,20 +311,145 @@
 			"global": false
 		},
 		{
-			"name": "mouse_layer",
-			"overriden": 1,
+			"name": "fx",
+			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
+			"instances": [
+				{
+					"type": "TiledBackground",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 22,
+					"sid": 544706976635133,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -25,
+						"y": -32,
+						"width": 1327,
+						"height": 771,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.25
+						],
+						"z": 0,
+						"angle": 0
+					}
+				}
+			],
 			"sid": 672179532184153,
-			"effectTypes": [],
+			"effectTypes": [
+				{
+					"effectId": "scanlines",
+					"name": "ScanLines",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"line-height": 3
+						}
+					}
+				},
+				{
+					"effectId": "glowvertical",
+					"name": "GlowVertical",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"intensity": 1
+						}
+					}
+				},
+				{
+					"effectId": "glowhorizontal",
+					"name": "GlowHorizontal",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"intensity": 1
+						}
+					}
+				},
+				{
+					"effectId": "noise",
+					"name": "Noise",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"intensity": 0.4,
+							"color": 1
+						}
+					}
+				},
+				{
+					"effectId": "vignette",
+					"name": "Vignette",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"start-radius": 0.3,
+							"end-radius": 0.75
+						}
+					}
+				},
+				{
+					"effectId": "pixellate",
+					"name": "Pixellate",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"size": 1.17
+						}
+					}
+				},
+				{
+					"effectId": "blurhorizontal",
+					"name": "BlurHorizontal",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"intensity": 0.2
+						}
+					}
+				},
+				{
+					"effectId": "softlight",
+					"name": "SoftLight",
+					"instance": {
+						"isEnabled": false,
+						"parameters": {}
+					}
+				}
+			],
 			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
+			"isInitiallyInteractive": false,
 			"isHTMLElementsLayer": false,
 			"color": [
 				1,
 				1,
 				1,
-				1
+				0.75
 			],
 			"backgroundColor": [
 				0.3686274509803922,
@@ -474,14 +459,14 @@
 			],
 			"isTransparent": true,
 			"sampling": "auto",
-			"parallaxX": 0,
-			"parallaxY": 0,
+			"parallaxX": 1,
+			"parallaxY": 1,
 			"scaleRate": 1,
-			"forceOwnTexture": false,
+			"forceOwnTexture": true,
 			"renderingMode": "3d",
 			"drawOrder": "z-order",
 			"useRenderCells": false,
-			"blendMode": "normal",
+			"blendMode": "additive",
 			"zElevation": 0,
 			"global": false
 		}
@@ -511,6 +496,46 @@
 			"sid": 613477162193365,
 			"tags": "",
 			"instanceVariables": {}
+		},
+		{
+			"type": "ticketsJSON",
+			"properties": {},
+			"uid": 15,
+			"sid": 769204293771023,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "reportTicketArray",
+			"properties": {
+				"width": 0,
+				"height": 4,
+				"depth": 1
+			},
+			"uid": 16,
+			"sid": 564328459828812,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "usedTicketDictionary",
+			"properties": {},
+			"uid": 17,
+			"sid": 568278563398855,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "reportTicketPoolArray",
+			"properties": {
+				"width": 0,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 21,
+			"sid": 762093443814104,
+			"tags": "",
+			"instanceVariables": {}
 		}
 	],
 	"effectTypes": [],
@@ -521,5 +546,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "game_logic"
+	"eventSheet": "level1"
 }

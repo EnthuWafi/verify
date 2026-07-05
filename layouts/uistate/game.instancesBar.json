@@ -13,18 +13,6 @@
 	},
 	"instanceFolderItemsJson": [
 		{
-			"sid": 588878105979923,
-			"expanded": true
-		},
-		{
-			"sid": 791279104726560,
-			"expanded": true
-		},
-		{
-			"sid": 139684303361311,
-			"expanded": true
-		},
-		{
 			"sid": 366117385549960,
 			"expanded": true
 		},
@@ -38,6 +26,10 @@
 		},
 		{
 			"sid": 594803197054974,
+			"expanded": true
+		},
+		{
+			"sid": 544706976635133,
 			"expanded": true
 		}
 	]

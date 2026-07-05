@@ -73,22 +73,38 @@
   display: flex; 
   flex-direction: column; 
   align-items: center; 
-  width: 64px;
+  width: 100%;
+  height: 100%;
   flex-shrink: 0; 
   text-align: center;
   word-wrap: break-word;
   font-size: 11px;
+  border: 1px dashed transparent; 
+  box-sizing: border-box;
+  padding: 4px;
+
 }
 
 .desktop-span {
-  text-align: center; 
   margin-top: 4px; 
   color: white;
+  border: 1px dotted transparent; 
+  padding: 1px 2px; 
+  display: inline; 
 }
 
 .desktop-icon.selected {
+  border-color: white; 
+}
+
+.desktop-icon.selected .desktop-span {
   background-color: #000080;
   color: #ffffff;
+}
+
+.desktop-icon.selected .desktop-img {
+  /* Forces a dark blue tint while keeping the icon's original shapes visible */
+  filter: brightness(0) saturate(100%) invert(16%) sepia(71%) saturate(2201%) hue-rotate(228deg) brightness(85%) contrast(152%) opacity(50%);
 }
 
 .window.window-construct {
@@ -184,14 +200,6 @@
   margin: 4px 2px;
 }
 
-/* .dialog-box {
-  width: 310px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
 .dialog-content {
   display: flex;
   gap: 16px;
@@ -243,6 +251,11 @@
   color: #ffffff;
 }
 
+.feed-item.selected {
+  background-color: #000080;
+  color: #ffffff;
+}
+
 .feed-preview {
   margin: 2px 0 0 0;
   color: #404040;
@@ -255,6 +268,10 @@
   color: #ffffff;
 }
 
+.feed-item.selected .feed-preview {
+  color: #ffffff;
+}
+
 .details-fieldset {
   height: 100%;
   box-sizing: border-box;
@@ -263,8 +280,8 @@
   margin: 0;
   padding: 10px;
 }
-
+/* 
 .field-row label, .field-box label, .section-title, .feed-item {
   font-family: "MS Sans Serif", Arial, sans-serif;
   font-size: 11px;
-}
+} */

@@ -1,0 +1,216 @@
+{
+	"name": "level1",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "game_logic"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "os_logic"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Control",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 230644203252616,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 5,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 868888902966166,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 2,
+								"second-value": "5400"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 208250099519457
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 233903439436847,
+							"parameters": {
+								"variable": "MinAllowedDiff",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 984835453156036,
+							"parameters": {
+								"variable": "MaxAllowedDiff",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 536839319876397,
+							"parameters": {
+								"variable": "SpawnCooldown",
+								"value": "10"
+							}
+						}
+					],
+					"sid": 562706846457291
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 109955939093803,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 5,
+								"second-value": "5400"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 532374169679702,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 2,
+								"second-value": "10800"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 619158138429397
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 630855289649879,
+							"parameters": {
+								"variable": "MinAllowedDiff",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 107191338465502,
+							"parameters": {
+								"variable": "MaxAllowedDiff",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 402382251641051,
+							"parameters": {
+								"variable": "SpawnCooldown",
+								"value": "9"
+							}
+						}
+					],
+					"sid": 212339835263863
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 259223472550259,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 5,
+								"second-value": "10800"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 891105583705971,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 2,
+								"second-value": "16200"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 984879883456012
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 866662446008362,
+							"parameters": {
+								"variable": "MinAllowedDiff",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 166784822828524,
+							"parameters": {
+								"variable": "MaxAllowedDiff",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 866122537408475,
+							"parameters": {
+								"variable": "SpawnCooldown",
+								"value": "4"
+							}
+						}
+					],
+					"sid": 863941401230015
+				}
+			],
+			"sid": 426218184762814
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 334870625883295
+				}
+			],
+			"actions": [],
+			"sid": 513325524849604
+		}
+	],
+	"sid": 599706902636925
+}

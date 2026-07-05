@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
@@ -22,8 +29,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "HTMLElement",
 			"name": "HTML Element",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -61,6 +82,62 @@
 			"name": "Drag & Drop",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "blurhorizontal",
+			"name": "Blur horizontal",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "glowhorizontal",
+			"name": "Glow horizontal",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "glowvertical",
+			"name": "Glow vertical",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "noise",
+			"name": "Noise",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pixellate",
+			"name": "Pixellate",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "scanlines",
+			"name": "Scan lines",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "softlight",
+			"name": "Soft light",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "vignette",
+			"name": "Vignette",
+			"author": "Brad Larson",
+			"bundled": false
 		}
 	],
 	"uniqueId": "87epqkmnlci",
@@ -78,7 +155,13 @@
 			"startMenu",
 			"desktopAppArray",
 			"screenDimmer",
-			"Browser"
+			"Browser",
+			"AJAX",
+			"ticketsJSON",
+			"reportTicketArray",
+			"usedTicketDictionary",
+			"reportTicketPoolArray",
+			"TiledBackground"
 		],
 		"subfolders": []
 	},
@@ -114,7 +197,15 @@
 			"os_logic",
 			"start"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"level1"
+				],
+				"subfolders": [],
+				"name": "levels"
+			}
+		]
 	},
 	"rootFileFolders": {
 		"script": {
@@ -235,14 +326,6 @@
 					}
 				},
 				{
-					"name": "ticket.json",
-					"type": "application/json",
-					"sid": 157325954995539,
-					"file-info": {
-						"purpose": "none"
-					}
-				},
-				{
 					"name": "custom.css",
 					"type": "text/css",
 					"sid": 910914435461019,
@@ -259,9 +342,9 @@
 					}
 				},
 				{
-					"name": "file.html",
-					"type": "text/html",
-					"sid": 459008234698901,
+					"name": "ticket.json",
+					"type": "application/json",
+					"sid": 549566540244868,
 					"file-info": {
 						"purpose": "none"
 					}

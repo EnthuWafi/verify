@@ -46,16 +46,6 @@
 			"sid": 304068063201335
 		},
 		{
-			"eventType": "variable",
-			"name": "currentReportID",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 538100216940714
-		},
-		{
 			"eventType": "comment",
 			"text": "Windows properties"
 		},
@@ -125,15 +115,6 @@
 							"parameters": {
 								"height": "30"
 							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "resizeHandle",
-							"sid": 887135045680558,
-							"parameters": {
-								"x": "windowBody.X + windowBody.Width - 20",
-								"y": "windowBody.Y + windowBody.Height  - 20"
-							}
 						}
 					],
 					"sid": 468725697469935,
@@ -152,6 +133,62 @@
 								}
 							],
 							"sid": 749145335184256
+						}
+					]
+				},
+				{
+					"functionName": "ResizeWindow",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "windowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 411972221775401
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 430373160730922,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "windowBody",
+									"sid": 265350267027154,
+									"parameters": {
+										"unique-id": "windowUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "titleBar",
+									"sid": 175153630561232,
+									"parameters": {
+										"width": "windowBody.Width"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "resizeHandle",
+									"sid": 203354885153478,
+									"parameters": {
+										"x": "windowBody.X + windowBody.Width - 20",
+										"y": "windowBody.Y + windowBody.Height  - 20"
+									}
+								}
+							],
+							"sid": 313221297746202
 						}
 					]
 				},
@@ -475,6 +512,16 @@
 			"sid": 222121726292629
 		},
 		{
+			"eventType": "variable",
+			"name": "currentReportTicketID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 378277544386086
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "DESKTOP APP",
@@ -487,20 +534,829 @@
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 166878519536690
+							"sid": 654458556541695
 						}
 					],
 					"actions": [
 						{
 							"id": "clear",
 							"objectClass": "taskBarArray",
-							"sid": 776067133358076,
+							"sid": 449946139555521,
 							"parameters": {
 								"value": "0"
 							}
 						}
 					],
-					"sid": 321836737217399
+					"sid": 423775658221231
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "FEED APP",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-class",
+									"objectClass": "windowBody",
+									"sid": 761406032818180,
+									"parameters": {
+										"class": "\"feed-item\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 478868478528403,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 688233214268711,
+											"parameters": {
+												"first-value": "currentReportTicketID",
+												"comparison": 1,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 162781499899526,
+											"parameters": {
+												"mode": "remove",
+												"class": "\"selected\"",
+												"selector": "\"#report-\" & currentReportTicketID",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 482385199355542
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 247947372584293,
+											"parameters": {
+												"variable": "currentReportTicketID",
+												"value": "tokenat(windowBody.TargetID, 1, \"-\")"
+											}
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 257872857295322,
+											"parameters": {
+												"mode": "add",
+												"class": "\"selected\"",
+												"selector": "\"#report-\" & currentReportTicketID",
+												"type": "one"
+											}
+										},
+										{
+											"callFunction": "UpdateFeedDetailsPanel",
+											"sid": 464724602897204,
+											"parameters": [
+												"windowBody.UID"
+											]
+										}
+									],
+									"sid": 202538241764944
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-id",
+									"objectClass": "windowBody",
+									"sid": 874330249236762,
+									"parameters": {
+										"id": "\"action-keep\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ProcessReportDecision",
+									"sid": 146967345191552,
+									"parameters": [
+										false,
+										"windowBody.UID"
+									]
+								}
+							],
+							"sid": 312093477500054
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-id",
+									"objectClass": "windowBody",
+									"sid": 224952904225580,
+									"parameters": {
+										"id": "\"action-delete\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ProcessReportDecision",
+									"sid": 901827857259522,
+									"parameters": [
+										true,
+										"windowBody.UID"
+									]
+								}
+							],
+							"sid": 335329621276271
+						},
+						{
+							"eventType": "comment",
+							"text": "fucntions"
+						},
+						{
+							"functionName": "UpdateFeedDetailsPanel",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "windowUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 989838838225688
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 715868071617488,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "reportUser",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 328554201375740
+								},
+								{
+									"eventType": "variable",
+									"name": "reportText",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 792222824066192
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "reportTicketArray",
+											"sid": 476111989287407,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 943059512573063,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 522867995346754,
+													"parameters": {
+														"first-value": "reportTicketArray.At(reportTicketArray.CurX, 0)",
+														"comparison": 0,
+														"second-value": "str(currentReportTicketID)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 855961408531303,
+													"parameters": {
+														"variable": "reportUser",
+														"value": "reportTicketArray.At(reportTicketArray.CurX, 1)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 839960996917761,
+													"parameters": {
+														"variable": "reportText",
+														"value": "reportTicketArray.At(reportTicketArray.CurX, 2)"
+													}
+												},
+												{
+													"id": "stop-loop",
+													"objectClass": "System",
+													"sid": 493189076357137
+												}
+											],
+											"sid": 332309237177365
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "windowBody",
+											"sid": 238761203283085,
+											"parameters": {
+												"unique-id": "windowUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-content-attribute",
+											"objectClass": "windowBody",
+											"sid": 802559998643440,
+											"parameters": {
+												"mode": "set",
+												"attribute": "\"value\"",
+												"value": "reportUser",
+												"selector": "\"#detail-user\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 887002632701076,
+											"parameters": {
+												"content-type": "html",
+												"string": "reportText",
+												"selector": "\"#detail-text\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 192226947822840
+								}
+							]
+						},
+						{
+							"functionName": "ProcessReportDecision",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "delete",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"sid": 698170575390718
+								},
+								{
+									"name": "windowUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 182246218385352
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 764466911585398,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "isCorrectDecision",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 129242723366061
+								},
+								{
+									"eventType": "variable",
+									"name": "expectedAction",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 382169033613655
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "reportTicketArray",
+											"sid": 261015687733895,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 274551667969144,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 535033606162634,
+													"parameters": {
+														"first-value": "reportTicketArray.At(reportTicketArray.CurX, 0)",
+														"comparison": 0,
+														"second-value": "str(currentReportTicketID)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 381107439423905,
+													"parameters": {
+														"variable": "expectedAction",
+														"value": "reportTicketArray.At(reportTicketArray.CurX, 3)"
+													}
+												},
+												{
+													"id": "stop-loop",
+													"objectClass": "System",
+													"sid": 941836924090994
+												}
+											],
+											"sid": 176850736645992
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 353962669642058,
+											"parameters": {
+												"first-value": "currentReportTicketID",
+												"comparison": 1,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 433956755597541,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 254025878404595,
+													"parameters": {
+														"variable": "delete"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 730369579704288,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 697045158185211,
+															"parameters": {
+																"first-value": "expectedAction",
+																"comparison": 0,
+																"second-value": "\"delete\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 673863455144995,
+															"parameters": {
+																"variable": "isCorrectDecision",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 921417437569542
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 933453822006278
+												}
+											],
+											"actions": [],
+											"sid": 396979733080647,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 155517267259768,
+															"parameters": {
+																"variable": "delete"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 164571695739392,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 265301583882021,
+																	"parameters": {
+																		"first-value": "expectedAction",
+																		"comparison": 0,
+																		"second-value": "\"keep\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 189302053076287,
+																	"parameters": {
+																		"variable": "isCorrectDecision",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 684999760291140
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 494407599420522,
+													"parameters": {
+														"variable": "isCorrectDecision"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "AddToShiftSalary",
+													"sid": 985659863112587,
+													"parameters": [
+														"10"
+													]
+												}
+											],
+											"sid": 242892747844938
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 736013947253480
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "AddToShiftPenalty",
+													"sid": 540047027857655,
+													"parameters": [
+														"10"
+													]
+												}
+											],
+											"sid": 625292148703521
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "DeleteFromReportFeed",
+													"sid": 806266036454265,
+													"parameters": [
+														"currentReportTicketID"
+													]
+												},
+												{
+													"callFunction": "RefreshReportFeed",
+													"sid": 211033596799404,
+													"parameters": [
+														"windowUID"
+													]
+												}
+											],
+											"sid": 868376233544903
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "ResetFeedDetailsPanel",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "windowUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 327039351035395
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-content-class",
+									"objectClass": "windowBody",
+									"sid": 102836987964952,
+									"parameters": {
+										"mode": "remove",
+										"class": "\"selected\"",
+										"selector": "\"#report-\" & currentReportTicketID",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 334616361505859,
+									"parameters": {
+										"variable": "currentReportTicketID",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 628258141232187,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "windowBody",
+											"sid": 858619786263589,
+											"parameters": {
+												"unique-id": "windowUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-content-attribute",
+											"objectClass": "windowBody",
+											"sid": 367347976873000,
+											"parameters": {
+												"mode": "set",
+												"attribute": "\"value\"",
+												"value": "\"\"",
+												"selector": "\"#detail-user\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 556954707972454,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"\"",
+												"selector": "\"#detail-text\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 417602027514225
+								}
+							]
+						},
+						{
+							"functionName": "RefreshReportFeed",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "windowUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 956891866777230
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 384092662621772,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "windowBody",
+											"sid": 484663166920966,
+											"parameters": {
+												"unique-id": "windowUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 144827841592188,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"\"",
+												"selector": "\".feed-list\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 952271149716092,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each-element",
+													"objectClass": "reportTicketArray",
+													"sid": 170018240795878,
+													"parameters": {
+														"axes": "x"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 119508334105223,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "newID",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 238401060486271
+												},
+												{
+													"eventType": "variable",
+													"name": "newUser",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 602094443287350
+												},
+												{
+													"eventType": "variable",
+													"name": "newText",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 760375826720407
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 289222875988633,
+															"parameters": {
+																"variable": "newID",
+																"value": "reportTicketArray.At(reportTicketArray.CurX, 0)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 386378462071633,
+															"parameters": {
+																"variable": "newUser",
+																"value": "reportTicketArray.At(reportTicketArray.CurX, 1)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 650540969534533,
+															"parameters": {
+																"variable": "newText",
+																"value": "reportTicketArray.At(reportTicketArray.CurX, 2)"
+															}
+														},
+														{
+															"id": "insert-content",
+															"objectClass": "windowBody",
+															"sid": 997612832813712,
+															"parameters": {
+																"content-type": "html",
+																"string": "\"<li class='feed-item' id='report-\" & newID & \"'><strong>\" & newUser & \"</strong><p class='feed-preview'>\" & newText & \"</p></li>\"",
+																"position": "end",
+																"selector": "\".feed-list\"",
+																"type": "one"
+															}
+														}
+													],
+													"sid": 481623317329658
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "ResetFeedDetailsPanel",
+													"sid": 130563867829716,
+													"parameters": [
+														"windowUID"
+													]
+												}
+											],
+											"sid": 360883669086793
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 310684387292576
 				},
 				{
 					"functionName": "LaunchApplication",
@@ -584,30 +1440,30 @@
 							"conditions": [
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "windowBody",
-									"sid": 235688570263197,
+									"objectClass": "desktopIcon",
+									"sid": 119983408014954,
 									"parameters": {
-										"unique-id": "createdWindowUID"
+										"unique-id": "desktopIconUID"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 654704432612263,
+							"sid": 892549781173332,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "desktopIcon",
-											"sid": 217621885631511,
+											"objectClass": "windowBody",
+											"sid": 712457414394195,
 											"parameters": {
-												"unique-id": "desktopIconUID"
+												"unique-id": "createdWindowUID"
 											}
 										}
 									],
 									"actions": [],
-									"sid": 174219847709480,
+									"sid": 269680049184304,
 									"children": [
 										{
 											"eventType": "block",
@@ -615,7 +1471,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "desktopIcon",
-													"sid": 943541024292086,
+													"sid": 620351621251916,
 													"parameters": {
 														"instance-variable": "appName",
 														"comparison": 0,
@@ -627,7 +1483,7 @@
 												{
 													"id": "insert-content",
 													"objectClass": "windowBody",
-													"sid": 367319757583394,
+													"sid": 593888541120734,
 													"parameters": {
 														"content-type": "html",
 														"string": "\"<div class='title-bar-controls'><button aria-label='Minimize' id='minimize-\" & windowBody.UID & \"'></button>\n<button aria-label='Close' id='close-\" & windowBody.UID & \"'></button></div>\"",
@@ -639,7 +1495,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 288658985711131,
+													"sid": 665085604821483,
 													"parameters": {
 														"variable": "titleBarHTML",
 														"value": "desktopIcon.appName"
@@ -648,16 +1504,16 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 653012946304719,
+													"sid": 939252591304069,
 													"parameters": {
 														"variable": "windowBodyHTML",
-														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n      <li class='feed-item' id='report-101'>\n        <strong>@NewsHubb</strong>\n        <p class='feed-preview'>Local power plant shutting down tonight!</p>\n      </li>\n      <li class='feed-item' id='report-102'>\n        <strong>@StudentUnion</strong>\n        <p class='feed-preview'>Tomorrow will be a public holiday for all students.</p>\n      </li>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' readonly value='@NewsHubb' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'>'Local power plant shutting down tonight!'</textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep Entry</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete Entry</button>\n      </div>\n    </fieldset>\n  </div>\n\n</div>\""
+														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' value='@NewsHubb' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'>'Local power plant shutting down tonight!'</textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete</button>\n      </div>\n    </fieldset>\n  </div>\n\n</div>\""
 													}
 												},
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "desktopIcon",
-													"sid": 162464658419407,
+													"sid": 226041005706838,
 													"parameters": {
 														"instance-variable": "currentlyOpen",
 														"value": "true"
@@ -666,7 +1522,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "windowBody",
-													"sid": 815481982253975,
+													"sid": 101512362738312,
 													"parameters": {
 														"instance-variable": "min_width",
 														"value": "500"
@@ -675,107 +1531,134 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "windowBody",
-													"sid": 890896892914293,
+													"sid": 473219913339417,
 													"parameters": {
 														"instance-variable": "min_height",
 														"value": "300"
 													}
 												}
 											],
-											"sid": 187948017176697
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "windowBody",
-											"sid": 903305944453088,
-											"parameters": {
-												"instance-variable": "desktopIconUID",
-												"value": "desktopIconUID"
-											}
+											"sid": 889727143980626
 										},
 										{
-											"callFunction": "AddToTaskbar",
-											"sid": 352665562996210,
-											"parameters": [
-												"createdWindowUID"
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 369141351283686,
+													"parameters": {
+														"first-value": "titleBarHTML",
+														"comparison": 0,
+														"second-value": "\"\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "windowBody",
+													"sid": 971138406552267,
+													"parameters": {
+														"instance-variable": "desktopIconUID",
+														"value": "desktopIconUID"
+													}
+												},
+												{
+													"callFunction": "AddToTaskbar",
+													"sid": 742458963842325,
+													"parameters": [
+														"createdWindowUID"
+													]
+												},
+												{
+													"id": "set-content",
+													"objectClass": "windowBody",
+													"sid": 441274171380956,
+													"parameters": {
+														"content-type": "html",
+														"string": "titleBarHTML",
+														"selector": "\".title-bar-text\"",
+														"type": "one"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "windowBody",
+													"sid": 860639721075690,
+													"parameters": {
+														"width": "windowBody.min_width",
+														"height": "windowBody.min_height"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 613130171093372,
+													"parameters": {
+														"seconds": "UpgradeCPUTime",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 587144735777806,
+													"parameters": {
+														"variable": "systemWaiting",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-content",
+													"objectClass": "windowBody",
+													"sid": 802540762668169,
+													"parameters": {
+														"content-type": "html",
+														"string": "windowBodyHTML",
+														"selector": "\".main-text-area\"",
+														"type": "one"
+													}
+												},
+												{
+													"callFunction": "ResizeWindow",
+													"sid": 803476952798314,
+													"parameters": [
+														"windowBody.UID"
+													]
+												}
+											],
+											"sid": 952071782775329,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "desktopIcon",
+															"sid": 304348649301541,
+															"parameters": {
+																"instance-variable": "appName",
+																"comparison": 0,
+																"value": "\"Feed_App\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "RefreshReportFeed",
+															"sid": 755383850375233,
+															"parameters": [
+																"windowBody.UID"
+															]
+														}
+													],
+													"sid": 800740836221785
+												}
 											]
 										}
-									],
-									"sid": 736763418610693
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 137177459959278,
-											"parameters": {
-												"first-value": "titleBarHTML",
-												"comparison": 0,
-												"second-value": "\"\""
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-content",
-											"objectClass": "windowBody",
-											"sid": 320878845925153,
-											"parameters": {
-												"content-type": "html",
-												"string": "titleBarHTML",
-												"selector": "\".title-bar-text\"",
-												"type": "one"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 954058189954804,
-											"parameters": {
-												"seconds": "UpgradeCPUTime",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 607488357466027,
-											"parameters": {
-												"variable": "systemWaiting",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-content",
-											"objectClass": "windowBody",
-											"sid": 482049462863476,
-											"parameters": {
-												"content-type": "html",
-												"string": "windowBodyHTML",
-												"selector": "\".main-text-area\"",
-												"type": "one"
-											}
-										},
-										{
-											"id": "set-size",
-											"objectClass": "windowBody",
-											"sid": 104106054123992,
-											"parameters": {
-												"width": "windowBody.min_width",
-												"height": "windowBody.min_height"
-											}
-										}
-									],
-									"sid": 956513693263361
+									]
 								}
 							]
 						}
@@ -1762,53 +2645,81 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
+									"id": "else",
 									"objectClass": "System",
-									"sid": 918727234136039,
-									"parameters": {
-										"first-value": "cursorName",
-										"comparison": 0,
-										"second-value": "\"Wait\""
-									}
+									"sid": 216891564945530
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 767591508356849,
+							"children": [
 								{
-									"id": "set-cursor-style2",
-									"objectClass": "Mouse",
-									"sid": 356411334495527,
-									"parameters": {
-										"cursor-style": "wait"
-									}
-								}
-							],
-							"sid": 317480475232721
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 768847291138584,
+											"parameters": {
+												"first-value": "cursorName",
+												"comparison": 0,
+												"second-value": "\"Wait\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 414182936047129,
+											"parameters": {
+												"cursor-style": "wait"
+											}
+										}
+									],
+									"sid": 686381051732374
+								},
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 143589412991905,
-									"parameters": {
-										"first-value": "cursorName",
-										"comparison": 0,
-										"second-value": "\"Resize\""
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 114345288067858
+										}
+									],
+									"actions": [],
+									"sid": 500211900131347,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 842808151028865,
+													"parameters": {
+														"first-value": "cursorName",
+														"comparison": 0,
+														"second-value": "\"Resize\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-cursor-style2",
+													"objectClass": "Mouse",
+													"sid": 779197748783893,
+													"parameters": {
+														"cursor-style": "nwse-resize"
+													}
+												}
+											],
+											"sid": 532764664182637
+										}
+									]
 								}
-							],
-							"actions": [
-								{
-									"id": "set-cursor-style2",
-									"objectClass": "Mouse",
-									"sid": 975562305735840,
-									"parameters": {
-										"cursor-style": "nwse-resize"
-									}
-								}
-							],
-							"sid": 268529356857295
+							]
 						}
 					]
 				},

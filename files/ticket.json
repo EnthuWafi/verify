@@ -1,3 +1,30 @@
-{
-	
-}
+[
+    {
+        "id": 101,
+        "user": "@NewsHubb",
+        "text": "Local power plant shutting down tonight!",
+        "correctAction": "delete",
+        "difficulty": 1
+    },
+    {
+        "id": 102,
+        "user": "@StudentUnion",
+        "text": "Tomorrow will be a public holiday for all students.",
+        "correctAction": "keep",
+        "difficulty": 1
+    },
+    {
+        "id": 103,
+        "user": "@DeepFakeDaily",
+        "text": "Leaked audio reveals the mayor plans to replace all roads with water slides.",
+        "correctAction": "delete",
+        "difficulty": 2
+    },
+    {
+        "id": 104,
+        "user": "@AnonUser882",
+        "text": "Grid maintenance scheduled for Sector 4 at 23:00 hours.",
+        "correctAction": "keep",
+        "difficulty": 3
+    }
+]

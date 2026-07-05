@@ -1,24 +1,22 @@
-{
-  "database": [
-    {
-      "tags": "bbc handle",
-      "truth": "BBCNews official social media handle is @BBCNews"
-    },
-    {
-      "tags": "reuters handle",
-      "truth": "Reuters official social media handle is @Reuters"
-    },
-    {
-      "tags": "bbc news emergency campus shutdown",
-      "truth": "No campus alerts are active. Reports of power grid failures are completely fabricated."
-    },
-    {
-      "tags": "reuters news copper supply maritime",
-      "truth": "Global copper supply has stabilized. The maritime trade agreements are authentic."
-    },
-    {
-      "tags": "news energy blackout grid",
-      "truth": "The national energy grid is operating at 100% capacity. No blackouts are scheduled."
-    }
-  ]
-}
+[
+  {
+    "tags": "bbc handle",
+    "truth": "BBCNews official social media handle is @BBCNews"
+  },
+  {
+    "tags": "reuters handle",
+    "truth": "Reuters official social media handle is @Reuters"
+  },
+  {
+    "tags": "bbc news emergency campus shutdown",
+    "truth": "No campus alerts are active. Reports of power grid failures are completely fabricated."
+  },
+  {
+    "tags": "reuters news copper supply maritime",
+    "truth": "Global copper supply has stabilized. The maritime trade agreements are authentic."
+  },
+  {
+    "tags": "news energy blackout grid",
+    "truth": "The national energy grid is operating at 100% capacity. No blackouts are scheduled."
+  }
+]

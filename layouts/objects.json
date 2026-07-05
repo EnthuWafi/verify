@@ -153,7 +153,7 @@
 				{
 					"type": "titleBar",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -193,7 +193,7 @@
 				{
 					"type": "resizeHandle",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -286,7 +286,7 @@
 					"type": "desktopIcon",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"desktop-icon\">\n  <img src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
+						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -325,8 +325,8 @@
 					"world": {
 						"x": 18,
 						"y": 16,
-						"width": 80,
-						"height": 75,
+						"width": 82,
+						"height": 78,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -456,7 +456,7 @@
 			"global": false
 		},
 		{
-			"name": "mouse_layer",
+			"name": "fx",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [],
@@ -488,7 +488,7 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
-			"global": true
+			"global": false
 		}
 	],
 	"sid": 601368076387537,

@@ -1,0 +1,8 @@
+{
+	"name": "trustedDatabaseJSON",
+	"plugin-id": "Json",
+	"sid": 138987119101201,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": []
+}

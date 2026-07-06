@@ -84,6 +84,13 @@
 			"bundled": false
 		},
 		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "effect",
 			"id": "blurhorizontal",
 			"name": "Blur horizontal",
@@ -153,7 +160,6 @@
 			"desktopIcon",
 			"taskBarArray",
 			"startMenu",
-			"desktopAppArray",
 			"screenDimmer",
 			"Browser",
 			"AJAX",
@@ -161,7 +167,10 @@
 			"reportTicketArray",
 			"usedTicketDictionary",
 			"reportTicketPoolArray",
-			"TiledBackground"
+			"TiledBackground",
+			"trustedDatabaseJSON",
+			"searchResultArray",
+			"tooltipHTML"
 		],
 		"subfolders": []
 	},
@@ -216,14 +225,6 @@
 					"sid": 966193320614593,
 					"script-info": {
 						"purpose": "main"
-					}
-				},
-				{
-					"name": "script.js",
-					"type": "application/javascript",
-					"sid": 727970926184714,
-					"script-info": {
-						"purpose": "imports-for-events"
 					}
 				}
 			],
@@ -612,6 +613,28 @@
 					],
 					"subfolders": [],
 					"name": "image_icon"
+				},
+				{
+					"items": [
+						{
+							"name": "icons8-check-mark-48.png",
+							"type": "image/png",
+							"sid": 758462498757392,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "icons8-cancel-48.png",
+							"type": "image/png",
+							"sid": 688529180633168,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "general_icon"
 				}
 			]
 		}

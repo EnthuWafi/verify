@@ -45,7 +45,7 @@
 					"type": "taskbar",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\" id=\"system-clock\">\n    00:00\n  </div>\n</div>",
+						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\">\n    <img src='image_icon/tools.png' width='16' height='16' draggable='false' style='padding-right: 10px'/>\n    <span id=\"system-clock\">00:00</span>\n  </div>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -97,7 +97,7 @@
 					"type": "desktopIcon",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
+						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/world.png\" width=\"32\" height=\"32\" draggable=\"false\">\n  <span class=\"desktop-span\">R_Feed.exe</span>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -127,15 +127,16 @@
 					"sid": 980204113760079,
 					"tags": "",
 					"instanceVariables": {
-						"appName": "Feed_App",
-						"currentlyOpen": false
+						"appName": "R_Feed.exe",
+						"currentlyOpen": false,
+						"iconFile": "image_icon/world.png"
 					},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 19.1888370513916,
-						"y": 14.59442138671875,
+						"x": 32,
+						"y": 32,
 						"width": 82,
 						"height": 75,
 						"originX": 0,
@@ -199,6 +200,62 @@
 							1
 						]
 					}
+				},
+				{
+					"type": "desktopIcon",
+					"properties": {
+						"tag": "div",
+						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/briefcase.png\" width=\"32\" height=\"32\" draggable=\"false\">\n  <span class=\"desktop-span\">Fact_DB.exe</span>\n</div>",
+						"content-type": "html",
+						"initially-visible": true,
+						"id": "",
+						"class": "",
+						"allow-context-menu": false,
+						"stop-input-events": "no",
+						"origin": "top-left",
+						"set-color": true,
+						"default-color": [
+							0,
+							0,
+							0,
+							0
+						],
+						"set-background-color": false,
+						"default-background-color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"auto-font-size": true,
+						"allow-text-selection": false,
+						"style-attribute": ""
+					},
+					"uid": 23,
+					"sid": 823852408060169,
+					"tags": "",
+					"instanceVariables": {
+						"appName": "Fact_DB.exe",
+						"currentlyOpen": false,
+						"iconFile": "image_icon/briefcase.png"
+					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 32,
+						"y": 128,
+						"width": 82,
+						"height": 75,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
 				}
 			],
 			"sid": 321740256315007,
@@ -239,7 +296,7 @@
 				{
 					"type": "screenDimmer",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"origin": "top-left",
 						"wrap-horizontal": "repeat",
 						"wrap-vertical": "repeat",
@@ -263,8 +320,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": -72,
-						"y": -34,
+						"x": -81,
+						"y": -60,
 						"width": 1546,
 						"height": 849,
 						"originX": 0,
@@ -282,7 +339,7 @@
 			],
 			"sid": 231393445407854,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
+			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
 			"color": [
@@ -486,18 +543,6 @@
 			"instanceVariables": {}
 		},
 		{
-			"type": "desktopAppArray",
-			"properties": {
-				"width": 10,
-				"height": 1,
-				"depth": 1
-			},
-			"uid": 13,
-			"sid": 613477162193365,
-			"tags": "",
-			"instanceVariables": {}
-		},
-		{
 			"type": "ticketsJSON",
 			"properties": {},
 			"uid": 15,
@@ -534,6 +579,26 @@
 			},
 			"uid": 21,
 			"sid": 762093443814104,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "trustedDatabaseJSON",
+			"properties": {},
+			"uid": 13,
+			"sid": 220706704169173,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "searchResultArray",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 24,
+			"sid": 132679306288648,
 			"tags": "",
 			"instanceVariables": {}
 		}

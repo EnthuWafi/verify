@@ -685,10 +685,6 @@
 							"sid": 335329621276271
 						},
 						{
-							"eventType": "comment",
-							"text": "fucntions"
-						},
-						{
 							"functionName": "UpdateFeedDetailsPanel",
 							"functionDescription": "",
 							"functionCategory": "",
@@ -1359,6 +1355,478 @@
 					"sid": 310684387292576
 				},
 				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "TRUSTED DB ",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-id",
+									"objectClass": "windowBody",
+									"sid": 969618703252808,
+									"parameters": {
+										"id": "\"db-search-btn\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 155424334072781,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "queryText",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 351706653073760
+								},
+								{
+									"eventType": "script",
+									"language": "javascript",
+									"script": [
+										"const winInst = runtime.objects.windowBody.getFirstPickedInstance();",
+										"",
+										"if (winInst) {",
+										"    const rootElem = winInst.getElement();",
+										"    const searchInput = rootElem.querySelector(\"#db-search-input\");",
+										"    ",
+										"    if (searchInput) {",
+										"        localVars.queryText = searchInput.value.toLowerCase();",
+										"    }",
+										"}"
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "SearchTrustedDatabase",
+											"sid": 508008141397403,
+											"parameters": [
+												"queryText",
+												"windowBody.UID"
+											]
+										}
+									],
+									"sid": 280881295635973
+								}
+							]
+						},
+						{
+							"functionName": "SearchTrustedDatabase",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "searchQuery",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 363784815753444
+								},
+								{
+									"name": "windowUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 232511611990232
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 709894067640118,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-content-attribute",
+											"objectClass": "windowBody",
+											"sid": 645720429261585,
+											"parameters": {
+												"mode": "set",
+												"attribute": "\"style\"",
+												"value": "\"display: flex;\"",
+												"selector": "\".db-results-section\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 143393128885625,
+											"parameters": {
+												"mode": "remove",
+												"class": "\"landing-mode\"",
+												"selector": "\".db-workspace\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 857951393803149,
+											"parameters": {
+												"mode": "add",
+												"class": "\"active-mode\"",
+												"selector": "\".db-workspace\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 380493639277148,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"\"",
+												"selector": "\".db-results-list\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "searchResultArray",
+											"sid": 277899778096417,
+											"parameters": {
+												"width": "0",
+												"height": "4",
+												"depth": "1"
+											}
+										}
+									],
+									"sid": 817721076830395
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "trustedDatabaseJSON",
+											"sid": 670498168556153,
+											"parameters": {
+												"path": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 851328050278565,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "currentTags",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 803804343798634
+										},
+										{
+											"eventType": "variable",
+											"name": "currentTruth",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 168465565401448
+										},
+										{
+											"eventType": "variable",
+											"name": "currentID",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 335470224783973
+										},
+										{
+											"eventType": "variable",
+											"name": "matchScore",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 400032620502135
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 117149257199993,
+													"parameters": {
+														"variable": "currentTags",
+														"value": "trustedDatabaseJSON.Get(trustedDatabaseJSON.CurrentKey & \".tags\")"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 215828859950548,
+													"parameters": {
+														"variable": "currentTruth",
+														"value": "trustedDatabaseJSON.Get(trustedDatabaseJSON.CurrentKey & \".truth\")"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 833825525165578,
+													"parameters": {
+														"variable": "currentID",
+														"value": "trustedDatabaseJSON.CurrentKey"
+													}
+												}
+											],
+											"sid": 480608733726984
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"type": "script",
+													"language": "javascript",
+													"script": [
+														"const q = localVars.searchQuery.trim()",
+														"const tags = localVars.currentTags;",
+														"const truth = localVars.currentTruth.toLowerCase();",
+														"let score = 0;",
+														"",
+														"if (q !== \"\") {",
+														"",
+														"  // token split by any whitespace",
+														"  const tokens = q.split(/\\s+/);",
+														"",
+														"  // score each word individually",
+														"  for (let i = 0; i < tokens.length; i++) {",
+														"    const word = tokens[i];",
+														"",
+														"    if (word.length > 0) {",
+														"        // Tag match (+3)",
+														"        if (tags.includes(word)) {",
+														"            score += 3;",
+														"        }",
+														"        // Body truth match (+1)",
+														"        if (truth.includes(word)) {",
+														"            score += 1;",
+														"        }",
+														"    }",
+														"  }",
+														"}",
+														"",
+														"localVars.matchScore = score;"
+													]
+												}
+											],
+											"sid": 809172658306029
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 446105051084348,
+													"parameters": {
+														"first-value": "matchScore",
+														"comparison": 4,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "push",
+													"objectClass": "searchResultArray",
+													"sid": 404373042350887,
+													"parameters": {
+														"where": "back",
+														"value": "matchScore",
+														"axis": "x"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "searchResultArray",
+													"sid": 805321936389289,
+													"parameters": {
+														"x": "searchResultArray.Width - 1",
+														"y": "1",
+														"value": "currentTags"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "searchResultArray",
+													"sid": 961406598881664,
+													"parameters": {
+														"x": "searchResultArray.Width - 1",
+														"y": "2",
+														"value": "currentTruth"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "searchResultArray",
+													"sid": 952530614033456,
+													"parameters": {
+														"x": "searchResultArray.Width - 1",
+														"y": "3",
+														"value": "currentID"
+													}
+												}
+											],
+											"sid": 806379657277545
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 548652116818272,
+											"parameters": {
+												"first-value": "searchResultArray.Width",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "sort2",
+											"objectClass": "searchResultArray",
+											"sid": 969281140819927,
+											"parameters": {
+												"axis": "x-by-col"
+											}
+										}
+									],
+									"sid": 140772534340540,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "windowBody",
+													"sid": 894161321438586,
+													"parameters": {
+														"unique-id": "windowUID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 655275320633120,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for",
+															"objectClass": "System",
+															"sid": 880029696797980,
+															"parameters": {
+																"name": "\"index\"",
+																"start-index": "searchResultArray.Width - 1",
+																"end-index": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "insert-content",
+															"objectClass": "windowBody",
+															"sid": 628658090503007,
+															"parameters": {
+																"content-type": "html",
+																"string": "\"<li class='db-result-item'><span class='db-result-tags'>TAGS: \" & searchResultArray.At(loopindex(\"index\"), 1) & \"</span><p class='db-result-truth'>\" & searchResultArray.At(loopindex(\"index\"), 2) & \"</p></li>\"",
+																"position": "end",
+																"selector": "\".db-results-list\"",
+																"type": "one"
+															}
+														}
+													],
+													"sid": 448167901311096
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 317486693822692,
+											"parameters": {
+												"first-value": "searchResultArray.Width",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 205332502622963,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "windowBody",
+													"sid": 922421606009248,
+													"parameters": {
+														"unique-id": "windowUID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "insert-content",
+													"objectClass": "windowBody",
+													"sid": 259502562170406,
+													"parameters": {
+														"content-type": "html",
+														"string": "\"<li class='db-result-item' style='color: red;'>No verified records found matching \" & searchQuery & \".</li>\"",
+														"position": "end",
+														"selector": "\".db-results-list\"",
+														"type": "one"
+													}
+												}
+											],
+											"sid": 537428065992244
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 898789292106996
+				},
+				{
 					"functionName": "LaunchApplication",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -1471,11 +1939,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "desktopIcon",
-													"sid": 620351621251916,
+													"sid": 587428522189272,
 													"parameters": {
 														"instance-variable": "appName",
 														"comparison": 0,
-														"value": "\"Feed_App\""
+														"value": "\"R_Feed.exe\""
 													}
 												}
 											],
@@ -1504,10 +1972,10 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 939252591304069,
+													"sid": 103402644398633,
 													"parameters": {
 														"variable": "windowBodyHTML",
-														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' value='@NewsHubb' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'>'Local power plant shutting down tonight!'</textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete</button>\n      </div>\n    </fieldset>\n  </div>\n\n</div>\""
+														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' readonly value='' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'></textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete</button>\n      </div>\n    </fieldset>\n  </div>\n\n</div>\""
 													}
 												},
 												{
@@ -1539,6 +2007,81 @@
 												}
 											],
 											"sid": 889727143980626
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "desktopIcon",
+													"sid": 713435039011431,
+													"parameters": {
+														"instance-variable": "appName",
+														"comparison": 0,
+														"value": "\"Fact_DB.exe\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "insert-content",
+													"objectClass": "windowBody",
+													"sid": 589271667862386,
+													"parameters": {
+														"content-type": "html",
+														"string": "\"<div class='title-bar-controls'><button aria-label='Minimize' id='minimize-\" & windowBody.UID & \"'></button>\n<button aria-label='Close' id='close-\" & windowBody.UID & \"'></button></div>\"",
+														"position": "end",
+														"selector": "\".title-bar\"",
+														"type": "one"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 243556589256070,
+													"parameters": {
+														"variable": "titleBarHTML",
+														"value": "desktopIcon.appName"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 994019452226356,
+													"parameters": {
+														"variable": "windowBodyHTML",
+														"value": "\"<div class='db-workspace landing-mode'>\n  <div class='db-hero-header'>\n    <img class='desktop-img' src='image_icon/search.png' width='32' height='32' draggable='false' />\n    <h1 class='db-hero-title'>Trusted Database Search</h1>\n  </div>\n\n  <div class='db-search-bar'>\n    <div class='db-input-row'>\n      <input id='db-search-input' type='text' placeholder='Search official records (e.g., bbc, blackout, grid...)' />\n      <button id='db-search-btn'>Search</button>\n    </div>\n  </div>\n\n  <div class='db-results-section' style='display: none;'>\n    <p class='section-title'>Verified Database Records</p>\n    <div class='db-results-container'>\n      <ul class='tree-view db-results-list'></ul>\n    </div>\n  </div>\n</div>\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "desktopIcon",
+													"sid": 719346254591144,
+													"parameters": {
+														"instance-variable": "currentlyOpen",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "windowBody",
+													"sid": 488259061722407,
+													"parameters": {
+														"instance-variable": "min_width",
+														"value": "500"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "windowBody",
+													"sid": 900874440484992,
+													"parameters": {
+														"instance-variable": "min_height",
+														"value": "350"
+													}
+												}
+											],
+											"sid": 965706057619584
 										},
 										{
 											"eventType": "block",
@@ -1637,11 +2180,11 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "desktopIcon",
-															"sid": 304348649301541,
+															"sid": 584678696134430,
 															"parameters": {
 																"instance-variable": "appName",
 																"comparison": 0,
-																"value": "\"Feed_App\""
+																"value": "\"R_Feed.exe\""
 															}
 														}
 													],
@@ -1912,67 +2455,7 @@
 							"sid": 987562589480606
 						}
 					],
-					"sid": 905553704986486,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for",
-									"objectClass": "System",
-									"sid": 595108672379250,
-									"disabled": true,
-									"parameters": {
-										"name": "\"tab\"",
-										"start-index": "1",
-										"end-index": "taskBarArray.Width - 1"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 653792079662127,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-at-x",
-											"objectClass": "taskBarArray",
-											"sid": 795083441934838,
-											"disabled": true,
-											"parameters": {
-												"x": "loopindex(\"tab\")",
-												"comparison": 0,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-at-x",
-											"objectClass": "taskBarArray",
-											"sid": 731899810090664,
-											"parameters": {
-												"x": "loopindex(\"tab\")",
-												"value": "windowUID"
-											}
-										},
-										{
-											"callFunction": "RefreshTaskbar",
-											"sid": 934386836522005
-										},
-										{
-											"id": "stop-loop",
-											"objectClass": "System",
-											"sid": 900685321127137
-										}
-									],
-									"sid": 741978364977065,
-									"disabled": true
-								}
-							]
-						}
-					]
+					"sid": 905553704986486
 				},
 				{
 					"functionName": "RemoveFromTaskbar",
@@ -2001,11 +2484,11 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 165044898614155,
+									"sid": 460815882099684,
 									"parameters": {
 										"name": "\"tab\"",
-										"start-index": "1",
-										"end-index": "taskBarArray.Width - 1"
+										"start-index": "taskBarArray.Width - 1",
+										"end-index": "0"
 									}
 								}
 							],
@@ -2035,33 +2518,18 @@
 												"index": "loopindex(\"tab\")",
 												"axis": "x"
 											}
-										}
-									],
-									"sid": 643334127534662,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 316354532001393
 										},
 										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"callFunction": "RefreshTaskbar",
-													"sid": 146041808165845
-												},
-												{
-													"id": "stop-loop",
-													"objectClass": "System",
-													"sid": 824337040003931
-												}
-											],
-											"sid": 216997169547954
+											"callFunction": "RefreshTaskbar",
+											"sid": 946060221556132
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 162996215768167
 										}
-									]
+									],
+									"sid": 643334127534662
 								}
 							]
 						}
@@ -2155,10 +2623,10 @@
 														{
 															"id": "add-to-eventvar",
 															"objectClass": "System",
-															"sid": 870398535244655,
+															"sid": 753557379938897,
 															"parameters": {
 																"variable": "tabsHTML",
-																"value": "\"<button class='taskbar-tab' id='tab-\" & windowBody.UID & \"'>\" & desktopIcon.appName & \"</button>\""
+																"value": "\"<button class='taskbar-tab' id='tab-\" & windowBody.UID & \"'>\" & \"<img src='\" & desktopIcon.iconFile & \"' width='16' height='16' draggable='false'>\" & desktopIcon.appName & \"</button>\""
 															}
 														}
 													],
@@ -2561,29 +3029,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 477855995181088
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "mouseSprite",
-							"sid": 394773876140378,
-							"parameters": {
-								"x": "Mouse.X",
-								"y": "Mouse.Y"
-							}
-						}
-					],
-					"sid": 136936380425044,
-					"disabled": true
-				},
-				{
 					"functionName": "ChangeCursorStyle",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -2601,18 +3046,7 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "mouseSprite",
-							"sid": 725721087199600,
-							"disabled": true,
-							"parameters": {
-								"animation": "cursorName",
-								"from": "beginning"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 656971139648675,
 					"children": [
 						{

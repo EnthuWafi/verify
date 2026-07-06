@@ -57,6 +57,10 @@
   box-sizing: border-box;
 }
 
+.taskbar-tab img {
+  padding-right: 4px;
+}
+
 .status-bar-field {
   max-width: 65px; 
   flex-shrink: 0;
@@ -77,11 +81,13 @@
   height: 100%;
   flex-shrink: 0; 
   text-align: center;
-  word-wrap: break-word;
   font-size: 11px;
   border: 1px dashed transparent; 
   box-sizing: border-box;
   padding: 4px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden; 
 
 }
 
@@ -90,7 +96,15 @@
   color: white;
   border: 1px dotted transparent; 
   padding: 1px 2px; 
-  display: inline; 
+  box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.desktop-img {
+  max-width: 100%;
+  max-height: 60%;
+  object-fit: contain;
 }
 
 .desktop-icon.selected {
@@ -103,8 +117,7 @@
 }
 
 .desktop-icon.selected .desktop-img {
-  /* Forces a dark blue tint while keeping the icon's original shapes visible */
-  filter: brightness(0) saturate(100%) invert(16%) sepia(71%) saturate(2201%) hue-rotate(228deg) brightness(85%) contrast(152%) opacity(50%);
+  filter: brightness(0) saturate(100%) invert(16%) sepia(71%) saturate(2201%) hue-rotate(228deg) brightness(85%) contrast(152%);
 }
 
 .window.window-construct {
@@ -280,8 +293,197 @@
   margin: 0;
   padding: 10px;
 }
-/* 
-.field-row label, .field-box label, .section-title, .feed-item {
+
+/* trusted */
+.db-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Centered Google-style landing layout */
+.db-workspace.landing-mode {
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20%;
+}
+
+.db-workspace.landing-mode .db-search-bar {
+  width: 90%;
+  max-width: 450px;
+}
+
+.db-hero-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.db-hero-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Active search layout adjustments */
+.db-workspace.active-mode {
+  justify-content: flex-start;
+}
+
+.db-workspace.active-mode .db-hero-header {
+  display: none; /* Hide huge logo when browsing results to save space */
+}
+
+.db-workspace.active-mode .db-search-bar {
+  width: 100%;
+}
+
+.db-search-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.db-input-row {
+  display: flex;
+  gap: 6px;
+}
+
+#db-search-input {
+  flex-grow: 1;
+  height: 24px;
+}
+
+#db-search-btn {
+  min-width: 75px;
+  height: 24px;
+  font-weight: bold;
+}
+
+.db-results-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.db-results-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 2px inset #808080;
+  padding: 6px;
+}
+
+.db-results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.db-result-item {
+  padding: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.db-result-tags {
+  color: #808080;
+  font-size: 10px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.db-result-truth {
+  color: #000080;
+  font-weight: bold;
+  margin: 0;
+}
+.tooltip {
+  position: relative;
+  background-color: #ffffe1;
+  border: 1px solid #000000;
+  border-radius: 7px;
+  padding: 8px 10px;
   font-family: "MS Sans Serif", Arial, sans-serif;
-  font-size: 11px;
-} */
+  color: #000000;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start; /* Aligns icon to the top next to the title */
+  justify-content: flex-start;
+  gap: 8px;
+  cursor: default;
+}
+
+/* Icon styling */
+.tooltip-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; /* Prevents text from squishing the image */
+  image-rendering: pixelated; /* Keeps retro icons crisp */
+}
+
+/* Text wrapper containing title and message */
+.tooltip-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.tooltip-title {
+  font-weight: bold;
+  color: #000000;
+}
+
+.tooltip-message {
+  color: #333333;
+}
+
+/* 1. The Outer Black Border Triangle */
+.tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 16px;
+  border-width: 10px 8px 0 8px;
+  border-style: solid;
+  border-color: #000000 transparent transparent transparent;
+  display: block;
+  width: 0;
+}
+
+/* 2. The Inner Pale-Yellow Fill Triangle */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* Slightly offset so it sits inside the black border */
+  right: 17px;  /* Centered over the outer border triangle */
+  border-width: 9px 7px 0 7px;
+  border-style: solid;
+  border-color: #ffffe1 transparent transparent transparent;
+  display: block;
+  width: 0;
+}
+
+@keyframes fadeOutAnim {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Add this class to trigger the animation */
+.tooltip.fade-out {
+  animation: fadeOutAnim 0.3s forwards ease-in;
+}

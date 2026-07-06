@@ -1,0 +1,15 @@
+{
+	"name": "tooltipHTML",
+	"plugin-id": "HTMLElement",
+	"sid": 811798824186916,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 130611017867921
+		}
+	]
+}

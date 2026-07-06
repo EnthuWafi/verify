@@ -1,7 +1,7 @@
 {
-	"name": "desktopAppArray",
+	"name": "searchResultArray",
 	"plugin-id": "Arr",
-	"sid": 314133506639180,
+	"sid": 241295886040532,
 	"isGlobal": true,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": []

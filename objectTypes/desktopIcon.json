@@ -18,6 +18,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 133063272677278
+		},
+		{
+			"name": "iconFile",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 308731087020075
 		}
 	],
 	"behaviorTypes": []

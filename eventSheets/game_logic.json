@@ -264,11 +264,11 @@
 								{
 									"id": "set-content",
 									"objectClass": "taskbar",
-									"sid": 699963171647761,
+									"sid": 391742223013372,
 									"parameters": {
 										"content-type": "html",
 										"string": "formattedTime",
-										"selector": "\".status-bar-field\"",
+										"selector": "\"#system-clock\"",
 										"type": "one"
 									}
 								}
@@ -336,6 +336,48 @@
 								"variable": "ShiftSalary",
 								"value": "score"
 							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 101808644914850,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 888650572252757,
+							"parameters": {
+								"object-to-create": "tooltipHTML",
+								"layer": "\"windows_layer\"",
+								"x": "1240",
+								"y": "677",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "tooltipHTML",
+							"sid": 962947237256138,
+							"parameters": {
+								"width": "200",
+								"height": "100"
+							}
+						},
+						{
+							"id": "set-content",
+							"objectClass": "tooltipHTML",
+							"sid": 738396205168200,
+							"parameters": {
+								"content-type": "html",
+								"string": "\"<div class='tooltip'>\n<img src='general_icon/icons8-check-mark-48.png' class='tooltip-icon' draggable='false' />\n  <div class='tooltip-content'>\n    <div class='tooltip-title'>Verification Success</div>\n    <div class='tooltip-message'>Report correctly handled. Platform credibility maintained.</div>\n  </div>\n</div>\"",
+								"selector": "\"\"",
+								"type": "one"
+							}
 						}
 					],
 					"sid": 494012164659471
@@ -362,6 +404,26 @@
 					"sid": 628221603799287,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "top",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 940214135612969
+						},
+						{
+							"eventType": "variable",
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 545314809870278
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -383,6 +445,24 @@
 									"parameters": {
 										"variable": "PenaltyFreeMistakes",
 										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 343198523347263,
+									"parameters": {
+										"variable": "top",
+										"value": "\"Verification Warning\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 201244969856401,
+									"parameters": {
+										"variable": "message",
+										"value": "\"Incorrect decision! Warning issued. No penalty was applied.\""
 									}
 								}
 							],
@@ -406,18 +486,135 @@
 										"variable": "ShiftPenalty",
 										"value": "penalty"
 									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 197307118940377,
+									"parameters": {
+										"variable": "top",
+										"value": "\"Verification Failure\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 139134899305813,
+									"parameters": {
+										"variable": "message",
+										"value": "\"Incorrect decision! Penalty applied!\""
+									}
 								}
 							],
 							"sid": 718294194067781
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 439264235539866,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 195971641883577,
+									"parameters": {
+										"object-to-create": "tooltipHTML",
+										"layer": "\"windows_layer\"",
+										"x": "1240",
+										"y": "677",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "tooltipHTML",
+									"sid": 479397227236421,
+									"parameters": {
+										"width": "400",
+										"height": "100"
+									}
+								},
+								{
+									"id": "set-content",
+									"objectClass": "tooltipHTML",
+									"sid": 905176895554849,
+									"parameters": {
+										"content-type": "html",
+										"string": "\"<div class='tooltip'>\n<img src='general_icon/icons8-cancel-48.png' class='tooltip-icon' draggable='false' />\n  <div class='tooltip-content'>\n    <div class='tooltip-title'>\" & top & \"</div>\n    <div class='tooltip-message'>\" & message & \"</div>\n  </div>\n</div>\"",
+										"selector": "\"\"",
+										"type": "one"
+									}
+								}
+							],
+							"sid": 465633553963570
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-wait-finished",
+							"objectClass": "tooltipHTML",
+							"sid": 856226628842329,
+							"behaviorType": "Fade"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-content-class",
+							"objectClass": "tooltipHTML",
+							"sid": 606377419228281,
+							"parameters": {
+								"mode": "add",
+								"class": "\"fade-out\"",
+								"selector": "\".tooltip\"",
+								"type": "one"
+							}
+						}
+					],
+					"sid": 655968218008631
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-class",
+							"objectClass": "tooltipHTML",
+							"sid": 782940223826777,
+							"parameters": {
+								"class": "\"tooltip\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-wait-time",
+							"objectClass": "tooltipHTML",
+							"sid": 130542531878590,
+							"behaviorType": "Fade",
+							"parameters": {
+								"wait-time": "0"
+							}
+						}
+					],
+					"sid": 140051606863352
 				}
 			],
 			"sid": 714901718004550
 		},
 		{
 			"eventType": "comment",
-			"text": "tickets"
+			"text": "tickets and dataset"
 		},
 		{
 			"eventType": "block",
@@ -437,6 +634,17 @@
 						"tag": "\"ticket\"",
 						"file": {
 							"path": "ticket.json"
+						}
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 555272458553123,
+					"parameters": {
+						"tag": "\"factcheck\"",
+						"file": {
+							"path": "factcheck.json"
 						}
 					}
 				}
@@ -468,9 +676,33 @@
 			"sid": 142417903973787
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 237093399675167,
+					"parameters": {
+						"tag": "\"factcheck\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "trustedDatabaseJSON",
+					"sid": 663248481934025,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 408603751456606
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "SPAWN CONTROL",
+			"title": "TICKET SPAWN CONTROL",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -1221,6 +1453,15 @@
 				}
 			],
 			"sid": 663524606568494
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TRUSTED DATABASE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 849376467833543
 		}
 	],
 	"sid": 442786421369605

@@ -22,6 +22,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
@@ -45,6 +52,13 @@
 			"type": "plugin",
 			"id": "Json",
 			"name": "JSON",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -163,7 +177,12 @@
 			"TiledBackground",
 			"trustedDatabaseJSON",
 			"searchResultArray",
-			"tooltipHTML"
+			"tooltipHTML",
+			"cmdEndOfShift",
+			"dayText",
+			"Audio",
+			"LocalStorage",
+			"menuChoice"
 		],
 		"subfolders": []
 	},
@@ -187,9 +206,12 @@
 	},
 	"layouts": {
 		"items": [
-			"game",
+			"level1",
 			"objects",
-			"start"
+			"start",
+			"endOfDay",
+			"win",
+			"credits"
 		],
 		"subfolders": []
 	},
@@ -197,7 +219,10 @@
 		"items": [
 			"game_logic",
 			"os_logic",
-			"start"
+			"start",
+			"end_of_day",
+			"win",
+			"credits"
 		],
 		"subfolders": [
 			{
@@ -224,11 +249,101 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "Windows XP Logon Sound.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 275631902004112,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Windows XP Balloon.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 839415017403567,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Windows XP Shutdown.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 777719207593817,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "winxp.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 538875486397710,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "blue-screen-of-death.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 172308027517549,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "erro-2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 634950092803397,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "windowsding.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 378689638772973,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Windows XP Navigation Start Sound (Windows XP Start.wav) [Ea7epC3oCBk].webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 750822979720286,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "yougotmail.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 994133685333733,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "LonePeakMusic - 26 Library Of Babel -Retro Gaming Version-.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 786071709615808,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "LonePeakMusic - 23 Modern Plague -Retro Gaming Version-.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 734305406251393,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

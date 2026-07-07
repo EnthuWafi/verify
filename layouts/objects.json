@@ -389,6 +389,58 @@
 							1
 						]
 					}
+				},
+				{
+					"type": "tooltipHTML",
+					"properties": {
+						"tag": "div",
+						"content": "<div class='tooltip success'>Credibility Maintained</div>",
+						"content-type": "html",
+						"initially-visible": true,
+						"id": "",
+						"class": "",
+						"allow-context-menu": false,
+						"stop-input-events": "no",
+						"origin": "bottom-right",
+						"set-color": true,
+						"default-color": [
+							0,
+							0,
+							0,
+							0
+						],
+						"set-background-color": false,
+						"default-background-color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"auto-font-size": true,
+						"allow-text-selection": false,
+						"style-attribute": ""
+					},
+					"uid": 38,
+					"sid": 905824875420774,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1244,
+						"y": 666,
+						"width": 200,
+						"height": 99,
+						"originX": 1,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
 				}
 			],
 			"sid": 355183643917033,
@@ -458,7 +510,7 @@
 		},
 		{
 			"name": "fx",
-			"overriden": 0,
+			"overriden": 1,
 			"subLayers": [],
 			"instances": [
 				{
@@ -517,13 +569,13 @@
 			"sid": 943346883605262,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
+			"isInitiallyInteractive": false,
 			"isHTMLElementsLayer": false,
 			"color": [
 				1,
 				1,
 				1,
-				1
+				0.5
 			],
 			"backgroundColor": [
 				0.3686274509803922,
@@ -533,14 +585,14 @@
 			],
 			"isTransparent": true,
 			"sampling": "auto",
-			"parallaxX": 0,
-			"parallaxY": 0,
+			"parallaxX": 1,
+			"parallaxY": 1,
 			"scaleRate": 1,
-			"forceOwnTexture": false,
+			"forceOwnTexture": true,
 			"renderingMode": "3d",
 			"drawOrder": "z-order",
 			"useRenderCells": false,
-			"blendMode": "normal",
+			"blendMode": "additive",
 			"zElevation": 0,
 			"global": false
 		}

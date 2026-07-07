@@ -74,65 +74,166 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 510448953707825,
-							"parameters": {
-								"object-to-create": "windowBody",
-								"layer": "creation_layer",
-								"x": "150",
-								"y": "200",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-content",
-							"objectClass": "windowBody",
-							"sid": 176110603396204,
-							"parameters": {
-								"content-type": "html",
-								"string": "\"<div class='window window-construct'><div class='title-bar window-construct'><div class='title-bar-text'>Window</div></div><div class='window-body window-construct'><div class='main-text-area'><p></p></div></div></div>\"",
-								"selector": "\"\"",
-								"type": "one"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "titleBar",
-							"sid": 990870058397326,
-							"parameters": {
-								"x": "windowBody.X",
-								"y": "windowBody.Y"
-							}
-						},
-						{
-							"id": "set-height",
-							"objectClass": "titleBar",
-							"sid": 867147380734357,
-							"parameters": {
-								"height": "30"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 468725697469935,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "pos_x",
+							"type": "number",
+							"initialValue": "150",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 119192498449889
+						},
+						{
+							"eventType": "variable",
+							"name": "pos_y",
+							"type": "number",
+							"initialValue": "200",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 503086549584564
+						},
 						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
 								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 715223008843245,
+									"parameters": {
+										"object-to-create": "windowBody",
+										"layer": "creation_layer",
+										"x": "pos_x",
+										"y": "pos_y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-content",
+									"objectClass": "windowBody",
+									"sid": 216860743874127,
+									"parameters": {
+										"content-type": "html",
+										"string": "\"<div class='window window-construct'><div class='title-bar window-construct'><div class='title-bar-text'>Window</div></div><div class='window-body window-construct'><div class='main-text-area'><p></p></div></div></div>\"",
+										"selector": "\"\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "titleBar",
+									"sid": 111094222865478,
+									"parameters": {
+										"height": "30"
+									}
+								},
+								{
 									"id": "set-function-return-value",
 									"objectClass": "Functions",
-									"sid": 724642890307269,
+									"sid": 218672848633835,
 									"parameters": {
 										"value": "windowBody.UID"
 									}
 								}
 							],
-							"sid": 749145335184256
+							"sid": 242454720640648
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 257323166572889,
+									"parameters": {
+										"count": "3"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 749145335184256,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "increment",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 863132587825465
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "titleBar",
+											"sid": 390854025330834,
+											"parameters": {
+												"object": "titleBar"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "windowBody",
+											"sid": 839225405754727,
+											"parameters": {
+												"x": "pos_x + increment",
+												"y": "pos_y + increment"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "titleBar",
+											"sid": 960395197188957,
+											"parameters": {
+												"x": "windowBody.X",
+												"y": "windowBody.Y"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 681499688644890,
+											"parameters": {
+												"variable": "increment",
+												"value": "20"
+											}
+										}
+									],
+									"sid": 604908427269513,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 558474489662633
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 738038783370295
+										}
+									],
+									"sid": 935968180958757,
+									"disabled": true
+								}
+							]
 						}
 					]
 				},
@@ -189,6 +290,63 @@
 								}
 							],
 							"sid": 313221297746202
+						}
+					]
+				},
+				{
+					"functionName": "MoveWindow",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "windowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 134388543265081
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 133970519349479,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "windowBody",
+									"sid": 620828906570698,
+									"parameters": {
+										"unique-id": "windowUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "titleBar",
+									"sid": 364306433505731,
+									"parameters": {
+										"x": "windowBody.X",
+										"y": "windowBody.Y"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "resizeHandle",
+									"sid": 577946673151146,
+									"parameters": {
+										"x": "windowBody.X + windowBody.Width - 20",
+										"y": "windowBody.Y + windowBody.Height  - 20"
+									}
+								}
+							],
+							"sid": 887947792458549
 						}
 					]
 				},
@@ -849,7 +1007,17 @@
 							],
 							"eventType": "function-block",
 							"conditions": [],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 323396613606685,
+									"parameters": {
+										"variable": "systemWaiting",
+										"value": "true"
+									}
+								}
+							],
 							"sid": 764466911585398,
 							"children": [
 								{
@@ -1043,11 +1211,36 @@
 										},
 										{
 											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 324535147126810,
+													"parameters": {
+														"seconds": "UpgradeNetworkTime",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 918164348284684,
+													"parameters": {
+														"variable": "systemWaiting",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 242892747844938
+										},
+										{
+											"eventType": "block",
 											"conditions": [
 												{
 													"id": "compare-boolean-eventvar",
 													"objectClass": "System",
-													"sid": 494407599420522,
+													"sid": 998836627169310,
 													"parameters": {
 														"variable": "isCorrectDecision"
 													}
@@ -1056,13 +1249,13 @@
 											"actions": [
 												{
 													"callFunction": "AddToShiftSalary",
-													"sid": 985659863112587,
+													"sid": 455701209316317,
 													"parameters": [
 														"10"
 													]
 												}
 											],
-											"sid": 242892747844938
+											"sid": 212466832397224
 										},
 										{
 											"eventType": "block",
@@ -1444,58 +1637,23 @@
 							],
 							"eventType": "function-block",
 							"conditions": [],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 157261571797462,
+									"parameters": {
+										"variable": "systemWaiting",
+										"value": "true"
+									}
+								}
+							],
 							"sid": 709894067640118,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "set-content-attribute",
-											"objectClass": "windowBody",
-											"sid": 645720429261585,
-											"parameters": {
-												"mode": "set",
-												"attribute": "\"style\"",
-												"value": "\"display: flex;\"",
-												"selector": "\".db-results-section\"",
-												"type": "one"
-											}
-										},
-										{
-											"id": "set-content-class",
-											"objectClass": "windowBody",
-											"sid": 143393128885625,
-											"parameters": {
-												"mode": "remove",
-												"class": "\"landing-mode\"",
-												"selector": "\".db-workspace\"",
-												"type": "one"
-											}
-										},
-										{
-											"id": "set-content-class",
-											"objectClass": "windowBody",
-											"sid": 857951393803149,
-											"parameters": {
-												"mode": "add",
-												"class": "\"active-mode\"",
-												"selector": "\".db-workspace\"",
-												"type": "one"
-											}
-										},
-										{
-											"id": "set-content",
-											"objectClass": "windowBody",
-											"sid": 380493639277148,
-											"parameters": {
-												"content-type": "html",
-												"string": "\"\"",
-												"selector": "\".db-results-list\"",
-												"type": "one"
-											}
-										},
 										{
 											"id": "set-size",
 											"objectClass": "searchResultArray",
@@ -1698,6 +1856,76 @@
 											"sid": 806379657277545
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 807087818802933,
+											"parameters": {
+												"seconds": "UpgradeNetworkTime",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 128732458695519,
+											"parameters": {
+												"variable": "systemWaiting",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-content-attribute",
+											"objectClass": "windowBody",
+											"sid": 645720429261585,
+											"parameters": {
+												"mode": "set",
+												"attribute": "\"style\"",
+												"value": "\"display: flex;\"",
+												"selector": "\".db-results-section\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 143393128885625,
+											"parameters": {
+												"mode": "remove",
+												"class": "\"landing-mode\"",
+												"selector": "\".db-workspace\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 857951393803149,
+											"parameters": {
+												"mode": "add",
+												"class": "\"active-mode\"",
+												"selector": "\".db-workspace\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 380493639277148,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"\"",
+												"selector": "\".db-results-list\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 419256184110132
 								},
 								{
 									"eventType": "block",
@@ -3150,6 +3378,46 @@
 												}
 											],
 											"sid": 532764664182637
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 833569843100791
+												}
+											],
+											"actions": [],
+											"sid": 155057615457442,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 399276082737056,
+															"parameters": {
+																"first-value": "cursorName",
+																"comparison": 0,
+																"second-value": "\"NotAllowed\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-cursor-style2",
+															"objectClass": "Mouse",
+															"sid": 657230797859125,
+															"parameters": {
+																"cursor-style": "not-allowed"
+															}
+														}
+													],
+													"sid": 291995474171349
+												}
+											]
 										}
 									]
 								}
@@ -3619,7 +3887,7 @@
 									"objectClass": "System",
 									"sid": 607690108603250,
 									"parameters": {
-										"layout": "game"
+										"layout": "level1"
 									}
 								}
 							],
@@ -3791,7 +4059,7 @@
 							"eventType": "variable",
 							"name": "windowBodyHTML",
 							"type": "string",
-							"initialValue": "<div class='cmd-body' style='height: 100%;'>   <div class='cmd-row'>     <span class='cmd-label'>INDEX:</span>     <strong id='cmd-cred-val'>100.0%</strong>   </div>   <div class='cmd-bar-track'>     <div id='cmd-bar-fill' class='cmd-bar-fill'></div>   </div>   <div class='cmd-row'>     <span class='cmd-label'>DRIFT:</span>     <strong id='cmd-drift-val' class='rate-positive'>+0.20%/s</strong>   </div>   <div class='cmd-row' style='font-size: 9px; color: #555555; margin-top: 2px;'>     <span>DAEMON_STATUS:</span>     <span id='cmd-status-text' style='color: #00ff66;'>ONLINE</span>   </div> </div>",
+							"initialValue": "",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -3833,9 +4101,25 @@
 									"conditions": [],
 									"actions": [
 										{
+											"id": "set-position",
+											"objectClass": "windowBody",
+											"sid": 977019441251291,
+											"parameters": {
+												"x": "900",
+												"y": "32"
+											}
+										},
+										{
+											"callFunction": "MoveWindow",
+											"sid": 732278565830994,
+											"parameters": [
+												"windowBody.UID"
+											]
+										},
+										{
 											"id": "set-content",
 											"objectClass": "windowBody",
-											"sid": 188258282291548,
+											"sid": 304148459615733,
 											"parameters": {
 												"content-type": "html",
 												"string": "titleBarHTML",
@@ -3864,10 +4148,10 @@
 										{
 											"id": "set-content",
 											"objectClass": "windowBody",
-											"sid": 640429578157026,
+											"sid": 526446306799085,
 											"parameters": {
 												"content-type": "html",
-												"string": "windowBodyHTML",
+												"string": "\"  <div class='cmd-row'>\n    <span class='cmd-label'>PLATFORM CREDIBILITY:</span>\n    <strong id='cmd-cred-val'>100.0%</strong>\n  </div>\n  <div class='cmd-bar-track'>\n    <div id='cmd-bar-fill' class='cmd-bar-fill'></div>\n  </div>\n  <div class='cmd-row'>\n    <span class='cmd-label'>CREDIBILITY RATE:</span>\n    <strong id='cmd-drift-val' class='rate-positive'>+0.20%</strong>\n  </div>\n  <div class='cmd-row' style='color: #888888; margin-top: 4px;'>\n    <span>STATUS:</span>\n    <span id='cmd-status-text' style='color: #00ff66;'>SAFE</span>\n  </div>\n  <div style='margin-top: auto; padding-top: 8px;'>\n    <span style='color: #888888;'>C:\\></span><span class='cmd-cursor'></span>\n  </div>\n\"",
 												"selector": "\".window-body\"",
 												"type": "one"
 											}
@@ -3896,6 +4180,17 @@
 											"parameters": [
 												"windowBody.UID"
 											]
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 138174543048776,
+											"parameters": {
+												"mode": "add",
+												"class": "\"cmd-body\"",
+												"selector": "\".window-body\"",
+												"type": "one"
+											}
 										}
 									],
 									"sid": 526222882689778
@@ -3918,10 +4213,347 @@
 					"sid": 522900545858670,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "rateFormatted",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 373999039694244
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 140366428912318,
+									"parameters": {
+										"first-value": "PlatformCredibilityRate",
+										"comparison": 5,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 793358273699183,
+									"parameters": {
+										"variable": "rateFormatted",
+										"value": "\"+\" & round(PlatformCredibilityRate * 100) / 100 & \"%\""
+									}
+								},
+								{
+									"id": "set-content-class",
+									"objectClass": "windowBody",
+									"sid": 907387534679562,
+									"parameters": {
+										"mode": "remove",
+										"class": "\"rate-negative\"",
+										"selector": "\"#cmd-drift-val\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-content-class",
+									"objectClass": "windowBody",
+									"sid": 573318813457246,
+									"parameters": {
+										"mode": "add",
+										"class": "\"rate-positive\"",
+										"selector": "\"#cmd-drift-val\"",
+										"type": "one"
+									}
+								}
+							],
+							"sid": 465029576442565
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 414558271994438
+								}
+							],
+							"actions": [],
+							"sid": 604484203689326,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 886906722627274,
+											"parameters": {
+												"first-value": "PlatformCredibilityRate",
+												"comparison": 2,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 619813250884521,
+											"parameters": {
+												"variable": "rateFormatted",
+												"value": "(round(PlatformCredibilityRate * 100) / 100) & \"%\""
+											}
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 240450057363418,
+											"parameters": {
+												"mode": "remove",
+												"class": "\"rate-positive\"",
+												"selector": "\"#cmd-drift-val\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-class",
+											"objectClass": "windowBody",
+											"sid": 242081202023876,
+											"parameters": {
+												"mode": "add",
+												"class": "\"rate-negative\"",
+												"selector": "\"#cmd-drift-val\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 162428915907887
+								}
+							]
+						},
+						{
 							"eventType": "block",
 							"conditions": [],
+							"actions": [
+								{
+									"id": "set-content",
+									"objectClass": "windowBody",
+									"sid": 277862628244146,
+									"parameters": {
+										"content-type": "html",
+										"string": "str(round(PlatformCredibility * 10) / 10) & \"%\"",
+										"selector": "\"#cmd-cred-val\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-content",
+									"objectClass": "windowBody",
+									"sid": 557701855324665,
+									"parameters": {
+										"content-type": "html",
+										"string": "rateFormatted",
+										"selector": "\"#cmd-drift-val\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-content-css-style",
+									"objectClass": "windowBody",
+									"sid": 446207731947294,
+									"parameters": {
+										"property-name": "\"width\"",
+										"value": "round(PlatformCredibility) & \"%\"",
+										"selector": "\"#cmd-bar-fill\"",
+										"type": "one"
+									}
+								}
+							],
+							"sid": 891449140442492
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 230174025551881,
+									"parameters": {
+										"first-value": "PlatformCredibility",
+										"comparison": 4,
+										"second-value": "60"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-content",
+									"objectClass": "windowBody",
+									"sid": 300799263260802,
+									"parameters": {
+										"content-type": "html",
+										"string": "\"SAFE\"",
+										"selector": "\"#cmd-status-text\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-content-css-style",
+									"objectClass": "windowBody",
+									"sid": 855381241488808,
+									"parameters": {
+										"property-name": "\"color\"",
+										"value": "\"#00ff66\"",
+										"selector": "\"#cmd-status-text\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-content-css-style",
+									"objectClass": "windowBody",
+									"sid": 636513255404455,
+									"parameters": {
+										"property-name": "\"background\"",
+										"value": "\"#00ff66\"",
+										"selector": "\"#cmd-bar-fill\"",
+										"type": "one"
+									}
+								}
+							],
+							"sid": 262041113652759
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 916152289799767
+								}
+							],
 							"actions": [],
-							"sid": 465029576442565
+							"sid": 170628337906033,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 936213118276096,
+											"parameters": {
+												"first-value": "PlatformCredibility",
+												"comparison": 4,
+												"second-value": "30"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 203263650876081,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"UNSTABLE\"",
+												"selector": "\"#cmd-status-text\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-css-style",
+											"objectClass": "windowBody",
+											"sid": 232010567676254,
+											"parameters": {
+												"property-name": "\"color\"",
+												"value": "\"#ffaa00\"",
+												"selector": "\"#cmd-status-text\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-css-style",
+											"objectClass": "windowBody",
+											"sid": 244069467203219,
+											"parameters": {
+												"property-name": "\"background\"",
+												"value": "\"#ffaa00\"",
+												"selector": "\"#cmd-bar-fill\"",
+												"type": "one"
+											}
+										}
+									],
+									"sid": 722470053844711
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 960522548959204
+										}
+									],
+									"actions": [],
+									"sid": 638959283917660,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 816260738694528,
+													"parameters": {
+														"first-value": "PlatformCredibility",
+														"comparison": 5,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-content",
+													"objectClass": "windowBody",
+													"sid": 566325095216366,
+													"parameters": {
+														"content-type": "html",
+														"string": "\"FAILING\"",
+														"selector": "\"#cmd-status-text\"",
+														"type": "one"
+													}
+												},
+												{
+													"id": "set-content-css-style",
+													"objectClass": "windowBody",
+													"sid": 852141298408704,
+													"parameters": {
+														"property-name": "\"color\"",
+														"value": "\"#ff3333\"",
+														"selector": "\"#cmd-status-text\"",
+														"type": "one"
+													}
+												},
+												{
+													"id": "set-content-css-style",
+													"objectClass": "windowBody",
+													"sid": 748472265410683,
+													"parameters": {
+														"property-name": "\"background\"",
+														"value": "\"#ff3333\"",
+														"selector": "\"#cmd-bar-fill\"",
+														"type": "one"
+													}
+												}
+											],
+											"sid": 144098261844292
+										}
+									]
+								}
+							]
 						}
 					]
 				}

@@ -1,5 +1,644 @@
 {
 	"name": "start",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 701343391057488
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PlayMusic",
+					"sid": 821119019917049,
+					"parameters": [
+						"\"LonePeakMusic - 23 Modern Plague -Retro Gaming Version-\"",
+						"1",
+						"0"
+					]
+				}
+			],
+			"sid": 917915425900506
+		},
+		{
+			"eventType": "variable",
+			"name": "loadCompleted",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 295665452193267
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Load logic",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "LoadGame",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 326806615511317,
+							"parameters": {
+								"key": "\"currentDay\""
+							}
+						}
+					],
+					"sid": 835723076834869
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 167694173830902,
+							"parameters": {
+								"key": "\"currentDay\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 576385419735958,
+							"parameters": {
+								"key": "\"currentDay\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 373811629597064,
+							"parameters": {
+								"key": "\"TotalSavings\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 941836899158591,
+							"parameters": {
+								"key": "\"upgradeCPU\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 416630259864454,
+							"parameters": {
+								"key": "\"upgradeNetwork\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 444491760008146,
+							"parameters": {
+								"key": "\"upgradeRate\""
+							}
+						}
+					],
+					"sid": 144555408520836
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 869748385338403,
+							"parameters": {
+								"key": "\"currentDay\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-content",
+							"objectClass": "menuChoice",
+							"sid": 140042385288183,
+							"parameters": {
+								"content-type": "html",
+								"string": "\"[NOT FOUND]\"",
+								"selector": "\"#menu-continue\"",
+								"type": "one"
+							}
+						}
+					],
+					"sid": 319815731085394
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 625330985069726,
+							"parameters": {
+								"key": "\"currentDay\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 336464030439047,
+							"parameters": {
+								"variable": "currentDay",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 166899703624995,
+							"parameters": {
+								"variable": "loadCompleted",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 108799568931415
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 678675394889607,
+							"parameters": {
+								"key": "\"TotalSavings\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 747471618461707,
+							"parameters": {
+								"variable": "TotalSavings",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 838115590509970,
+							"parameters": {
+								"variable": "loadCompleted",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 907490840615313
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 711677762087551,
+							"parameters": {
+								"key": "\"upgradeCPU\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 736207993897951,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "result",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 178212989429212
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 119077976055120,
+									"parameters": {
+										"variable": "result",
+										"value": "LocalStorage.ItemValue"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 752872444569894,
+									"parameters": {
+										"variable": "loadCompleted",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 396875213864365
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 278630273795982,
+									"parameters": {
+										"first-value": "result",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 157930826960976,
+									"parameters": {
+										"variable": "upgradeCPU",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 946695652563961
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 719058878629746
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 252502615841137,
+									"parameters": {
+										"variable": "upgradeCPU",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 840343232567466
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 693332682669861,
+							"parameters": {
+								"key": "\"upgradeNetwork\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 358762033672558,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "result",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 542154722952308
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 713947874938844,
+									"parameters": {
+										"variable": "result",
+										"value": "LocalStorage.ItemValue"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 436900289062046,
+									"parameters": {
+										"variable": "loadCompleted",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 631527656412716
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 208927440340559,
+									"parameters": {
+										"first-value": "result",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 475920214765682,
+									"parameters": {
+										"variable": "upgradeNetwork",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 819660198617071
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 362009856520978
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 238329734876614,
+									"parameters": {
+										"variable": "upgradeNetwork",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 912585825630821
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 728948198663377,
+							"parameters": {
+								"key": "\"upgradeRate\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 888167817621105,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "result",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 410958862830134
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 945521894778785,
+									"parameters": {
+										"variable": "result",
+										"value": "LocalStorage.ItemValue"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 131868492227345,
+									"parameters": {
+										"variable": "loadCompleted",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 199123836475008
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 722140339864761,
+									"parameters": {
+										"first-value": "result",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 754220750667886,
+									"parameters": {
+										"variable": "upgradeRate",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 590972692050606
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 837376928640151
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 164326157810339,
+									"parameters": {
+										"variable": "upgradeRate",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 711050369520212
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 109517648861526,
+							"parameters": {
+								"first-value": "loadCompleted",
+								"comparison": 5,
+								"second-value": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 425061718016729,
+							"parameters": {
+								"variable": "loadCompleted",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "ResetGameVariables",
+							"sid": 343990681778224
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 780007925707961,
+							"parameters": {
+								"layout": "\"level\" & currentDay"
+							}
+						}
+					],
+					"sid": 918125099907509
+				}
+			],
+			"sid": 893680453977158
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked-id",
+					"objectClass": "menuChoice",
+					"sid": 568457618393930,
+					"parameters": {
+						"id": "\"menu-new\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 747479854175926,
+					"parameters": {
+						"variable": "currentDay",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "ResetGameVariables",
+					"sid": 476093879370826
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 802877129938846,
+					"parameters": {
+						"layout": "\"level\" & currentDay"
+					}
+				}
+			],
+			"sid": 855500165544421
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked-id",
+					"objectClass": "menuChoice",
+					"sid": 383291932736476,
+					"parameters": {
+						"id": "\"menu-continue\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "LoadGame",
+					"sid": 668056650772595
+				}
+			],
+			"sid": 602724079362183
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked-id",
+					"objectClass": "menuChoice",
+					"sid": 269435968729225,
+					"parameters": {
+						"id": "\"menu-credit\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 388050200463066,
+					"parameters": {
+						"layout": "credits"
+					}
+				}
+			],
+			"sid": 670196380940882
+		}
+	],
 	"sid": 197341099235308
 }

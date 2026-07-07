@@ -1,0 +1,30 @@
+{
+	"name": "credits",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked-id",
+					"objectClass": "menuChoice",
+					"sid": 785498999351024,
+					"parameters": {
+						"id": "\"menu-start\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 683323168776352,
+					"parameters": {
+						"layout": "start"
+					}
+				}
+			],
+			"sid": 177671125071278
+		}
+	],
+	"sid": 410612485855588
+}

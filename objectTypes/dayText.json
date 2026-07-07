@@ -1,0 +1,10 @@
+{
+	"name": "dayText",
+	"plugin-id": "Text",
+	"sid": 415817083780128,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

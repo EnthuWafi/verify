@@ -1,5 +1,5 @@
 {
-	"name": "game",
+	"name": "level1",
 	"layers": [
 		{
 			"name": "background",
@@ -506,7 +506,7 @@
 				1,
 				1,
 				1,
-				0.75
+				0.5
 			],
 			"backgroundColor": [
 				0.3686274509803922,
@@ -525,7 +525,7 @@
 			"useRenderCells": false,
 			"blendMode": "additive",
 			"zElevation": 0,
-			"global": false
+			"global": true
 		}
 	],
 	"sid": 981591719992072,

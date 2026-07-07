@@ -208,7 +208,26 @@
 					"sid": 334870625883295
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 747766352145383,
+					"parameters": {
+						"variable": "currentDay",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "PlayMusic",
+					"sid": 752427207676356,
+					"parameters": [
+						"\"LonePeakMusic - 26 Library Of Babel -Retro Gaming Version-\"",
+						"0.80",
+						"-10"
+					]
+				}
+			],
 			"sid": 513325524849604
 		}
 	],

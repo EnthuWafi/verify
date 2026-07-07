@@ -16,8 +16,38 @@
 			"sid": 495071627971653
 		},
 		{
+			"eventType": "variable",
+			"name": "UpgradeNetworkTime",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 196375744010412
+		},
+		{
+			"eventType": "variable",
+			"name": "UpgradeCredibilityDrainRate",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "lower is better",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 131470369944882
+		},
+		{
 			"eventType": "comment",
 			"text": "current shift var"
+		},
+		{
+			"eventType": "variable",
+			"name": "currentDay",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 438849886438149
 		},
 		{
 			"eventType": "variable",
@@ -148,14 +178,103 @@
 			"text": "shift timer activations"
 		},
 		{
-			"eventType": "variable",
-			"name": "Level",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 208412348019359
+			"eventType": "group",
+			"disabled": false,
+			"title": "upgrade group",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 281996076772531
+						}
+					],
+					"actions": [],
+					"sid": 969755265217924,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 767357893530605,
+									"parameters": {
+										"variable": "upgradeCPU"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 756973008246855,
+									"parameters": {
+										"variable": "UpgradeCPUTime",
+										"value": "0.5"
+									}
+								}
+							],
+							"sid": 772227394777523
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 528740154477004,
+									"parameters": {
+										"variable": "upgradeNetwork"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 906968779026703,
+									"parameters": {
+										"variable": "UpgradeNetworkTime",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 675466177185409
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 354964013297529,
+									"parameters": {
+										"variable": "upgradeRate"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 998436799397780,
+									"parameters": {
+										"variable": "UpgradeCredibilityDrainRate",
+										"value": "0.2"
+									}
+								}
+							],
+							"sid": 258465008163317
+						}
+					]
+				}
+			],
+			"sid": 677329770749358
 		},
 		{
 			"eventType": "group",
@@ -203,10 +322,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 779351070962993,
+									"sid": 435439372255874,
 									"parameters": {
 										"variable": "PlatformCredibilityRate",
-										"value": "0.2 - (ticketCount * 0.15)"
+										"value": "0.2 - (ticketCount * UpgradeCredibilityDrainRate)"
 									}
 								}
 							],
@@ -251,6 +370,10 @@
 										"variable": "PlatformCredibility",
 										"value": "clamp(PlatformCredibility, 0, 100)"
 									}
+								},
+								{
+									"callFunction": "UpdateCredibilityGadget",
+									"sid": 494954778597929
 								}
 							],
 							"sid": 282925741216228
@@ -426,7 +549,16 @@
 							"sid": 652241008140117
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 645313801786365,
+							"parameters": {
+								"layout": "endOfDay"
+							}
+						}
+					],
 					"sid": 376220468077672
 				}
 			],
@@ -465,6 +597,15 @@
 							"parameters": {
 								"variable": "ShiftSalary",
 								"value": "score"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 811980831288780,
+							"parameters": {
+								"variable": "PlatformCredibility",
+								"value": "3"
 							}
 						},
 						{
@@ -507,6 +648,20 @@
 								"string": "\"<div class='tooltip'>\n<img src='general_icon/icons8-check-mark-48.png' class='tooltip-icon' draggable='false' />\n  <div class='tooltip-content'>\n    <div class='tooltip-title'>Verification Success</div>\n    <div class='tooltip-message'>Report correctly handled. Platform credibility maintained.</div>\n  </div>\n</div>\"",
 								"selector": "\"\"",
 								"type": "one"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 576485511908028,
+							"parameters": {
+								"audio-file": {
+									"path": "Windows XP Balloon"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
 							}
 						},
 						{
@@ -564,7 +719,17 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 796302971264912,
+							"parameters": {
+								"variable": "PlatformCredibility",
+								"value": "5"
+							}
+						}
+					],
 					"sid": 628221603799287,
 					"children": [
 						{
@@ -719,6 +884,20 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 167411641383732,
+									"parameters": {
+										"audio-file": {
+											"path": "Windows XP Balloon"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 113701242659119,
@@ -806,87 +985,97 @@
 			"text": "tickets and dataset"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "load",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 247889327677388
-				}
-			],
-			"actions": [
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 555334699194060,
-					"parameters": {
-						"tag": "\"ticket\"",
-						"file": {
-							"path": "ticket.json"
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 808882084613704
 						}
-					}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 173490940197418,
+							"parameters": {
+								"tag": "\"ticket\"",
+								"file": {
+									"path": "ticket.json"
+								}
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 296631917949535,
+							"parameters": {
+								"tag": "\"factcheck\"",
+								"file": {
+									"path": "factcheck.json"
+								}
+							}
+						}
+					],
+					"sid": 994627464233748
 				},
 				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 555272458553123,
-					"parameters": {
-						"tag": "\"factcheck\"",
-						"file": {
-							"path": "factcheck.json"
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 892025061525064,
+							"parameters": {
+								"tag": "\"ticket\""
+							}
 						}
-					}
-				}
-			],
-			"sid": 452925653729510
-		},
-		{
-			"eventType": "block",
-			"conditions": [
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "ticketsJSON",
+							"sid": 633382444692094,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 378585001345346
+				},
 				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 824399166428040,
-					"parameters": {
-						"tag": "\"ticket\""
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 959590252881217,
+							"parameters": {
+								"tag": "\"factcheck\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "trustedDatabaseJSON",
+							"sid": 298040338035189,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 180084102281015
 				}
 			],
-			"actions": [
-				{
-					"id": "parse",
-					"objectClass": "ticketsJSON",
-					"sid": 922583180809608,
-					"parameters": {
-						"data": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 142417903973787
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 237093399675167,
-					"parameters": {
-						"tag": "\"factcheck\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "parse",
-					"objectClass": "trustedDatabaseJSON",
-					"sid": 663248481934025,
-					"parameters": {
-						"data": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 408603751456606
+			"sid": 695190476928890
 		},
 		{
 			"eventType": "group",
@@ -1644,13 +1833,79 @@
 			"sid": 663524606568494
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "TRUSTED DATABASE",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [],
-			"sid": 849376467833543
+			"functionName": "PlayMusic",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "musicName",
+					"type": "string",
+					"initialValue": "LonePeakMusic - 26 Library Of Babel -Retro Gaming Version-",
+					"comment": "",
+					"sid": 772796468789098
+				},
+				{
+					"name": "playrate",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 467802359001295
+				},
+				{
+					"name": "volume",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 150760980041029
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 654809964929150,
+					"parameters": {
+						"tag": "\"BGM\""
+					}
+				},
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 789885881729105,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "musicName",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"BGM\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 242324638973910,
+					"parameters": {
+						"tag": "\"BGM\"",
+						"playback-rate": "playrate"
+					}
+				},
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 375724583226522,
+					"parameters": {
+						"tag": "\"BGM\"",
+						"db": "volume"
+					}
+				}
+			],
+			"sid": 623501195503216
 		}
 	],
 	"sid": 442786421369605

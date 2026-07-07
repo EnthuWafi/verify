@@ -339,13 +339,12 @@
   margin: 0;
 }
 
-/* Active search layout adjustments */
 .db-workspace.active-mode {
   justify-content: flex-start;
 }
 
 .db-workspace.active-mode .db-hero-header {
-  display: none; /* Hide huge logo when browsing results to save space */
+  display: none;
 }
 
 .db-workspace.active-mode .db-search-bar {
@@ -424,7 +423,7 @@
   height: 100%;
   box-sizing: border-box;
   display: flex;
-  align-items: flex-start; /* Aligns icon to the top next to the title */
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 8px;
   cursor: default;
@@ -438,7 +437,6 @@
   image-rendering: pixelated;
 }
 
-/* Text wrapper containing title and message */
 .tooltip-content {
   display: flex;
   flex-direction: column;
@@ -499,12 +497,12 @@
   border: 2px inset #808080;
   padding: 8px;
   font-family: 'PerfectDOS', monospace;
-  font-size: 16px; /* Strict 16px for crisp pixels */
+  font-size: 16px;
   color: #00ff66;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Forces content to the top */
+  justify-content: flex-start;
   gap: 5px;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: grayscale;
@@ -512,7 +510,6 @@
   image-rendering: pixelated;
 }
 
-/* Keep your existing row and bar classes exactly the same here */
 .cmd-row { display: flex; justify-content: space-between; align-items: center; margin: 0; line-height: 1; }
 .cmd-label { color: #888888; }
 .cmd-bar-track { border: 1px solid #005522; background: #001a0a; height: 14px; width: 100%; padding: 1px; box-sizing: border-box; }
@@ -534,4 +531,42 @@
   animation: blink-animation 1s step-end infinite;
   vertical-align: bottom;
   margin-left: 2px;
+}
+
+.cmd-btn {
+  background: none;
+  border: none;
+  color: #00ff66;
+  font-family: 'PerfectDOS', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  text-align: left;
+}
+.cmd-btn:hover {
+  color: #ffffff;
+  background-color: #005522;
+}
+
+.cmd-btn:disabled {
+  color: #555555;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.cmd-menu-btn {
+  background: none;
+  border: none;
+  color: #00ff66;
+  font-family: 'PerfectDOS', monospace;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 4px 12px;
+  text-align: left;
+  line-height: 1;
+}
+
+.cmd-menu-btn:hover {
+  color: #00ff66;
+  background-color: #003311;
 }

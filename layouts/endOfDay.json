@@ -1,12 +1,12 @@
 {
-	"name": "start",
+	"name": "endOfDay",
 	"layers": [
 		{
 			"name": "background",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [],
-			"sid": 899120635783997,
+			"sid": 352548482438587,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -18,9 +18,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.09019607843137255,
-				0.09019607843137255,
-				0.09019607843137255,
+				0.2196078431372549,
+				0.2196078431372549,
+				0.2196078431372549,
 				1
 			],
 			"isTransparent": false,
@@ -37,64 +37,15 @@
 			"global": false
 		},
 		{
-			"name": "Layer 0",
+			"name": "html_layer",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "generalText",
-					"properties": {
-						"text": "Verify Please",
-						"enable-bbcode": true,
-						"font": "Perfect DOS VGA 437 Win",
-						"size": 71,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 31,
-					"sid": 349011091169990,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 331,
-						"y": 70,
-						"width": 714.0501760987019,
-						"height": 122.12143174580204,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 6.279011210968434
-					}
-				},
-				{
-					"type": "menuChoice",
+					"type": "cmdEndOfShift",
 					"properties": {
 						"tag": "div",
-						"content": "\"<div class='cmd-body' style='height: 100%; padding: 32px; display: flex; flex-direction: column; justify-content: center; align-items: center;'>\n  \n  <div style='display: flex; flex-direction: column; gap: 24px; align-items: flex-start; width: 100%; max-width: 320px;'>\n    \n    <div class='cmd-row' style='width: 100%; justify-content: flex-start; gap: 20px; align-items: center;'>\n      <span style='color: #888888; font-size: 24px;'>[1]</span>\n      <button id='menu-new' class='cmd-menu-btn'>NEW GAME</button>\n    </div>\n    \n    <div class='cmd-row' style='width: 100%; justify-content: flex-start; gap: 20px; align-items: center;'>\n      <span style='color: #888888; font-size: 24px;'>[2]</span>\n      <button id='menu-continue' class='cmd-menu-btn'>CONTINUE</button>\n    </div>\n\n    <div class='cmd-row' style='width: 100%; justify-content: flex-start; gap: 20px; align-items: center;'>\n      <span style='color: #888888; font-size: 24px;'>[3]</span>\n      <button id='menu-credit' class='cmd-menu-btn'>CREDITS</button>\n    </div>\n    \n  </div>\n\n  <div style='margin-top: 24px;'>\n    Select option to boot...<span class='cmd-cursor'></span>\n  </div>\n\n</div>\"",
+						"content": "<div class='cmd-body' style='height: 100%; padding: 16px; overflow-y: auto;'>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -120,18 +71,18 @@
 						"allow-text-selection": false,
 						"style-attribute": ""
 					},
-					"uid": 33,
-					"sid": 374742868216445,
+					"uid": 26,
+					"sid": 687773654043932,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 127,
-						"y": 334,
-						"width": 1082,
-						"height": 312,
+						"x": 33,
+						"y": 46,
+						"width": 1222,
+						"height": 654,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -145,21 +96,21 @@
 				{
 					"type": "generalText",
 					"properties": {
-						"text": "A Serious Game Proposal for Fake News and Information Verification",
+						"text": "command prompt",
 						"enable-bbcode": true,
 						"font": "Perfect DOS VGA 437 Win",
-						"size": 32,
+						"size": 16,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
 							1,
-							0.4,
+							1,
+							1,
 							1
 						],
 						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"vertical-alignment": "bottom",
 						"wrapping": "word",
 						"text-direction": "ltr",
 						"icon-set": -1,
@@ -167,18 +118,18 @@
 						"origin": "top-left",
 						"read-aloud": false
 					},
-					"uid": 34,
-					"sid": 553942939942411,
+					"uid": 27,
+					"sid": 500957340838956,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 264,
-						"y": 187,
-						"width": 850.0865580878499,
-						"height": 156.98338206738157,
+						"x": 34,
+						"y": 8,
+						"width": 253.01257449578196,
+						"height": 37,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -188,11 +139,109 @@
 							1
 						],
 						"z": 0,
-						"angle": 6.279011210968434
+						"angle": 0
+					}
+				},
+				{
+					"type": "generalText",
+					"properties": {
+						"text": "end of shift",
+						"enable-bbcode": true,
+						"font": "Perfect DOS VGA 437 Win",
+						"size": 16,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "bottom",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 29,
+					"sid": 231895503641784,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 492,
+						"y": 8,
+						"width": 253.01257449578196,
+						"height": 37,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "dayText",
+					"properties": {
+						"text": "day 0 completed",
+						"enable-bbcode": true,
+						"font": "Perfect DOS VGA 437 Win",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "bottom",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 30,
+					"sid": 435892033566767,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1056,
+						"y": 9,
+						"width": 200,
+						"height": 37,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
 					}
 				}
 			],
-			"sid": 306362791243672,
+			"sid": 764302077072558,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -204,13 +253,13 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0,
+				0,
+				0,
 				1
 			],
 			"isTransparent": true,
-			"sampling": "auto",
+			"sampling": "nearest",
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,
@@ -227,7 +276,7 @@
 			"overriden": 1,
 			"subLayers": [],
 			"instances": [],
-			"sid": 545778319534951,
+			"sid": 722423430242588,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": false,
@@ -258,7 +307,7 @@
 			"global": false
 		}
 	],
-	"sid": 563333081335399,
+	"sid": 299540327140085,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 1280,
@@ -268,5 +317,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "start"
+	"eventSheet": "end_of_day"
 }

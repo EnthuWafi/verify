@@ -1930,7 +1930,17 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 366565124688573,
+											"parameters": {
+												"variable": "titleBarHTML",
+												"value": "\"<img src='\"  & desktopIcon.iconFile & \"' width='16' height='16' draggable='false' style='padding-right: 10px'/><span>\" & desktopIcon.appName & \"</span>\""
+											}
+										}
+									],
 									"sid": 269680049184304,
 									"children": [
 										{
@@ -1963,19 +1973,10 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 665085604821483,
-													"parameters": {
-														"variable": "titleBarHTML",
-														"value": "desktopIcon.appName"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 103402644398633,
+													"sid": 266926695313504,
 													"parameters": {
 														"variable": "windowBodyHTML",
-														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' readonly value='' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'></textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete</button>\n      </div>\n    </fieldset>\n  </div>\n\n</div>\""
+														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' readonly value='' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'></textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete</button>\n      </div>\n    </fieldset>\n  </div>\n</div>\n<div class='status-bar' style='margin-top: 8px;'>\n<p class='status-bar-field'>Credibility Rate: <strong id='status-rate'></strong></p>\n<p class='status-bar-field'>Platform Credibility: <strong id='status-cred'></strong></p>\n<p class='status-bar-field'>Mistakes Left: <strong id='status-mistakes'></strong></p>\n  </div>\n\n\""
 													}
 												},
 												{
@@ -2089,13 +2090,12 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 369141351283686,
+													"sid": 465764069663267,
 													"parameters": {
-														"first-value": "titleBarHTML",
-														"comparison": 0,
+														"first-value": "windowBodyHTML",
+														"comparison": 1,
 														"second-value": "\"\""
-													},
-													"isInverted": true
+													}
 												}
 											],
 											"actions": [
@@ -2156,11 +2156,11 @@
 												{
 													"id": "set-content",
 													"objectClass": "windowBody",
-													"sid": 802540762668169,
+													"sid": 632792363603979,
 													"parameters": {
 														"content-type": "html",
 														"string": "windowBodyHTML",
-														"selector": "\".main-text-area\"",
+														"selector": "\".window-body\"",
 														"type": "one"
 													}
 												},
@@ -2564,11 +2564,11 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 353078176839961,
+									"sid": 788036525739066,
 									"parameters": {
 										"name": "\"tab\"",
-										"start-index": "1",
-										"end-index": "taskBarArray.Width - 1"
+										"start-index": "taskBarArray.Width - 1",
+										"end-index": "0"
 									}
 								}
 							],
@@ -3736,6 +3736,197 @@
 				}
 			],
 			"sid": 316600856130308
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "credibility GADGET",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "CreateHealthGadget",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 523607915168698,
+							"parameters": {
+								"variable": "systemWaiting",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 498475446938198,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "createdWindowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 279210833878994
+						},
+						{
+							"eventType": "variable",
+							"name": "titleBarHTML",
+							"type": "string",
+							"initialValue": "<img src='image_icon/program.png' width='12' height='12' draggable='false' style='padding-right: 10px'/><span>sys_montor.exe</span>",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 823055917335550
+						},
+						{
+							"eventType": "variable",
+							"name": "windowBodyHTML",
+							"type": "string",
+							"initialValue": "<div class='cmd-body' style='height: 100%;'>   <div class='cmd-row'>     <span class='cmd-label'>INDEX:</span>     <strong id='cmd-cred-val'>100.0%</strong>   </div>   <div class='cmd-bar-track'>     <div id='cmd-bar-fill' class='cmd-bar-fill'></div>   </div>   <div class='cmd-row'>     <span class='cmd-label'>DRIFT:</span>     <strong id='cmd-drift-val' class='rate-positive'>+0.20%/s</strong>   </div>   <div class='cmd-row' style='font-size: 9px; color: #555555; margin-top: 2px;'>     <span>DAEMON_STATUS:</span>     <span id='cmd-status-text' style='color: #00ff66;'>ONLINE</span>   </div> </div>",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 579497974567631
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 380899989997917,
+									"parameters": {
+										"variable": "createdWindowUID",
+										"value": "Functions.createWindow(\"windows_layer\")"
+									}
+								}
+							],
+							"sid": 164221741274839
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "windowBody",
+									"sid": 708224666775489,
+									"parameters": {
+										"unique-id": "createdWindowUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 801071849120305,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 188258282291548,
+											"parameters": {
+												"content-type": "html",
+												"string": "titleBarHTML",
+												"selector": "\".title-bar-text\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 538995175102184,
+											"parameters": {
+												"seconds": "UpgradeCPUTime",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 574890167227198,
+											"parameters": {
+												"variable": "systemWaiting",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "windowBody",
+											"sid": 640429578157026,
+											"parameters": {
+												"content-type": "html",
+												"string": "windowBodyHTML",
+												"selector": "\".window-body\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "windowBody",
+											"sid": 110942025730214,
+											"parameters": {
+												"instance-variable": "min_width",
+												"value": "300"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "windowBody",
+											"sid": 605267804252902,
+											"parameters": {
+												"instance-variable": "min_height",
+												"value": "200"
+											}
+										},
+										{
+											"callFunction": "ResizeWindow",
+											"sid": 108788540101116,
+											"parameters": [
+												"windowBody.UID"
+											]
+										}
+									],
+									"sid": 526222882689778
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "UpdateCredibilityGadget",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 522900545858670,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 465029576442565
+						}
+					]
+				}
+			],
+			"sid": 711066805573331
 		}
 	],
 	"sid": 735513248348554

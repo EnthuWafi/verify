@@ -84,13 +84,6 @@
 			"bundled": false
 		},
 		{
-			"type": "behavior",
-			"id": "Fade",
-			"name": "Fade",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
 			"type": "effect",
 			"id": "blurhorizontal",
 			"name": "Blur horizontal",
@@ -245,9 +238,9 @@
 		"font": {
 			"items": [
 				{
-					"name": "monogram-extended.ttf",
+					"name": "Perfect DOS VGA 437 Win.ttf",
 					"type": "application/font-sfnt",
-					"sid": 540625376188898,
+					"sid": 228346472739370,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -635,6 +628,20 @@
 					],
 					"subfolders": [],
 					"name": "general_icon"
+				},
+				{
+					"items": [
+						{
+							"name": "Perfect DOS VGA 437 Win.ttf",
+							"type": "application/font-sfnt",
+							"sid": 436624936381190,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "font"
 				}
 			]
 		}

@@ -90,6 +90,16 @@
 			"sid": 808311251008330
 		},
 		{
+			"eventType": "variable",
+			"name": "PlatformCredibilityRate",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 865573603834367
+		},
+		{
 			"eventType": "comment",
 			"text": "difficulty"
 		},
@@ -146,6 +156,126 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 208412348019359
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "crediblity logic",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "CalculatePlatformCredibilityRate",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 232681360473999,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ticketCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 743766030558293
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 127982560022183,
+									"parameters": {
+										"variable": "ticketCount",
+										"value": "reportTicketArray.Width"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 779351070962993,
+									"parameters": {
+										"variable": "PlatformCredibilityRate",
+										"value": "0.2 - (ticketCount * 0.15)"
+									}
+								}
+							],
+							"sid": 318815736039966
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 931267171764673
+						}
+					],
+					"actions": [],
+					"sid": 695862557774612,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "CalculatePlatformCredibilityRate",
+									"sid": 104195415615624
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 204580120526091,
+									"parameters": {
+										"variable": "PlatformCredibility",
+										"value": "PlatformCredibilityRate * dt"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 476690531379754,
+									"parameters": {
+										"variable": "PlatformCredibility",
+										"value": "clamp(PlatformCredibility, 0, 100)"
+									}
+								}
+							],
+							"sid": 282925741216228
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 436901813557449
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CreateHealthGadget",
+							"sid": 957137149718930
+						}
+					],
+					"sid": 989405108359630
+				}
+			],
+			"sid": 939124944060005
 		},
 		{
 			"eventType": "group",
@@ -362,10 +492,10 @@
 						{
 							"id": "set-size",
 							"objectClass": "tooltipHTML",
-							"sid": 962947237256138,
+							"sid": 887007626492138,
 							"parameters": {
-								"width": "200",
-								"height": "100"
+								"width": "300",
+								"height": "75"
 							}
 						},
 						{
@@ -378,6 +508,40 @@
 								"selector": "\"\"",
 								"type": "one"
 							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 317438371321657,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-content-class",
+							"objectClass": "tooltipHTML",
+							"sid": 367680893349601,
+							"parameters": {
+								"mode": "add",
+								"class": "\"fade-out\"",
+								"selector": "\".tooltip\"",
+								"type": "one"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 942997199990191,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "tooltipHTML",
+							"sid": 859425006011248
 						}
 					],
 					"sid": 494012164659471
@@ -537,10 +701,10 @@
 								{
 									"id": "set-size",
 									"objectClass": "tooltipHTML",
-									"sid": 479397227236421,
+									"sid": 775406032638770,
 									"parameters": {
-										"width": "400",
-										"height": "100"
+										"width": "300",
+										"height": "75"
 									}
 								},
 								{
@@ -553,36 +717,45 @@
 										"selector": "\"\"",
 										"type": "one"
 									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 113701242659119,
+									"parameters": {
+										"seconds": "2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-content-class",
+									"objectClass": "tooltipHTML",
+									"sid": 650838179232253,
+									"parameters": {
+										"mode": "add",
+										"class": "\"fade-out\"",
+										"selector": "\".tooltip\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 580307041764190,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "tooltipHTML",
+									"sid": 874375524703702
 								}
 							],
 							"sid": 465633553963570
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-wait-finished",
-							"objectClass": "tooltipHTML",
-							"sid": 856226628842329,
-							"behaviorType": "Fade"
-						}
-					],
-					"actions": [
-						{
-							"id": "set-content-class",
-							"objectClass": "tooltipHTML",
-							"sid": 606377419228281,
-							"parameters": {
-								"mode": "add",
-								"class": "\"fade-out\"",
-								"selector": "\".tooltip\"",
-								"type": "one"
-							}
-						}
-					],
-					"sid": 655968218008631
 				},
 				{
 					"eventType": "block",
@@ -598,13 +771,29 @@
 					],
 					"actions": [
 						{
-							"id": "set-wait-time",
+							"id": "set-content-class",
 							"objectClass": "tooltipHTML",
-							"sid": 130542531878590,
-							"behaviorType": "Fade",
+							"sid": 781935777805201,
 							"parameters": {
-								"wait-time": "0"
+								"mode": "add",
+								"class": "\"fade-out\"",
+								"selector": "\".tooltip\"",
+								"type": "one"
 							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 490281065024420,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "tooltipHTML",
+							"sid": 111349067792906
 						}
 					],
 					"sid": 140051606863352

@@ -45,7 +45,7 @@
 					"type": "taskbar",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\">\n    <img src='image_icon/tools.png' width='16' height='16' draggable='false' style='padding-right: 10px'/>\n    <span id=\"system-clock\">00:00</span>\n  </div>\n</div>",
+						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\" system-tray status-bar-field\">\n    <img src='image_icon/tools.png' width='16' height='16' draggable='false' style='padding-right: 10px'/>\n    <span id=\"system-clock\">00:00</span>\n  </div>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",

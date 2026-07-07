@@ -94,7 +94,7 @@
 					"type": "windowBody",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"window window-construct\">\n  <div class=\"title-bar window-construct\">\n    <div class=\"title-bar-text\">Window</div>\n  </div>\n  \n  <div class=\"window-body window-construct\">\n    \n    <div class=\"main-text-area\">\n      <p style=\"margin-top: 0; font-weight: bold;\">User Report Ticket</p>\n      <p>Handle: @BBC_Nevvs</p>\n    </div>\n    \n\n  </div>\n</div>",
+						"content": "<div class=\"window window-construct\">\n  <div class=\"title-bar window-construct\">\n    <div class=\"title-bar-text\">Window</div>\n  </div>\n  \n  <div class=\"window-body window-construct\">\n    \n    <div class=\"main-text-area\">\n    </div>\n    \n\n  </div>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -234,7 +234,7 @@
 					"type": "taskbar",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\"status-bar-field\" id=\"system-clock\">\n    00:00\n  </div>\n</div>",
+						"content": "<div class=\"taskbar\">\n  <div class=\"start-wrapper\">\n    <button class=\"start-btn\">Start\n    </button>\n    <div class=\"taskbar-divider\"></div>\n  </div>\n\n  <div class=\"taskbar-tabs\">\n  </div>\n\n  <div class=\" system-tray status-bar-field\">\n    <img src='image_icon/tools.png' width='16' height='16' draggable='false' style='padding-right: 10px'/>\n    <span id=\"system-clock\">00:00</span>\n  </div>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -495,18 +495,7 @@
 					"sid": 378082313482485,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0.5,
-								"wait-time": 2,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
+					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {

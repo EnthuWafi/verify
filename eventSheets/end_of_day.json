@@ -84,6 +84,42 @@
 			"sid": 363325253998877
 		},
 		{
+			"eventType": "variable",
+			"name": "loseReason",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 793618729847254
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 320574614576237
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "LayoutVisualTransition",
+					"sid": 508341980512955
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 315470353497768,
+					"parameters": {
+						"variable": "systemWaiting",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 934073730400362
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -92,6 +128,14 @@
 					"sid": 469749464951176,
 					"parameters": {
 						"variable": "isWinning"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 753464583763054,
+					"parameters": {
+						"variable": "isLoadingGame"
 					}
 				}
 			],
@@ -108,18 +152,6 @@
 						}
 					],
 					"actions": [
-						{
-							"callFunction": "CalculateEndofShift",
-							"sid": 682804729972824
-						},
-						{
-							"id": "set-text",
-							"objectClass": "dayText",
-							"sid": 961728035879561,
-							"parameters": {
-								"text": "\"day \" & currentDay & \" completed\""
-							}
-						},
 						{
 							"callFunction": "WriteCMDLineByLine",
 							"sid": 715266735644828,
@@ -174,6 +206,14 @@
 							"conditions": [],
 							"actions": [
 								{
+									"id": "set-text",
+									"objectClass": "dayText",
+									"sid": 305831646000851,
+									"parameters": {
+										"text": "\"day \" & currentDay & \" completed\""
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 317429025302023,
@@ -211,6 +251,723 @@
 							"sid": 436132139390685
 						}
 					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "upgrades",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-id",
+									"objectClass": "cmdEndOfShift",
+									"sid": 440880793605639,
+									"parameters": {
+										"id": "\"upg-cpu\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 762943548430755,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 660840743534587,
+											"parameters": {
+												"first-value": "TotalSavings",
+												"comparison": 5,
+												"second-value": "20"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 361523859537815,
+											"parameters": {
+												"variable": "upgradeCPU"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 732821831742128,
+											"parameters": {
+												"variable": "upgradeCPU",
+												"value": "true"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 359602514697437,
+											"parameters": {
+												"variable": "TotalSavings",
+												"value": "20"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "cmdEndOfShift",
+											"sid": 355061864702018,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"$\" & TotalSavings",
+												"selector": "\"#eos-total\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "cmdEndOfShift",
+											"sid": 890649528498268,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"[ BOUGHT ]\"",
+												"selector": "\"#upg-cpu\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-attribute",
+											"objectClass": "cmdEndOfShift",
+											"sid": 785822246235929,
+											"parameters": {
+												"mode": "set",
+												"attribute": "\"disabled\"",
+												"value": "\"true\"",
+												"selector": "\"#upg-cpu\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 318035825786540,
+											"parameters": {
+												"audio-file": {
+													"path": "cash-register-sound-fx"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 637676262097387
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 314901572260664
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ChangeCursorStyle",
+											"sid": 608300837723655,
+											"parameters": [
+												"\"NotAllowed\""
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 638603504163076,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "ChangeCursorStyle",
+											"sid": 802790061586452,
+											"parameters": [
+												"\"Normal\""
+											]
+										}
+									],
+									"sid": 874338184487129
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-id",
+									"objectClass": "cmdEndOfShift",
+									"sid": 703694626508905,
+									"parameters": {
+										"id": "\"upg-net\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 660500641313703,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 266942970346122,
+											"parameters": {
+												"first-value": "TotalSavings",
+												"comparison": 5,
+												"second-value": "30"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 584960085953997,
+											"parameters": {
+												"variable": "upgradeNetwork"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 431839144481598,
+											"parameters": {
+												"variable": "upgradeNetwork",
+												"value": "true"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 190510686940298,
+											"parameters": {
+												"variable": "TotalSavings",
+												"value": "30"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "cmdEndOfShift",
+											"sid": 401476528512425,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"$\" & TotalSavings",
+												"selector": "\"#eos-total\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "cmdEndOfShift",
+											"sid": 465101269781655,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"[ BOUGHT ]\"",
+												"selector": "\"#upg-net\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-attribute",
+											"objectClass": "cmdEndOfShift",
+											"sid": 421946718595264,
+											"parameters": {
+												"mode": "set",
+												"attribute": "\"disabled\"",
+												"value": "\"true\"",
+												"selector": "\"#upg-net\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 353061422287460,
+											"parameters": {
+												"audio-file": {
+													"path": "cash-register-sound-fx"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 585415617681811
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 479760756932994
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ChangeCursorStyle",
+											"sid": 446833171552918,
+											"parameters": [
+												"\"NotAllowed\""
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 496330277249641,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "ChangeCursorStyle",
+											"sid": 673893832029564,
+											"parameters": [
+												"\"Normal\""
+											]
+										}
+									],
+									"sid": 414176468417090
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked-id",
+									"objectClass": "cmdEndOfShift",
+									"sid": 308839154418690,
+									"parameters": {
+										"id": "\"upg-drain\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 383092432984268,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 639694477179633,
+											"parameters": {
+												"first-value": "TotalSavings",
+												"comparison": 5,
+												"second-value": "40"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 435497963444957,
+											"parameters": {
+												"variable": "upgradeRate"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 537560225651567,
+											"parameters": {
+												"variable": "upgradeRate",
+												"value": "true"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 937921872599406,
+											"parameters": {
+												"variable": "TotalSavings",
+												"value": "40"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "cmdEndOfShift",
+											"sid": 498126071640289,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"$\" & TotalSavings",
+												"selector": "\"#eos-total\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content",
+											"objectClass": "cmdEndOfShift",
+											"sid": 606008293420775,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"[ BOUGHT ]\"",
+												"selector": "\"#upg-drain\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "set-content-attribute",
+											"objectClass": "cmdEndOfShift",
+											"sid": 677897364823111,
+											"parameters": {
+												"mode": "set",
+												"attribute": "\"disabled\"",
+												"value": "\"true\"",
+												"selector": "\"#upg-drain\"",
+												"type": "one"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 182976464235598,
+											"parameters": {
+												"audio-file": {
+													"path": "cash-register-sound-fx"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 245988684093796
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 885104997241905
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ChangeCursorStyle",
+											"sid": 637824796934776,
+											"parameters": [
+												"\"NotAllowed\""
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 827226752863787,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "ChangeCursorStyle",
+											"sid": 973034996832001,
+											"parameters": [
+												"\"Normal\""
+											]
+										}
+									],
+									"sid": 685677285076889
+								}
+							]
+						}
+					],
+					"sid": 689327970530986
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "cmdEndOfShift",
+							"sid": 678913280737934,
+							"parameters": {
+								"id": "\"eos-proceed\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 405280690177301,
+							"parameters": {
+								"variable": "isLoadingGame"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 336595871526832,
+							"parameters": {
+								"key": "\"currentDay\"",
+								"value": "currentDay"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 831675175800718,
+							"parameters": {
+								"key": "\"ShiftSalary\"",
+								"value": "ShiftSalary"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 886348369272643,
+							"parameters": {
+								"key": "\"ShiftPenalty\"",
+								"value": "ShiftPenalty"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 210219314414761,
+							"parameters": {
+								"key": "\"TotalSavings\"",
+								"value": "TotalSavings"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 903712491341448,
+							"parameters": {
+								"key": "\"upgradeCPU\"",
+								"value": "upgradeCPU ? 1 : 0"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 488481523858599,
+							"parameters": {
+								"key": "\"upgradeNetwork\"",
+								"value": "upgradeNetwork ? 1 : 0"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 330117120834070,
+							"parameters": {
+								"key": "\"upgradeRate\"",
+								"value": "upgradeRate ? 1 : 0"
+							}
+						},
+						{
+							"callFunction": "ProceedToNextLevel",
+							"sid": 518367459638980
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 504570652014585,
+							"parameters": {
+								"audio-file": {
+									"path": "button-click"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 338436918678932
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "cmdEndOfShift",
+							"sid": 699737756725834,
+							"parameters": {
+								"id": "\"eos-proceed\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 338291071866080,
+							"parameters": {
+								"variable": "isLoadingGame"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LayoutChange",
+							"sid": 136949780970407,
+							"disabled": true,
+							"parameters": [
+								"\"level\" & currentDay"
+							]
+						},
+						{
+							"callFunction": "ProceedToNextLevel",
+							"sid": 515956456696802
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 253709745857944,
+							"parameters": {
+								"audio-file": {
+									"path": "button-click"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 225502485137707
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 969730013276671,
+					"parameters": {
+						"variable": "isWinning"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 457522984035161,
+					"parameters": {
+						"variable": "isLoadingGame"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 843489475619584,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 947349790065235
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 914840756678803,
+							"parameters": {
+								"audio-file": {
+									"path": "blue-screen-of-death"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dayText",
+							"sid": 869368641028774,
+							"parameters": {
+								"text": "\"day \" & currentDay & \" failed\""
+							}
+						},
+						{
+							"callFunction": "WriteCMDLineByLine",
+							"sid": 879061524492533,
+							"parameters": [
+								"\"<div>Verify.OS v1.0.0</div>\n  <div>Copyright 1995. All rights reserved.</div>\n  <br>\n  <div>C:\\&gt; employment.exe</div>\n  <br>\""
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 423724131483644,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "WriteCMDLineByLine",
+							"sid": 321069581715506,
+							"parameters": [
+								"\"<div>'employment' is not recognized as an internal or external command, operable program or batch file.</div>\n<br>\n<div class='rate-negative'>[NOTICE: USER CREDENTIALS REVOKED]</div>\n<div>\" & loseReason & \"</div>\n<div>Please contact the HR team for more information.</div>\n<br>\n<div style='text-align: center; margin-top: 32px;'>\n  <button id='eos-quit' class='cmd-btn'>[ RETURN TO MAIN MENU ]</button>\n</div>\""
+							]
+						}
+					],
+					"sid": 318695991701368
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked-id",
+							"objectClass": "cmdEndOfShift",
+							"sid": 974848241760928,
+							"parameters": {
+								"id": "\"eos-quit\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResetGameVariables",
+							"sid": 707256712613427
+						},
+						{
+							"callFunction": "LayoutChange",
+							"sid": 529687114008483,
+							"parameters": [
+								"\"start\""
+							]
+						}
+					],
+					"sid": 860840444365047
 				}
 			]
 		},
@@ -255,7 +1012,7 @@
 								"        const temp = document.createElement('div');",
 								"        temp.innerHTML = htmlString;",
 								"        ",
-								"        // Extract all the top-level HTML tags (the rows, br tags, etc.)",
+								"        // Extract all the top-level HTML tags",
 								"        const lines = Array.from(temp.children);",
 								"        let i = 0;",
 								"",
@@ -263,11 +1020,13 @@
 								"            if (i < lines.length) {",
 								"                const currentLine = lines[i];",
 								"                ",
-								"                // Append the line and auto-scroll to the bottom",
+								"                // Append and scroll to bottom",
 								"                wrapper.appendChild(currentLine);",
 								"                wrapper.scrollTop = wrapper.scrollHeight;",
 								"                i++;",
 								"                ",
+								"                runtime.callFunction(\"PlaySound\", \"typewriter-key-1\");",
+								"",
 								"                let nextDelay = 100; ",
 								"                ",
 								"                if (i < lines.length) {",
@@ -282,12 +1041,10 @@
 								"                    }",
 								"                }",
 								"                ",
-								"                // Trigger the next line after the calculated delay",
 								"                setTimeout(printNextLine, nextDelay);",
 								"            }",
 								"        };",
 								"        ",
-								"        // Start the printing sequence",
 								"        setTimeout(printNextLine, 500);",
 								"    }",
 								"}",
@@ -382,12 +1139,11 @@
 					],
 					"actions": [
 						{
-							"id": "go-to-layout-by-name",
-							"objectClass": "System",
-							"sid": 270382023841495,
-							"parameters": {
-								"layout": "\"level\" & (currentDay + 1)"
-							}
+							"callFunction": "LayoutChange",
+							"sid": 144636418065612,
+							"parameters": [
+								"\"level\" & (currentDay + 1)"
+							]
 						}
 					],
 					"sid": 596097102025616
@@ -403,548 +1159,14 @@
 					],
 					"actions": [
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 826861773115073,
-							"parameters": {
-								"layout": "win"
-							}
+							"callFunction": "LayoutChange",
+							"sid": 632254938417369,
+							"parameters": [
+								"\"win\""
+							]
 						}
 					],
 					"sid": 388107954983507
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked-id",
-					"objectClass": "cmdEndOfShift",
-					"sid": 524341356401644,
-					"parameters": {
-						"id": "\"eos-proceed\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-item",
-					"objectClass": "LocalStorage",
-					"sid": 718008622718217,
-					"parameters": {
-						"key": "\"currentDay\"",
-						"value": "currentDay"
-					}
-				},
-				{
-					"id": "set-item",
-					"objectClass": "LocalStorage",
-					"sid": 141321858130150,
-					"parameters": {
-						"key": "\"TotalSavings\"",
-						"value": "TotalSavings"
-					}
-				},
-				{
-					"id": "set-item",
-					"objectClass": "LocalStorage",
-					"sid": 336617158919934,
-					"parameters": {
-						"key": "\"upgradeCPU\"",
-						"value": "upgradeCPU ? 1 : 0"
-					}
-				},
-				{
-					"id": "set-item",
-					"objectClass": "LocalStorage",
-					"sid": 839590809132449,
-					"parameters": {
-						"key": "\"upgradeNetwork\"",
-						"value": "upgradeNetwork ? 1 : 0"
-					}
-				},
-				{
-					"id": "set-item",
-					"objectClass": "LocalStorage",
-					"sid": 723907635876746,
-					"parameters": {
-						"key": "\"upgradeRate\"",
-						"value": "upgradeRate ? 1 : 0"
-					}
-				},
-				{
-					"callFunction": "ProceedToNextLevel",
-					"sid": 313100742144104
-				}
-			],
-			"sid": 243234874691913
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "upgrades",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked-id",
-							"objectClass": "cmdEndOfShift",
-							"sid": 822498277105763,
-							"parameters": {
-								"id": "\"upg-cpu\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 140335263640411,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 433668297811074,
-									"parameters": {
-										"first-value": "TotalSavings",
-										"comparison": 5,
-										"second-value": "20"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 154282754280701,
-									"parameters": {
-										"variable": "upgradeCPU"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 781785944856806,
-									"parameters": {
-										"variable": "upgradeCPU",
-										"value": "true"
-									}
-								},
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 448294744373609,
-									"parameters": {
-										"variable": "TotalSavings",
-										"value": "20"
-									}
-								},
-								{
-									"id": "set-content",
-									"objectClass": "cmdEndOfShift",
-									"sid": 924730875245291,
-									"parameters": {
-										"content-type": "html",
-										"string": "\"$\" & TotalSavings",
-										"selector": "\"#eos-total\"",
-										"type": "one"
-									}
-								},
-								{
-									"id": "set-content",
-									"objectClass": "cmdEndOfShift",
-									"sid": 694783315628958,
-									"parameters": {
-										"content-type": "html",
-										"string": "\"[ BOUGHT ]\"",
-										"selector": "\"#upg-cpu\"",
-										"type": "one"
-									}
-								},
-								{
-									"id": "set-content-attribute",
-									"objectClass": "cmdEndOfShift",
-									"sid": 510971750041211,
-									"parameters": {
-										"mode": "set",
-										"attribute": "\"disabled\"",
-										"value": "\"true\"",
-										"selector": "\"#upg-cpu\"",
-										"type": "one"
-									}
-								}
-							],
-							"sid": 872003881859471
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 301490572732722
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "ChangeCursorStyle",
-									"sid": 992826965833343,
-									"parameters": [
-										"\"NotAllowed\""
-									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 133587886282354,
-									"parameters": {
-										"seconds": "1.0",
-										"use-timescale": true
-									}
-								},
-								{
-									"callFunction": "ChangeCursorStyle",
-									"sid": 574362333247733,
-									"parameters": [
-										"\"Normal\""
-									]
-								}
-							],
-							"sid": 244911052842387
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked-id",
-							"objectClass": "cmdEndOfShift",
-							"sid": 216153793928952,
-							"parameters": {
-								"id": "\"upg-net\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 463896679511756,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 211771939854617,
-									"parameters": {
-										"first-value": "TotalSavings",
-										"comparison": 5,
-										"second-value": "30"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 621713806016989,
-									"parameters": {
-										"variable": "upgradeNetwork"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 750748685926968,
-									"parameters": {
-										"variable": "upgradeNetwork",
-										"value": "true"
-									}
-								},
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 528231654907145,
-									"parameters": {
-										"variable": "TotalSavings",
-										"value": "30"
-									}
-								},
-								{
-									"id": "set-content",
-									"objectClass": "cmdEndOfShift",
-									"sid": 593526710698359,
-									"parameters": {
-										"content-type": "html",
-										"string": "\"$\" & TotalSavings",
-										"selector": "\"#eos-total\"",
-										"type": "one"
-									}
-								},
-								{
-									"id": "set-content",
-									"objectClass": "cmdEndOfShift",
-									"sid": 173705449514491,
-									"parameters": {
-										"content-type": "html",
-										"string": "\"[ BOUGHT ]\"",
-										"selector": "\"#upg-net\"",
-										"type": "one"
-									}
-								},
-								{
-									"id": "set-content-attribute",
-									"objectClass": "cmdEndOfShift",
-									"sid": 211728351668352,
-									"parameters": {
-										"mode": "set",
-										"attribute": "\"disabled\"",
-										"value": "\"true\"",
-										"selector": "\"#upg-net\"",
-										"type": "one"
-									}
-								}
-							],
-							"sid": 920712750717667
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 794335512294477
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "ChangeCursorStyle",
-									"sid": 367521636252900,
-									"parameters": [
-										"\"NotAllowed\""
-									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 526254488817903,
-									"parameters": {
-										"seconds": "1.0",
-										"use-timescale": true
-									}
-								},
-								{
-									"callFunction": "ChangeCursorStyle",
-									"sid": 326879842610901,
-									"parameters": [
-										"\"Normal\""
-									]
-								}
-							],
-							"sid": 964807994197979
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked-id",
-							"objectClass": "cmdEndOfShift",
-							"sid": 614946020745502,
-							"parameters": {
-								"id": "\"upg-drain\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 722285081814867,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 207266772603481,
-									"parameters": {
-										"first-value": "TotalSavings",
-										"comparison": 5,
-										"second-value": "40"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 641619438837781,
-									"parameters": {
-										"variable": "upgradeRate"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 154576753401907,
-									"parameters": {
-										"variable": "upgradeRate",
-										"value": "true"
-									}
-								},
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 892528739241942,
-									"parameters": {
-										"variable": "TotalSavings",
-										"value": "40"
-									}
-								},
-								{
-									"id": "set-content",
-									"objectClass": "cmdEndOfShift",
-									"sid": 564404592488384,
-									"parameters": {
-										"content-type": "html",
-										"string": "\"$\" & TotalSavings",
-										"selector": "\"#eos-total\"",
-										"type": "one"
-									}
-								},
-								{
-									"id": "set-content",
-									"objectClass": "cmdEndOfShift",
-									"sid": 809509822924536,
-									"parameters": {
-										"content-type": "html",
-										"string": "\"[ BOUGHT ]\"",
-										"selector": "\"#upg-drain\"",
-										"type": "one"
-									}
-								},
-								{
-									"id": "set-content-attribute",
-									"objectClass": "cmdEndOfShift",
-									"sid": 846402912926342,
-									"parameters": {
-										"mode": "set",
-										"attribute": "\"disabled\"",
-										"value": "\"true\"",
-										"selector": "\"#upg-drain\"",
-										"type": "one"
-									}
-								}
-							],
-							"sid": 229764651745117
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 615217117395944
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "ChangeCursorStyle",
-									"sid": 376409609412364,
-									"parameters": [
-										"\"NotAllowed\""
-									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 746244543687398,
-									"parameters": {
-										"seconds": "1.0",
-										"use-timescale": true
-									}
-								},
-								{
-									"callFunction": "ChangeCursorStyle",
-									"sid": 838667811151064,
-									"parameters": [
-										"\"Normal\""
-									]
-								}
-							],
-							"sid": 552621316817500
-						}
-					]
-				}
-			],
-			"sid": 960307771229322
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 654676383186422,
-					"parameters": {
-						"variable": "isWinning"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [],
-			"sid": 752074272577209,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 414595134460223
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "dayText",
-							"sid": 758074547240670,
-							"parameters": {
-								"text": "\"day \" & currentDay & \" failed\""
-							}
-						},
-						{
-							"callFunction": "WriteCMDLineByLine",
-							"sid": 325791553609575,
-							"parameters": [
-								"\"<div>Verify.OS v1.0.0</div>\n  <div>Copyright 1995. All rights reserved.</div>\n  <br>\n  <div>C:\\&gt; employment.exe</div>\n  <br>\""
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 893787352678845,
-							"parameters": {
-								"seconds": "1",
-								"use-timescale": true
-							}
-						},
-						{
-							"callFunction": "WriteCMDLineByLine",
-							"sid": 945796319164708,
-							"parameters": [
-								"\"<div>'employment' is not recognized as an internal or external command, operable program or batch file.</div>\n<br>\n<div class='rate-negative'>[NOTICE: USER CREDENTIALS REVOKED]</div>\n<div>Platform credibility dropped below acceptable thresholds. Your profile has been purged from the company.</div>\n<div>Please contact the HR team for more information.</div>\n<br>\n<div style='text-align: center; margin-top: 32px;'>\n  <button id='eos-quit' class='cmd-btn'>[ RETURN TO MAIN MENU ]</button>\n</div>\""
-							]
-						}
-					],
-					"sid": 656658344378898
 				}
 			]
 		},
@@ -1058,9 +1280,25 @@
 				{
 					"id": "reset-eventvar",
 					"objectClass": "System",
+					"sid": 387452554118854,
+					"parameters": {
+						"variable": "ShiftTimer"
+					}
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
 					"sid": 729870527513976,
 					"parameters": {
 						"variable": "ShiftPenalty"
+					}
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 201789402383026,
+					"parameters": {
+						"variable": "isLoadingGame"
 					}
 				},
 				{
@@ -1069,34 +1307,6 @@
 				}
 			],
 			"sid": 511799555831553
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked-id",
-					"objectClass": "cmdEndOfShift",
-					"sid": 218247094868344,
-					"parameters": {
-						"id": "\"eos-quit\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "ResetGameVariables",
-					"sid": 607999677774377
-				},
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 742472664272139,
-					"parameters": {
-						"layout": "start"
-					}
-				}
-			],
-			"sid": 683441029932160
 		}
 	],
 	"sid": 723821180396140

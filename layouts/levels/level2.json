@@ -1,16 +1,16 @@
 {
-	"name": "objects",
+	"name": "level2",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "background",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [],
-			"sid": 538530691765770,
+			"sid": 269892447875295,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
-			"isHTMLElementsLayer": true,
+			"isHTMLElementsLayer": false,
 			"color": [
 				1,
 				1,
@@ -18,9 +18,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0,
+				0.48627450980392156,
+				0.8588235294117647,
 				1
 			],
 			"isTransparent": false,
@@ -41,195 +41,6 @@
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
-				{
-					"type": "generalText",
-					"properties": {
-						"text": "Text",
-						"enable-bbcode": true,
-						"font": "sans-serif",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 2,
-					"sid": 712454272549741,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 501,
-						"y": 25,
-						"width": 40.01257449578196,
-						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "windowBody",
-					"properties": {
-						"tag": "div",
-						"content": "<div class=\"window window-construct\">\n  <div class=\"title-bar window-construct\">\n    <div class=\"title-bar-text\">Window</div>\n  </div>\n  \n  <div class=\"window-body window-construct\">\n    \n    <div class=\"main-text-area\">\n    </div>\n    \n\n  </div>\n</div>",
-						"content-type": "html",
-						"initially-visible": true,
-						"id": "",
-						"class": "",
-						"allow-context-menu": false,
-						"stop-input-events": "no",
-						"origin": "top-left",
-						"set-color": true,
-						"default-color": [
-							0,
-							0,
-							0,
-							0
-						],
-						"set-background-color": false,
-						"default-background-color": [
-							1,
-							1,
-							1,
-							0
-						],
-						"auto-font-size": true,
-						"allow-text-selection": false,
-						"style-attribute": ""
-					},
-					"uid": 3,
-					"sid": 755450860416380,
-					"tags": "",
-					"instanceVariables": {
-						"min_width": 200,
-						"min_height": 130,
-						"max_width": 1280,
-						"max_height": 720,
-						"is_minimized": false,
-						"appName": "",
-						"desktopIconUID": 0
-					},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 342.98211669921875,
-						"y": 236.01585388183594,
-						"width": 344.0736824387686,
-						"height": 248.689281017114,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
-					"type": "titleBar",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 5,
-					"sid": 390887689963014,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 343.13372802734375,
-						"y": 237.2807846069336,
-						"width": 344.1194634746961,
-						"height": 30.382263,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "resizeHandle",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 6,
-					"sid": 935705528243551,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 665.3765579590552,
-						"y": 459.1882044701027,
-						"width": 35.30114378098818,
-						"height": 36.7925269029916,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
 				{
 					"type": "taskbar",
 					"properties": {
@@ -260,8 +71,8 @@
 						"allow-text-selection": false,
 						"style-attribute": ""
 					},
-					"uid": 8,
-					"sid": 565298880202542,
+					"uid": 54,
+					"sid": 519844879401551,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
@@ -286,7 +97,7 @@
 					"type": "desktopIcon",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/this_computer.png\" width=\"32\" height=\"32\" draggable=\"false\" alt=\"My Computer\">\n  <span class=\"desktop-span\">My Computer</span>\n</div>",
+						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/world.png\" draggable=\"false\">\n  <span class=\"desktop-span\">R_Feed.exe</span>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
@@ -312,22 +123,22 @@
 						"allow-text-selection": false,
 						"style-attribute": ""
 					},
-					"uid": 9,
-					"sid": 985357467099132,
+					"uid": 55,
+					"sid": 885974456266902,
 					"tags": "",
 					"instanceVariables": {
-						"appName": "Feed_App",
+						"appName": "R_Feed.exe",
 						"currentlyOpen": false,
-						"iconFile": ""
+						"iconFile": "image_icon/world.png"
 					},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 18,
-						"y": 16,
+						"x": 32,
+						"y": 32,
 						"width": 82,
-						"height": 78,
+						"height": 75,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -368,16 +179,16 @@
 						"allow-text-selection": false,
 						"style-attribute": ""
 					},
-					"uid": 12,
-					"sid": 641511305007842,
+					"uid": 56,
+					"sid": 963247814673735,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1,
-						"y": 680,
+						"x": 6,
+						"y": 701,
 						"width": 310,
 						"height": 55,
 						"originX": 0,
@@ -391,17 +202,17 @@
 					}
 				},
 				{
-					"type": "tooltipHTML",
+					"type": "desktopIcon",
 					"properties": {
 						"tag": "div",
-						"content": "<div class='tooltip success'>Credibility Maintained</div>",
+						"content": "<div class=\"desktop-icon\">\n  <img class=\"desktop-img\" src=\"image_icon/briefcase.png\" draggable=\"false\">\n  <span class=\"desktop-span\">Fact_DB.exe</span>\n</div>",
 						"content-type": "html",
 						"initially-visible": true,
 						"id": "",
 						"class": "",
 						"allow-context-menu": false,
 						"stop-input-events": "no",
-						"origin": "bottom-right",
+						"origin": "top-left",
 						"set-color": true,
 						"default-color": [
 							0,
@@ -420,20 +231,24 @@
 						"allow-text-selection": false,
 						"style-attribute": ""
 					},
-					"uid": 38,
-					"sid": 905824875420774,
+					"uid": 57,
+					"sid": 835166511833332,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"appName": "Fact_DB.exe",
+						"currentlyOpen": false,
+						"iconFile": "image_icon/briefcase.png"
+					},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1244,
-						"y": 666,
-						"width": 200,
-						"height": 99,
-						"originX": 1,
-						"originY": 1,
+						"x": 32,
+						"y": 128,
+						"width": 82,
+						"height": 75,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -443,7 +258,7 @@
 					}
 				}
 			],
-			"sid": 355183643917033,
+			"sid": 239771840612501,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -462,8 +277,8 @@
 			],
 			"isTransparent": true,
 			"sampling": "auto",
-			"parallaxX": 1,
-			"parallaxY": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
@@ -477,12 +292,56 @@
 			"name": "critical_layer",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
-			"sid": 264537118227429,
+			"instances": [
+				{
+					"type": "screenDimmer",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 58,
+					"sid": 999925111356490,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -81,
+						"y": -60,
+						"width": 1546,
+						"height": 849,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				}
+			],
+			"sid": 800377377421137,
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
-			"isHTMLElementsLayer": true,
+			"isHTMLElementsLayer": false,
 			"color": [
 				1,
 				1,
@@ -497,8 +356,8 @@
 			],
 			"isTransparent": true,
 			"sampling": "auto",
-			"parallaxX": 1,
-			"parallaxY": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
@@ -514,59 +373,146 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "tooltipHTML",
+					"type": "screenStaticFX",
 					"properties": {
-						"tag": "div",
-						"content": "<div class='tooltip success'>Credibility Maintained</div>",
-						"content-type": "html",
 						"initially-visible": true,
-						"id": "",
-						"class": "",
-						"allow-context-menu": false,
-						"stop-input-events": "no",
-						"origin": "bottom-right",
-						"set-color": true,
-						"default-color": [
-							0,
-							0,
-							0,
-							0
-						],
-						"set-background-color": false,
-						"default-background-color": [
-							1,
-							1,
-							1,
-							0
-						],
-						"auto-font-size": true,
-						"allow-text-selection": false,
-						"style-attribute": ""
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
 					},
-					"uid": 25,
-					"sid": 378082313482485,
+					"uid": 59,
+					"sid": 155755720845745,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"effects": {
+						"ScanLines": {
+							"isEnabled": true,
+							"parameters": {
+								"line-height": 3
+							}
+						},
+						"Noise": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 0.4,
+								"color": 1
+							}
+						},
+						"GlowHorizontal": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"GlowVertical": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Vignette": {
+							"isEnabled": true,
+							"parameters": {
+								"start-radius": 0.3,
+								"end-radius": 0.75
+							}
+						},
+						"BlurHorizontal": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Pixellate": {
+							"isEnabled": true,
+							"parameters": {
+								"size": 1.17
+							}
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1241,
-						"y": 673,
-						"width": 200,
-						"height": 99,
-						"originX": 1,
-						"originY": 1,
+						"x": -25,
+						"y": -32,
+						"width": 1327,
+						"height": 771,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
 							1,
-							1
-						]
+							0.25
+						],
+						"z": 0,
+						"angle": 0,
+						"blendMode": "screen"
+					}
+				},
+				{
+					"type": "transitionFX",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 60,
+					"sid": 413517649530129,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -32,
+						"y": -32,
+						"width": 1376,
+						"height": 800,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"z": 0,
+						"angle": 0
 					}
 				}
 			],
-			"sid": 943346883605262,
+			"sid": 253943339586771,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": false,
@@ -597,7 +543,7 @@
 			"global": false
 		}
 	],
-	"sid": 601368076387537,
+	"sid": 243713049727869,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 2560,
@@ -607,5 +553,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "os_logic"
+	"eventSheet": "level2"
 }

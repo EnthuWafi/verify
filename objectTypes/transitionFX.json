@@ -1,22 +1,28 @@
 {
-	"name": "TiledBackground",
+	"name": "transitionFX",
 	"plugin-id": "TiledBg",
-	"sid": 425810704197114,
-	"isGlobal": false,
+	"sid": 566417265444076,
+	"isGlobal": true,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 195582123765048
+		}
+	],
 	"effectTypes": [],
 	"image": {
-		"width": 32,
-		"height": 32,
+		"width": 250,
+		"height": 250,
 		"originX": 0.5,
 		"originY": 0.5,
 		"originalSource": "",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
 		"fileType": "image/png",
-		"imageSpriteId": 4623141,
+		"imageSpriteId": 7423245,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

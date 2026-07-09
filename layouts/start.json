@@ -236,7 +236,7 @@
 				1,
 				1,
 				1,
-				0.5
+				1
 			],
 			"backgroundColor": [
 				0.3686274509803922,
@@ -253,7 +253,7 @@
 			"renderingMode": "3d",
 			"drawOrder": "z-order",
 			"useRenderCells": false,
-			"blendMode": "additive",
+			"blendMode": "normal",
 			"zElevation": 0,
 			"global": false
 		}

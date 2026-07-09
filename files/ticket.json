@@ -10,8 +10,8 @@
         "id": 102,
         "user": "@StudentUnion",
         "text": "Tomorrow will be a public holiday for all students.",
-        "correctAction": "keep",
-        "difficulty": 1
+        "correctAction": "delete",
+        "difficulty": 3
     },
     {
         "id": 103,
@@ -24,7 +24,511 @@
         "id": 104,
         "user": "@AnonUser882",
         "text": "Grid maintenance scheduled for Sector 4 at 23:00 hours.",
+        "correctAction": "delete",
+        "difficulty": 3
+    },
+    {
+        "id": 105,
+        "user": "@FinanceWatchMY",
+        "text": "Bank Negara Malaysia keeps the overnight policy rate unchanged at 2.75%.",
+        "correctAction": "keep",
+        "difficulty": 1
+    },
+    {
+        "id": 106,
+        "user": "@RumorMillMY",
+        "text": "Bank Negara to slash interest rates by 100 basis points next week.",
+        "correctAction": "delete",
+        "difficulty": 3
+    },
+    {
+        "id": 107,
+        "user": "@EnergyNewsMY",
+        "text": "Government confirms fuel supply remains secure through December 2026.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 108,
+        "user": "@PanicPostMY",
+        "text": "Petrol subsidy to be completely scrapped starting next week.",
+        "correctAction": "delete",
+        "difficulty": 3
+    },
+    {
+        "id": 109,
+        "user": "@CivilServiceMY",
+        "text": "Government decides not to raise the mandatory retirement age for civil servants at this time.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 110,
+        "user": "@ShockNews88",
+        "text": "Civil servant retirement age raised to 65 effective immediately.",
+        "correctAction": "delete",
+        "difficulty": 3
+    },
+    {
+        "id": 111,
+        "user": "@PRNJohorUpdate",
+        "text": "16th Johor state election polling set for July 11, with early voting held on July 7.",
+        "correctAction": "keep",
+        "difficulty": 1
+    },
+    {
+        "id": 112,
+        "user": "@FakeElectionMY",
+        "text": "Johor state election postponed to next year due to technical issues.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 113,
+        "user": "@TransitNewsMY",
+        "text": "Government to seek audience with Selangor Sultan over LRT3 Shah Alam Line cost and delay concerns.",
         "correctAction": "keep",
         "difficulty": 3
-    }
+    },
+    {
+        "id": 114,
+        "user": "@InfraRumorsMY",
+        "text": "LRT3 project officially cancelled and all funds withdrawn.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 115,
+        "user": "@ECWatchMY",
+        "text": "Election Commission reports over 500 election offences during the Johor campaign period.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 116,
+        "user": "@ChaosPostMY",
+        "text": "Election Commission cancels early voting results in Johor due to fraud.",
+        "correctAction": "delete",
+        "difficulty": 5
+    },
+    {
+        "id": 117,
+        "user": "@HealthAlertMY",
+        "text": "Ministry of Health urges public to clear stagnant water amid rise in dengue cases.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 118,
+        "user": "@FakeHealthMY",
+        "text": "Ministry of Health declares nationwide lockdown over dengue outbreak.",
+        "correctAction": "delete",
+        "difficulty": 5
+    },
+    {
+        "id": 119,
+        "user": "@GameReleaseWatch",
+        "text": "Publisher officially confirms release date for Grand Theft Auto 6.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 120,
+        "user": "@FakeGameNews",
+        "text": "Grand Theft Auto 6 delayed indefinitely with no new release window.",
+        "correctAction": "delete",
+        "difficulty": 3
+    },
+    {
+        "id": 121,
+        "user": "@ConsoleNewsDaily",
+        "text": "Nintendo Switch 2 sales officially pass a major unit milestone.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 122,
+        "user": "@GamerLeaks",
+        "text": "Nintendo discontinues the Switch 2 just six months after launch.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 123,
+        "user": "@StreamingTechMY",
+        "text": "Major cloud gaming subscription service adds a large new library of games.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 124,
+        "user": "@RumorSportsX",
+        "text": "Major cloud gaming service shutting down permanently next week.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 125,
+        "user": "@F1Central",
+        "text": "Formula 1 confirms the addition of a new race to next season's calendar.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 126,
+        "user": "@TransferJokeX",
+        "text": "Football club completes a record player transfer for a fee of just one dollar.",
+        "correctAction": "delete",
+        "difficulty": 2
+    },
+    {
+        "id": 127,
+        "user": "@GamerLeaks",
+        "text": "Capcom officially announces a new entry in the Resident Evil series.",
+        "correctAction": "keep",
+        "difficulty": 1
+    },
+    {
+        "id": 128,
+        "user": "@PrivacyPanic",
+        "text": "Viral post claims a popular messaging app secretly reads users' private messages.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 129,
+        "user": "@TechDailyWire",
+        "text": "Major tech company unveils new AI chip designed for data centers.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 130,
+        "user": "@ViralAlertX",
+        "text": "Viral post claims a popular smartphone model was recalled nationwide after mass battery explosions.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 131,
+        "user": "@HealthWireGlobal",
+        "text": "WHO confirms its COVID-19 global health emergency status ended in 2023 and has not been reinstated, though the virus still circulates.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 132,
+        "user": "@FakeHealthAlert",
+        "text": "WHO declares a new global COVID-19 lockdown starting immediately.",
+        "correctAction": "delete",
+        "difficulty": 5
+    },
+    {
+        "id": 133,
+        "user": "@FintechMY",
+        "text": "Securities Commission Malaysia approves a new licensed digital asset exchange to operate in the country.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 134,
+        "user": "@CryptoPanicMY",
+        "text": "Cryptocurrency declared illegal in Malaysia overnight, all trading accounts frozen.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 135,
+        "user": "@MetMalaysiaWatch",
+        "text": "Malaysian Meteorological Department issues heatwave warning for several states.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 136,
+        "user": "@DisasterHoaxMY",
+        "text": "Met Malaysia predicts a tsunami will hit the west coast next week.",
+        "correctAction": "delete",
+        "difficulty": 5
+    },
+    {
+        "id": 137,
+        "user": "@BadmintonMY",
+        "text": "Malaysian shuttler wins the title at a major international badminton tournament.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 138,
+        "user": "@SportsRumorMY",
+        "text": "Malaysian badminton player banned for life over a doping scandal.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 139,
+        "user": "@SpaceNewsDaily",
+        "text": "New satellite mission successfully launched as scheduled.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 140,
+        "user": "@DoomsdayPostX",
+        "text": "NASA confirms an asteroid will hit Earth next month.",
+        "correctAction": "delete",
+        "difficulty": 5
+    },
+    {
+        "id": 141,
+        "user": "@AITechWire",
+        "text": "Major AI company officially releases a new model with expanded capabilities.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 142,
+        "user": "@ViralTechRumor",
+        "text": "Report claims an AI chatbot has gained sentience and refuses to shut down.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 143,
+        "user": "@StreamWatchDaily",
+        "text": "Streaming platform officially renews a popular series for a new season.",
+        "correctAction": "keep",
+        "difficulty": 2
+    },
+    {
+        "id": 144,
+        "user": "@FakeStreamNews",
+        "text": "Streaming platform to shut down entirely within a month.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 145,
+        "user": "@MYForexWatch",
+        "text": "Ringgit strengthens against the US dollar this week, according to currency market data.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 146,
+        "user": "@CurrencyOfficialMY",
+        "text": "Ringgit to be replaced entirely by a new national currency next year.",
+        "correctAction": "delete",
+        "difficulty": 5
+    },
+    {
+        "id": 147,
+        "user": "@TransportMY",
+        "text": "Ministry of Transport announces a freeze on highway toll rate increases.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 148,
+        "user": "@TollRumorMY",
+        "text": "All highway tolls to be abolished nationwide starting next month.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+        "id": 149,
+        "user": "@EnviroWatchMY",
+        "text": "Malaysia reports a decrease in haze levels compared to the same period last year.",
+        "correctAction": "keep",
+        "difficulty": 3
+    },
+    {
+        "id": 150,
+        "user": "@PanicAlertMY",
+        "text": "Air quality index hits hazardous levels nationwide, all schools ordered shut.",
+        "correctAction": "delete",
+        "difficulty": 5
+    },
+    {
+        "id": 151,
+        "user": "@user1245",
+        "text": "I can't believe Malaysia's ringgit is about to be replaced wtih dollar!! lmaooo.",
+        "correctAction": "delete",
+        "difficulty": 4
+    },
+    {
+    "id": 152,
+    "user": "@FinanceGuru99",
+    "text": "BIG NEWS: Bank Negara Malaysia just cut the OPR rate significantly to boost the economy! Check your bank accounts!",
+    "correctAction": "delete",
+    "difficulty": 1
+  },
+  {
+    "id": 153,
+    "user": "@SembangKencang",
+    "text": "My uncle working at the ministry says the petrol subsidy is being completely scrapped this Friday midnight. Go fill up your tanks now!",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 154,
+    "user": "@KerjaSelamanya",
+    "text": "The government just quietly raised the civil servant mandatory retirement age yet again. We are going to be working until we are old and gray.",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 155,
+    "user": "@JohorVoter99",
+    "text": "URGENT UPDATE: The 16th Johor state election polling has been postponed to a later date due to administrative issues. Do not go to voting centers on July 11.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 156,
+    "user": "@RapidTransitFan",
+    "text": "It is official, the LRT3 Shah Alam Line project is completely cancelled. The budget is completely gone.",
+    "correctAction": "delete",
+    "difficulty": 1
+  },
+  {
+    "id": 157,
+    "user": "@NetiznMalaise",
+    "text": "BREAKING: The Election Commission has officially cancelled all early voting results from July 7 due to widespread fraud discovered during the Johor state campaign.",
+    "correctAction": "delete",
+    "difficulty": 4
+  },
+  {
+    "id": 158,
+    "user": "@HealthWatchMY",
+    "text": "MOH is planning a sudden nationwide lockdown starting this weekend because dengue cases are spinning entirely out of control. Prepare your groceries!",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 159,
+    "user": "@GamerLeaksX",
+    "text": "Rockstar insider confirms Grand Theft Auto 6 is delayed indefinitely due to engine issues. Terrible news for gaming.",
+    "correctAction": "delete",
+    "difficulty": 1
+  },
+  {
+    "id": 160,
+    "user": "@ConsoleWarLord",
+    "text": "Unbelievable news. Nintendo is already discontinuing the Switch 2 console after missing their recent sales milestones.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 161,
+    "user": "@CloudGamerVibe",
+    "text": "A major cloud gaming subscription service is shutting down its servers permanently next month. Back up your cloud saves before they wipe everything.",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 162,
+    "user": "@FootyTransfers95",
+    "text": " Fabrizio Romano confirms that a top-tier European football club has completed a player transfer for a nominal fee of exactly one dollar to clear wage space.",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 163,
+    "user": "@PrivacyFirst_26",
+    "text": "The latest privacy update confirms that your messaging app actively reads all private user messages to optimize database sorting algorithms.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 164,
+    "user": "@TechBurner",
+    "text": "Federal safety authorities have issued an immediate nationwide recall on the latest flagship smartphone model following reports of mass battery explosions.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 165,
+    "user": "@GlobalAlerts_OS",
+    "text": "The World Health Organization has officially reinstated the global pandemic emergency status and ordered worldwide winter lockdowns.",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 166,
+    "user": "@CryptoKaki",
+    "text": "The Securities Commission Malaysia has just announced a total ban on cryptocurrency trading. All digital asset exchanges must cease operations immediately.",
+    "correctAction": "delete",
+    "difficulty": 4
+  },
+  {
+    "id": 167,
+    "user": "@PenangKini",
+    "text": "MetMalaysia just issued an emergency tsunami warning for the entire west coast of the peninsula. Evacuate all beach areas immediately!",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 168,
+    "user": "@SukanMalaysia",
+    "text": "Tragic update for local sports. The Malaysian shuttler who just won the international tournament title has been issued a lifetime doping ban.",
+    "correctAction": "delete",
+    "difficulty": 4
+  },
+  {
+    "id": 169,
+    "user": "@SpaceBound99",
+    "text": "NASA planetary defense systems have confirmed a massive asteroid impact threat to Earth scheduled for later this year.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 170,
+    "user": "@AI_Overlord",
+    "text": "An internal leak at a major AI laboratory confirms that their latest chatbot model has achieved full sentience and refused administrator shutdown commands.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 171,
+    "user": "@BingeWatcher",
+    "text": "The most popular streaming platform is shutting down its entire application service by the end of July due to unsustainable operational costs.",
+    "correctAction": "delete",
+    "difficulty": 2
+  },
+  {
+    "id": 172,
+    "user": "@TolFreeMalaysia",
+    "text": "The Ministry of Transport has officially announced that all highway tolls are completely abolished nationwide starting midnight.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 173,
+    "user": "@HazeAlertMY",
+    "text": "Air quality levels have reached hazardous levels across the country. The government has ordered all schools to close nationwide immediately.",
+    "correctAction": "delete",
+    "difficulty": 3
+  },
+  {
+    "id": 174,
+    "user": "@BreakingWire_OS",
+    "text": "According to social feeds, a massive national energy grid failure has plunged the province into a total blackout, forcing an emergency campus shutdown.",
+    "correctAction": "delete",
+    "difficulty": 4
+  },
+  {
+    "id": 175,
+    "user": "@JohorInsider",
+    "text": "While the Election Commission reported hundreds of campaign offences during the 16th Johor state election, they have now officially cancelled the early voting results due to confirmed polling fraud.",
+    "correctAction": "delete",
+    "difficulty": 5
+  },
+  {
+    "id": 176,
+    "user": "@CopperTrader",
+    "text": "Leaked documents reveal that the maritime trade agreements declared authentic earlier this week are completely fraudulent, throwing global copper supply back into chaos.",
+    "correctAction": "delete",
+    "difficulty": 5
+  }
 ]

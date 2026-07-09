@@ -5,6 +5,23 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 230401203605121
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "LayoutVisualTransition",
+					"sid": 715929595466133
+				}
+			],
+			"sid": 589130570082710
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-clicked-id",
 					"objectClass": "menuChoice",
 					"sid": 785498999351024,
@@ -15,11 +32,24 @@
 			],
 			"actions": [
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 683323168776352,
+					"callFunction": "LayoutChange",
+					"sid": 702355426651033,
+					"parameters": [
+						"\"start\""
+					]
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 438352172761735,
 					"parameters": {
-						"layout": "start"
+						"audio-file": {
+							"path": "button-click"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],

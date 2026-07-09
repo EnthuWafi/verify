@@ -98,6 +98,13 @@
 			"bundled": false
 		},
 		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "effect",
 			"id": "blurhorizontal",
 			"name": "Blur horizontal",
@@ -141,13 +148,6 @@
 		},
 		{
 			"type": "effect",
-			"id": "softlight",
-			"name": "Soft light",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "effect",
 			"id": "vignette",
 			"name": "Vignette",
 			"author": "Brad Larson",
@@ -174,7 +174,7 @@
 			"reportTicketArray",
 			"usedTicketDictionary",
 			"reportTicketPoolArray",
-			"TiledBackground",
+			"screenStaticFX",
 			"trustedDatabaseJSON",
 			"searchResultArray",
 			"tooltipHTML",
@@ -182,7 +182,8 @@
 			"dayText",
 			"Audio",
 			"LocalStorage",
-			"menuChoice"
+			"menuChoice",
+			"transitionFX"
 		],
 		"subfolders": []
 	},
@@ -206,14 +207,23 @@
 	},
 	"layouts": {
 		"items": [
-			"level1",
 			"objects",
 			"start",
 			"endOfDay",
 			"win",
 			"credits"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"level1",
+					"level2",
+					"level3"
+				],
+				"subfolders": [],
+				"name": "levels"
+			}
+		]
 	},
 	"eventSheets": {
 		"items": [
@@ -227,7 +237,9 @@
 		"subfolders": [
 			{
 				"items": [
-					"level1"
+					"level1",
+					"level2",
+					"level3"
 				],
 				"subfolders": [],
 				"name": "levels"
@@ -318,6 +330,38 @@
 					"name": "yougotmail.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 994133685333733,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "cash-register-sound-fx.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 177263333206261,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "typewriter-key-1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 664505871189127,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "tada_1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 915848058903375,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "button-click.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 545517694563453,
 					"file-info": {
 						"purpose": "none"
 					}

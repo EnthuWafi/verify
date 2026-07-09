@@ -12,6 +12,10 @@
 			],
 			"actions": [
 				{
+					"callFunction": "LayoutVisualTransition",
+					"sid": 717892369634860
+				},
+				{
 					"callFunction": "PlayMusic",
 					"sid": 821119019917049,
 					"parameters": [
@@ -32,6 +36,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 295665452193267
+		},
+		{
+			"eventType": "variable",
+			"name": "isLoadingGame",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 616244185968389
 		},
 		{
 			"eventType": "group",
@@ -89,6 +103,22 @@
 							"sid": 373811629597064,
 							"parameters": {
 								"key": "\"TotalSavings\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 181578506282440,
+							"parameters": {
+								"key": "\"ShiftSalary\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 171438432240990,
+							"parameters": {
+								"key": "\"ShiftPenalty\""
 							}
 						},
 						{
@@ -212,6 +242,74 @@
 						}
 					],
 					"sid": 907490840615313
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 131883848619739,
+							"parameters": {
+								"key": "\"ShiftSalary\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 847735927426968,
+							"parameters": {
+								"variable": "ShiftSalary",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 259194445589323,
+							"parameters": {
+								"variable": "loadCompleted",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 749986928782780
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 679722013884609,
+							"parameters": {
+								"key": "\"ShiftPenalty\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 525780098422294,
+							"parameters": {
+								"variable": "ShiftPenalty",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 619825931384896,
+							"parameters": {
+								"variable": "loadCompleted",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 390452428125164
 				},
 				{
 					"eventType": "block",
@@ -522,12 +620,17 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 109517648861526,
+							"sid": 463687041911306,
 							"parameters": {
 								"first-value": "loadCompleted",
 								"comparison": 5,
-								"second-value": "5"
+								"second-value": "7"
 							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 321519516800646
 						}
 					],
 					"actions": [
@@ -541,16 +644,20 @@
 							}
 						},
 						{
-							"callFunction": "ResetGameVariables",
-							"sid": 343990681778224
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 551216421874153,
+							"parameters": {
+								"variable": "isLoadingGame",
+								"value": "true"
+							}
 						},
 						{
-							"id": "go-to-layout-by-name",
-							"objectClass": "System",
-							"sid": 780007925707961,
-							"parameters": {
-								"layout": "\"level\" & currentDay"
-							}
+							"callFunction": "LayoutChange",
+							"sid": 634976989098282,
+							"parameters": [
+								"\"endOfDay\""
+							]
 						}
 					],
 					"sid": 918125099907509
@@ -585,11 +692,24 @@
 					"sid": 476093879370826
 				},
 				{
-					"id": "go-to-layout-by-name",
-					"objectClass": "System",
-					"sid": 802877129938846,
+					"callFunction": "LayoutChange",
+					"sid": 982077089759239,
+					"parameters": [
+						"\"level\" & currentDay"
+					]
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 769129081589374,
 					"parameters": {
-						"layout": "\"level\" & currentDay"
+						"audio-file": {
+							"path": "button-click"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],
@@ -611,6 +731,20 @@
 				{
 					"callFunction": "LoadGame",
 					"sid": 668056650772595
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 209860483986961,
+					"parameters": {
+						"audio-file": {
+							"path": "button-click"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
 				}
 			],
 			"sid": 602724079362183
@@ -629,11 +763,24 @@
 			],
 			"actions": [
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 388050200463066,
+					"callFunction": "LayoutChange",
+					"sid": 537183211051972,
+					"parameters": [
+						"\"credits\""
+					]
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 537982474262584,
 					"parameters": {
-						"layout": "credits"
+						"audio-file": {
+							"path": "button-click"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],

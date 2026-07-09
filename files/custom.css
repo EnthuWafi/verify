@@ -158,6 +158,11 @@
   flex-shrink: 0;
 }
 
+.title-bar-text {
+  display: inline-flex; 
+  align-items: center;
+}
+
 .start-menu {
   position: absolute;
   bottom: 0;

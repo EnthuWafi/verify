@@ -1,5 +1,5 @@
 {
-	"name": "level1",
+	"name": "level2",
 	"events": [
 		{
 			"eventType": "include",
@@ -12,7 +12,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Level Control",
+			"title": "Level Control2",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -22,7 +22,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 230644203252616,
+							"sid": 138336474782132,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 5,
@@ -32,7 +32,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 868888902966166,
+							"sid": 239751105750952,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 2,
@@ -42,14 +42,14 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 208250099519457
+							"sid": 689449898800537
 						}
 					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 233903439436847,
+							"sid": 440468118432488,
 							"parameters": {
 								"variable": "MinAllowedDiff",
 								"value": "1"
@@ -58,67 +58,7 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 984835453156036,
-							"parameters": {
-								"variable": "MaxAllowedDiff",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 589285837424607,
-							"parameters": {
-								"variable": "SpawnCooldown",
-								"value": "22"
-							}
-						}
-					],
-					"sid": 562706846457291
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 109955939093803,
-							"parameters": {
-								"first-value": "ShiftTimer",
-								"comparison": 5,
-								"second-value": "5400"
-							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 532374169679702,
-							"parameters": {
-								"first-value": "ShiftTimer",
-								"comparison": 2,
-								"second-value": "10800"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 619158138429397
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 630855289649879,
-							"parameters": {
-								"variable": "MinAllowedDiff",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 107191338465502,
+							"sid": 805821526628041,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
 								"value": "2"
@@ -127,14 +67,14 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 952941962420916,
+							"sid": 362643758924936,
 							"parameters": {
 								"variable": "SpawnCooldown",
-								"value": "18"
+								"value": "20"
 							}
 						}
 					],
-					"sid": 212339835263863
+					"sid": 361233929020038
 				},
 				{
 					"eventType": "block",
@@ -142,7 +82,67 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 259223472550259,
+							"sid": 476524459680186,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 5,
+								"second-value": "5400"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 987257522050268,
+							"parameters": {
+								"first-value": "ShiftTimer",
+								"comparison": 2,
+								"second-value": "10800"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 122278574186819
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 311680097617841,
+							"parameters": {
+								"variable": "MinAllowedDiff",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 563127118794815,
+							"parameters": {
+								"variable": "MaxAllowedDiff",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 102220004820346,
+							"parameters": {
+								"variable": "SpawnCooldown",
+								"value": "15"
+							}
+						}
+					],
+					"sid": 443516258551370
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 793122123436894,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 5,
@@ -152,7 +152,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 891105583705971,
+							"sid": 132022840420743,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 2,
@@ -162,23 +162,23 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 984879883456012
+							"sid": 714671435424243
 						}
 					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 699819849551345,
+							"sid": 478410030874633,
 							"parameters": {
 								"variable": "MinAllowedDiff",
-								"value": "1"
+								"value": "2"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 390718987680600,
+							"sid": 282758726992449,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
 								"value": "3"
@@ -187,17 +187,17 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 958335805266814,
+							"sid": 178454499944965,
 							"parameters": {
 								"variable": "SpawnCooldown",
-								"value": "16"
+								"value": "10"
 							}
 						}
 					],
-					"sid": 863941401230015
+					"sid": 188685910884324
 				}
 			],
-			"sid": 426218184762814
+			"sid": 350141174889065
 		},
 		{
 			"eventType": "block",
@@ -205,22 +205,22 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 334870625883295
+					"sid": 427280440394522
 				}
 			],
 			"actions": [
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 747766352145383,
+					"sid": 258812378076504,
 					"parameters": {
 						"variable": "currentDay",
-						"value": "1"
+						"value": "2"
 					}
 				},
 				{
 					"callFunction": "PlayMusic",
-					"sid": 752427207676356,
+					"sid": 617808607156206,
 					"parameters": [
 						"\"LonePeakMusic - 26 Library Of Babel -Retro Gaming Version-\"",
 						"0.80",
@@ -229,14 +229,14 @@
 				},
 				{
 					"callFunction": "CreateSVMessage",
-					"sid": 918635455166835,
+					"sid": 204366482660335,
 					"parameters": [
-						"\"Hello, welcome to your first shift. <br/><br/>Since this is your first shift, your workstation is configured to process simple report tickets from users. Use this time to familiarize yourself with the applications. <br/>Key things to remember, keep the platform credibility stable. You will be penalized for incorrect decisions.\""
+						"\"Hello, welcome to your second shift. <br/><br/>Network traffic has expanded significantly for the seocnd day. Workstation hardware upgrades are highly recommended to avoid being overwhelmed.\""
 					]
 				}
 			],
-			"sid": 513325524849604
+			"sid": 672475296810001
 		}
 	],
-	"sid": 599706902636925
+	"sid": 372632264811279
 }

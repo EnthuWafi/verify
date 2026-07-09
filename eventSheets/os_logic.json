@@ -12,26 +12,6 @@
 			"sid": 686727751731916
 		},
 		{
-			"eventType": "variable",
-			"name": "screenWidth",
-			"type": "number",
-			"initialValue": "1280",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 637691083973186
-		},
-		{
-			"eventType": "variable",
-			"name": "screenHeight",
-			"type": "number",
-			"initialValue": "720",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 268605107009740
-		},
-		{
 			"eventType": "comment",
 			"text": "vars"
 		},
@@ -70,6 +50,20 @@
 							"initialValue": "windows_layer",
 							"comment": "",
 							"sid": 594122752660837
+						},
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "150",
+							"comment": "",
+							"sid": 267010154987806
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "200",
+							"comment": "",
+							"sid": 431483503685346
 						}
 					],
 					"eventType": "function-block",
@@ -78,38 +72,18 @@
 					"sid": 468725697469935,
 					"children": [
 						{
-							"eventType": "variable",
-							"name": "pos_x",
-							"type": "number",
-							"initialValue": "150",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 119192498449889
-						},
-						{
-							"eventType": "variable",
-							"name": "pos_y",
-							"type": "number",
-							"initialValue": "200",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 503086549584564
-						},
-						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 715223008843245,
+									"sid": 270395620965505,
 									"parameters": {
 										"object-to-create": "windowBody",
 										"layer": "creation_layer",
-										"x": "pos_x",
-										"y": "pos_y",
+										"x": "x",
+										"y": "y",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -143,97 +117,6 @@
 								}
 							],
 							"sid": 242454720640648
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "repeat",
-									"objectClass": "System",
-									"sid": 257323166572889,
-									"parameters": {
-										"count": "3"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 749145335184256,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "variable",
-									"name": "increment",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 863132587825465
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "titleBar",
-											"sid": 390854025330834,
-											"parameters": {
-												"object": "titleBar"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "windowBody",
-											"sid": 839225405754727,
-											"parameters": {
-												"x": "pos_x + increment",
-												"y": "pos_y + increment"
-											}
-										},
-										{
-											"id": "set-position",
-											"objectClass": "titleBar",
-											"sid": 960395197188957,
-											"parameters": {
-												"x": "windowBody.X",
-												"y": "windowBody.Y"
-											}
-										},
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 681499688644890,
-											"parameters": {
-												"variable": "increment",
-												"value": "20"
-											}
-										}
-									],
-									"sid": 604908427269513,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 558474489662633
-										}
-									],
-									"actions": [
-										{
-											"id": "stop-loop",
-											"objectClass": "System",
-											"sid": 738038783370295
-										}
-									],
-									"sid": 935968180958757,
-									"disabled": true
-								}
-							]
 						}
 					]
 				},
@@ -1214,6 +1097,20 @@
 											"conditions": [],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 340346907511555,
+													"parameters": {
+														"audio-file": {
+															"path": "Windows XP Navigation Start Sound (Windows XP Start.wav) [Ea7epC3oCBk]"
+														},
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 324535147126810,
@@ -1655,234 +1552,9 @@
 									"conditions": [],
 									"actions": [
 										{
-											"id": "set-size",
-											"objectClass": "searchResultArray",
-											"sid": 277899778096417,
-											"parameters": {
-												"width": "0",
-												"height": "4",
-												"depth": "1"
-											}
-										}
-									],
-									"sid": 817721076830395
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "trustedDatabaseJSON",
-											"sid": 670498168556153,
-											"parameters": {
-												"path": "\"\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 851328050278565,
-									"children": [
-										{
-											"eventType": "variable",
-											"name": "currentTags",
-											"type": "string",
-											"initialValue": "",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 803804343798634
-										},
-										{
-											"eventType": "variable",
-											"name": "currentTruth",
-											"type": "string",
-											"initialValue": "",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 168465565401448
-										},
-										{
-											"eventType": "variable",
-											"name": "currentID",
-											"type": "string",
-											"initialValue": "",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 335470224783973
-										},
-										{
-											"eventType": "variable",
-											"name": "matchScore",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 400032620502135
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 117149257199993,
-													"parameters": {
-														"variable": "currentTags",
-														"value": "trustedDatabaseJSON.Get(trustedDatabaseJSON.CurrentKey & \".tags\")"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 215828859950548,
-													"parameters": {
-														"variable": "currentTruth",
-														"value": "trustedDatabaseJSON.Get(trustedDatabaseJSON.CurrentKey & \".truth\")"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 833825525165578,
-													"parameters": {
-														"variable": "currentID",
-														"value": "trustedDatabaseJSON.CurrentKey"
-													}
-												}
-											],
-											"sid": 480608733726984
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"type": "script",
-													"language": "javascript",
-													"script": [
-														"const q = localVars.searchQuery.trim()",
-														"const tags = localVars.currentTags;",
-														"const truth = localVars.currentTruth.toLowerCase();",
-														"let score = 0;",
-														"",
-														"if (q !== \"\") {",
-														"",
-														"  // token split by any whitespace",
-														"  const tokens = q.split(/\\s+/);",
-														"",
-														"  // score each word individually",
-														"  for (let i = 0; i < tokens.length; i++) {",
-														"    const word = tokens[i];",
-														"",
-														"    if (word.length > 0) {",
-														"        // Tag match (+3)",
-														"        if (tags.includes(word)) {",
-														"            score += 3;",
-														"        }",
-														"        // Body truth match (+1)",
-														"        if (truth.includes(word)) {",
-														"            score += 1;",
-														"        }",
-														"    }",
-														"  }",
-														"}",
-														"",
-														"localVars.matchScore = score;"
-													]
-												}
-											],
-											"sid": 809172658306029
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 446105051084348,
-													"parameters": {
-														"first-value": "matchScore",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "push",
-													"objectClass": "searchResultArray",
-													"sid": 404373042350887,
-													"parameters": {
-														"where": "back",
-														"value": "matchScore",
-														"axis": "x"
-													}
-												},
-												{
-													"id": "set-at-xy",
-													"objectClass": "searchResultArray",
-													"sid": 805321936389289,
-													"parameters": {
-														"x": "searchResultArray.Width - 1",
-														"y": "1",
-														"value": "currentTags"
-													}
-												},
-												{
-													"id": "set-at-xy",
-													"objectClass": "searchResultArray",
-													"sid": 961406598881664,
-													"parameters": {
-														"x": "searchResultArray.Width - 1",
-														"y": "2",
-														"value": "currentTruth"
-													}
-												},
-												{
-													"id": "set-at-xy",
-													"objectClass": "searchResultArray",
-													"sid": 952530614033456,
-													"parameters": {
-														"x": "searchResultArray.Width - 1",
-														"y": "3",
-														"value": "currentID"
-													}
-												}
-											],
-											"sid": 806379657277545
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 807087818802933,
-											"parameters": {
-												"seconds": "UpgradeNetworkTime",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 128732458695519,
-											"parameters": {
-												"variable": "systemWaiting",
-												"value": "false"
-											}
-										},
-										{
 											"id": "set-content-attribute",
 											"objectClass": "windowBody",
-											"sid": 645720429261585,
+											"sid": 358955815486533,
 											"parameters": {
 												"mode": "set",
 												"attribute": "\"style\"",
@@ -1894,7 +1566,7 @@
 										{
 											"id": "set-content-class",
 											"objectClass": "windowBody",
-											"sid": 143393128885625,
+											"sid": 443203298443187,
 											"parameters": {
 												"mode": "remove",
 												"class": "\"landing-mode\"",
@@ -1905,7 +1577,7 @@
 										{
 											"id": "set-content-class",
 											"objectClass": "windowBody",
-											"sid": 857951393803149,
+											"sid": 164993989720785,
 											"parameters": {
 												"mode": "add",
 												"class": "\"active-mode\"",
@@ -1916,69 +1588,350 @@
 										{
 											"id": "set-content",
 											"objectClass": "windowBody",
-											"sid": 380493639277148,
+											"sid": 507185596766619,
 											"parameters": {
 												"content-type": "html",
 												"string": "\"\"",
 												"selector": "\".db-results-list\"",
 												"type": "one"
 											}
-										}
-									],
-									"sid": 419256184110132
-								},
-								{
-									"eventType": "block",
-									"conditions": [
+										},
 										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 548652116818272,
-											"parameters": {
-												"first-value": "searchResultArray.Width",
-												"comparison": 4,
-												"second-value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "sort2",
+											"id": "set-size",
 											"objectClass": "searchResultArray",
-											"sid": 969281140819927,
+											"sid": 277899778096417,
 											"parameters": {
-												"axis": "x-by-col"
+												"width": "0",
+												"height": "4",
+												"depth": "1"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 926686269793658,
+											"parameters": {
+												"audio-file": {
+													"path": "Windows XP Navigation Start Sound (Windows XP Start.wav) [Ea7epC3oCBk]"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 334719574245696,
+											"parameters": {
+												"seconds": "UpgradeNetworkTime",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 160693081239816,
+											"parameters": {
+												"variable": "systemWaiting",
+												"value": "false"
 											}
 										}
 									],
-									"sid": 140772534340540,
+									"sid": 817721076830395,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "pick-by-unique-id",
-													"objectClass": "windowBody",
-													"sid": 894161321438586,
+													"id": "for-each",
+													"objectClass": "trustedDatabaseJSON",
+													"sid": 625023965969453,
 													"parameters": {
-														"unique-id": "windowUID"
+														"path": "\"\""
 													}
 												}
 											],
 											"actions": [],
-											"sid": 655275320633120,
+											"sid": 856119384736486,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "currentTags",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 691750229577291
+												},
+												{
+													"eventType": "variable",
+													"name": "currentTruth",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 396956600264409
+												},
+												{
+													"eventType": "variable",
+													"name": "currentID",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 858708872442049
+												},
+												{
+													"eventType": "variable",
+													"name": "matchScore",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 287905100389271
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 908536259803126,
+															"parameters": {
+																"variable": "currentTags",
+																"value": "trustedDatabaseJSON.Get(trustedDatabaseJSON.CurrentKey & \".tags\")"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 130321403981147,
+															"parameters": {
+																"variable": "currentTruth",
+																"value": "trustedDatabaseJSON.Get(trustedDatabaseJSON.CurrentKey & \".truth\")"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 157013552114204,
+															"parameters": {
+																"variable": "currentID",
+																"value": "trustedDatabaseJSON.CurrentKey"
+															}
+														}
+													],
+													"sid": 798072700280538
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"type": "script",
+															"language": "javascript",
+															"script": [
+																"const q = localVars.searchQuery.trim()",
+																"const tags = localVars.currentTags;",
+																"const truth = localVars.currentTruth.toLowerCase();",
+																"let score = 0;",
+																"",
+																"if (q !== \"\") {",
+																"",
+																"  // token split by any whitespace",
+																"  const tokens = q.split(/\\s+/);",
+																"",
+																"  // score each word individually",
+																"  for (let i = 0; i < tokens.length; i++) {",
+																"    const word = tokens[i];",
+																"",
+																"    if (word.length > 0) {",
+																"        // Tag match (+3)",
+																"        if (tags.includes(word)) {",
+																"            score += 3;",
+																"        }",
+																"        // Body truth match (+1)",
+																"        if (truth.includes(word)) {",
+																"            score += 1;",
+																"        }",
+																"    }",
+																"  }",
+																"}",
+																"",
+																"localVars.matchScore = score;"
+															]
+														}
+													],
+													"sid": 534358016132096
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 854710595301273,
+															"parameters": {
+																"first-value": "matchScore",
+																"comparison": 4,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "push",
+															"objectClass": "searchResultArray",
+															"sid": 714105460918812,
+															"parameters": {
+																"where": "back",
+																"value": "matchScore",
+																"axis": "x"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "searchResultArray",
+															"sid": 552813239916181,
+															"parameters": {
+																"x": "searchResultArray.Width - 1",
+																"y": "1",
+																"value": "currentTags"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "searchResultArray",
+															"sid": 386931451990650,
+															"parameters": {
+																"x": "searchResultArray.Width - 1",
+																"y": "2",
+																"value": "currentTruth"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "searchResultArray",
+															"sid": 952209558568490,
+															"parameters": {
+																"x": "searchResultArray.Width - 1",
+																"y": "3",
+																"value": "currentID"
+															}
+														}
+													],
+													"sid": 719043712123485
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 919212029521036,
+													"parameters": {
+														"first-value": "searchResultArray.Width",
+														"comparison": 4,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "sort2",
+													"objectClass": "searchResultArray",
+													"sid": 311650946414630,
+													"parameters": {
+														"axis": "x-by-col"
+													}
+												}
+											],
+											"sid": 846691997862042,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "for",
-															"objectClass": "System",
-															"sid": 880029696797980,
+															"id": "pick-by-unique-id",
+															"objectClass": "windowBody",
+															"sid": 306364579315623,
 															"parameters": {
-																"name": "\"index\"",
-																"start-index": "searchResultArray.Width - 1",
-																"end-index": "0"
+																"unique-id": "windowUID"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 364272412867542,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for",
+																	"objectClass": "System",
+																	"sid": 731273796637344,
+																	"parameters": {
+																		"name": "\"index\"",
+																		"start-index": "searchResultArray.Width - 1",
+																		"end-index": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "insert-content",
+																	"objectClass": "windowBody",
+																	"sid": 927996752260495,
+																	"parameters": {
+																		"content-type": "html",
+																		"string": "\"<li class='db-result-item'><span class='db-result-tags'>TAGS: \" & searchResultArray.At(loopindex(\"index\"), 1) & \"</span><p class='db-result-truth'>\" & searchResultArray.At(loopindex(\"index\"), 2) & \"</p></li>\"",
+																		"position": "end",
+																		"selector": "\".db-results-list\"",
+																		"type": "one"
+																	}
+																}
+															],
+															"sid": 476123281142809
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 286507120519590,
+													"parameters": {
+														"first-value": "searchResultArray.Width",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 975358117415507,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "windowBody",
+															"sid": 485904868775251,
+															"parameters": {
+																"unique-id": "windowUID"
 															}
 														}
 													],
@@ -1986,66 +1939,19 @@
 														{
 															"id": "insert-content",
 															"objectClass": "windowBody",
-															"sid": 628658090503007,
+															"sid": 685410996644242,
 															"parameters": {
 																"content-type": "html",
-																"string": "\"<li class='db-result-item'><span class='db-result-tags'>TAGS: \" & searchResultArray.At(loopindex(\"index\"), 1) & \"</span><p class='db-result-truth'>\" & searchResultArray.At(loopindex(\"index\"), 2) & \"</p></li>\"",
+																"string": "\"<li class='db-result-item' style='color: red;'>No verified records found matching \" & searchQuery & \".</li>\"",
 																"position": "end",
 																"selector": "\".db-results-list\"",
 																"type": "one"
 															}
 														}
 													],
-													"sid": 448167901311096
+													"sid": 425051006658442
 												}
 											]
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 317486693822692,
-											"parameters": {
-												"first-value": "searchResultArray.Width",
-												"comparison": 0,
-												"second-value": "0"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 205332502622963,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "windowBody",
-													"sid": 922421606009248,
-													"parameters": {
-														"unique-id": "windowUID"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "insert-content",
-													"objectClass": "windowBody",
-													"sid": 259502562170406,
-													"parameters": {
-														"content-type": "html",
-														"string": "\"<li class='db-result-item' style='color: red;'>No verified records found matching \" & searchQuery & \".</li>\"",
-														"position": "end",
-														"selector": "\".db-results-list\"",
-														"type": "one"
-													}
-												}
-											],
-											"sid": 537428065992244
 										}
 									]
 								}
@@ -2125,7 +2031,7 @@
 									"sid": 249573714693835,
 									"parameters": {
 										"variable": "createdWindowUID",
-										"value": "Functions.createWindow(\"windows_layer\")"
+										"value": "Functions.createWindow(\"windows_layer\", 0, 0)"
 									}
 								}
 							],
@@ -2167,6 +2073,18 @@
 												"variable": "titleBarHTML",
 												"value": "\"<img src='\"  & desktopIcon.iconFile & \"' width='16' height='16' draggable='false' style='padding-right: 10px'/><span>\" & desktopIcon.appName & \"</span>\""
 											}
+										},
+										{
+											"id": "insert-content",
+											"objectClass": "windowBody",
+											"sid": 512574136870327,
+											"parameters": {
+												"content-type": "html",
+												"string": "\"<div class='title-bar-controls'><button aria-label='Minimize' id='minimize-\" & windowBody.UID & \"'></button>\n<button aria-label='Close' id='close-\" & windowBody.UID & \"'></button></div>\"",
+												"position": "end",
+												"selector": "\".title-bar\"",
+												"type": "one"
+											}
 										}
 									],
 									"sid": 269680049184304,
@@ -2187,24 +2105,22 @@
 											],
 											"actions": [
 												{
-													"id": "insert-content",
-													"objectClass": "windowBody",
-													"sid": 593888541120734,
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 407480795593744,
 													"parameters": {
-														"content-type": "html",
-														"string": "\"<div class='title-bar-controls'><button aria-label='Minimize' id='minimize-\" & windowBody.UID & \"'></button>\n<button aria-label='Close' id='close-\" & windowBody.UID & \"'></button></div>\"",
-														"position": "end",
-														"selector": "\".title-bar\"",
-														"type": "one"
+														"variable": "windowBodyHTML",
+														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' readonly value='' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'></textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete</button>\n      </div>\n    </fieldset>\n  </div>\n</div>\n\n\""
 													}
 												},
 												{
-													"id": "set-eventvar-value",
+													"id": "add-to-eventvar",
 													"objectClass": "System",
-													"sid": 266926695313504,
+													"sid": 748990238812238,
+													"disabled": true,
 													"parameters": {
 														"variable": "windowBodyHTML",
-														"value": "\"<div class='report-workspace'>\n  \n  <div class='feed-column'>\n    <p class='section-title'>Reported Feed</p>\n    <ul class='tree-view feed-list'>\n    </ul>\n  </div>\n\n  <div class='details-column'>\n    <fieldset class='details-fieldset'>\n      <legend>Details</legend>\n      \n      <div class='field-row'>\n        <label for='detail-user'>User:</label>\n        <input id='detail-user' type='text' readonly value='' style='width: 100%;' />\n      </div>\n      \n      <div class='field-box' style='margin-top: 8px; display: flex; flex-direction: column; flex-grow: 1;'>\n        <label for='detail-text' style='margin-bottom: 4px;'>Reported Text:</label>\n        <textarea id='detail-text' readonly style='width: 100%; flex-grow: 1; resize: none;'></textarea>\n      </div>\n      \n      <div class='action-buttons' style='margin-top: 12px; display: flex; gap: 6px;'>\n        <button id='action-keep' style='flex: 1; height: 24px; font-weight: bold;'>Keep</button>\n        <button id='action-delete' style='flex: 1; height: 24px; font-weight: bold;'>Delete</button>\n      </div>\n    </fieldset>\n  </div>\n</div>\n<div class='status-bar' style='margin-top: 8px;'>\n<p class='status-bar-field'>Credibility Rate: <strong id='status-rate'></strong></p>\n<p class='status-bar-field'>Platform Credibility: <strong id='status-cred'></strong></p>\n<p class='status-bar-field'>Mistakes Left: <strong id='status-mistakes'></strong></p>\n  </div>\n\n\""
+														"value": "\"<div class='status-bar' style='margin-top: 8px;'>\n<p class='status-bar-field'>Credibility Rate: <strong id='status-rate'></strong></p>\n<p class='status-bar-field'>Platform Credibility: <strong id='status-cred'></strong></p>\n<p class='status-bar-field'>Mistakes Left: <strong id='status-mistakes'></strong></p>\n  </div>\""
 													}
 												},
 												{
@@ -2252,27 +2168,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "insert-content",
-													"objectClass": "windowBody",
-													"sid": 589271667862386,
-													"parameters": {
-														"content-type": "html",
-														"string": "\"<div class='title-bar-controls'><button aria-label='Minimize' id='minimize-\" & windowBody.UID & \"'></button>\n<button aria-label='Close' id='close-\" & windowBody.UID & \"'></button></div>\"",
-														"position": "end",
-														"selector": "\".title-bar\"",
-														"type": "one"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 243556589256070,
-													"parameters": {
-														"variable": "titleBarHTML",
-														"value": "desktopIcon.appName"
-													}
-												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
@@ -2361,6 +2256,20 @@
 													"parameters": {
 														"width": "windowBody.min_width",
 														"height": "windowBody.min_height"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 988429281142713,
+													"parameters": {
+														"audio-file": {
+															"path": "Windows XP Navigation Start Sound (Windows XP Start.wav) [Ea7epC3oCBk]"
+														},
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
 													}
 												},
 												{
@@ -3675,7 +3584,7 @@
 									"sid": 669795150927236,
 									"parameters": {
 										"variable": "createdWindowUID",
-										"value": "Functions.createWindow(\"critical_layer\")"
+										"value": "Functions.createWindow(\"critical_layer\", 0, 0)"
 									}
 								},
 								{
@@ -3860,9 +3769,11 @@
 							],
 							"actions": [
 								{
-									"id": "restart-layout",
-									"objectClass": "System",
-									"sid": 318481292693180
+									"callFunction": "LayoutChange",
+									"sid": 565666723160716,
+									"parameters": [
+										"\"level\" & currentDay"
+									]
 								}
 							],
 							"sid": 270271088272705
@@ -3883,12 +3794,11 @@
 							],
 							"actions": [
 								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 607690108603250,
-									"parameters": {
-										"layout": "level1"
-									}
+									"callFunction": "LayoutChange",
+									"sid": 940719014244861,
+									"parameters": [
+										"\"start\""
+									]
 								}
 							],
 							"sid": 895043402049714
@@ -4072,10 +3982,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 380899989997917,
+									"sid": 642152438458229,
 									"parameters": {
 										"variable": "createdWindowUID",
-										"value": "Functions.createWindow(\"windows_layer\")"
+										"value": "Functions.createWindow(\"windows_layer\", 900, 32)"
 									}
 								}
 							],
@@ -4100,22 +4010,6 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "windowBody",
-											"sid": 977019441251291,
-											"parameters": {
-												"x": "900",
-												"y": "32"
-											}
-										},
-										{
-											"callFunction": "MoveWindow",
-											"sid": 732278565830994,
-											"parameters": [
-												"windowBody.UID"
-											]
-										},
 										{
 											"id": "set-content",
 											"objectClass": "windowBody",
@@ -4559,6 +4453,200 @@
 				}
 			],
 			"sid": 711066805573331
+		},
+		{
+			"functionName": "CreateSVMessage",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 479237434454879
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 643055916913368,
+					"parameters": {
+						"variable": "systemWaiting",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 813732072927532,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "createdWindowUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 243847797621300
+				},
+				{
+					"eventType": "variable",
+					"name": "titleBarHTML",
+					"type": "string",
+					"initialValue": "<img src='image_icon/mail.png' width='12' height='12' draggable='false' style='padding-right: 10px'/><span>Mail</span>",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 757681661007276
+				},
+				{
+					"eventType": "variable",
+					"name": "windowBodyHTML",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 266898365551986
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 735583845657228,
+							"parameters": {
+								"variable": "createdWindowUID",
+								"value": "Functions.createWindow(\"windows_layer\", 400, 200)"
+							}
+						}
+					],
+					"sid": 388033163439666
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "windowBody",
+							"sid": 486121834613444,
+							"parameters": {
+								"unique-id": "createdWindowUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 525976389445891,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-content",
+									"objectClass": "windowBody",
+									"sid": 426231761821445,
+									"parameters": {
+										"content-type": "html",
+										"string": "titleBarHTML",
+										"selector": "\".title-bar-text\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "insert-content",
+									"objectClass": "windowBody",
+									"sid": 331877263915749,
+									"parameters": {
+										"content-type": "html",
+										"string": "\"<div class='title-bar-controls'>\n<button aria-label='Close' id='dialog-close'></button></div>\"",
+										"position": "end",
+										"selector": "\".title-bar\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 420540327559823,
+									"parameters": {
+										"seconds": "UpgradeCPUTime",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 722560388947974,
+									"parameters": {
+										"variable": "systemWaiting",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-content",
+									"objectClass": "windowBody",
+									"sid": 303901021142833,
+									"parameters": {
+										"content-type": "html",
+										"string": "\"<div style='display: flex; align-items: flex-start; gap: 16px; padding: 12px; box-sizing: border-box; width: 100%; height: 100%;'>\n  <img src='image_icon/mail.png' width='32' height='32' draggable='false' style='flex-shrink: 0; '/>\n  <div style='flex-grow: 1;  font-weight: bold;'>\n    \" & message & \"\n  </div>\n</div>\"",
+										"selector": "\".window-body\"",
+										"type": "one"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "windowBody",
+									"sid": 633621926393732,
+									"parameters": {
+										"instance-variable": "min_width",
+										"value": "400"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "windowBody",
+									"sid": 493499572868993,
+									"parameters": {
+										"instance-variable": "min_height",
+										"value": "200"
+									}
+								},
+								{
+									"callFunction": "ResizeWindow",
+									"sid": 382516989951615,
+									"parameters": [
+										"windowBody.UID"
+									]
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 456110437594448,
+									"parameters": {
+										"audio-file": {
+											"path": "yougotmail"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 795013299925230
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 735513248348554

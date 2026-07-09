@@ -1,5 +1,5 @@
 {
-	"name": "level1",
+	"name": "level3",
 	"events": [
 		{
 			"eventType": "include",
@@ -12,7 +12,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Level Control",
+			"title": "Level Control3",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -22,7 +22,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 230644203252616,
+							"sid": 511078203963991,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 5,
@@ -32,7 +32,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 868888902966166,
+							"sid": 290976427181839,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 2,
@@ -42,14 +42,14 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 208250099519457
+							"sid": 683659155071456
 						}
 					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 233903439436847,
+							"sid": 257333512967254,
 							"parameters": {
 								"variable": "MinAllowedDiff",
 								"value": "1"
@@ -58,23 +58,23 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 984835453156036,
+							"sid": 910438249370693,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
-								"value": "1"
+								"value": "3"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 589285837424607,
+							"sid": 517313599139592,
 							"parameters": {
 								"variable": "SpawnCooldown",
-								"value": "22"
+								"value": "10"
 							}
 						}
 					],
-					"sid": 562706846457291
+					"sid": 948490413067534
 				},
 				{
 					"eventType": "block",
@@ -82,7 +82,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 109955939093803,
+							"sid": 775271289107341,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 5,
@@ -92,7 +92,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 532374169679702,
+							"sid": 807878380790038,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 2,
@@ -102,14 +102,14 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 619158138429397
+							"sid": 292273543403494
 						}
 					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 630855289649879,
+							"sid": 853220774545329,
 							"parameters": {
 								"variable": "MinAllowedDiff",
 								"value": "1"
@@ -118,23 +118,23 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 107191338465502,
+							"sid": 112059311238724,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
-								"value": "2"
+								"value": "5"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 952941962420916,
+							"sid": 688069772063053,
 							"parameters": {
 								"variable": "SpawnCooldown",
-								"value": "18"
+								"value": "7"
 							}
 						}
 					],
-					"sid": 212339835263863
+					"sid": 845184814949014
 				},
 				{
 					"eventType": "block",
@@ -142,7 +142,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 259223472550259,
+							"sid": 687431976899198,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 5,
@@ -152,7 +152,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 891105583705971,
+							"sid": 245760220932838,
 							"parameters": {
 								"first-value": "ShiftTimer",
 								"comparison": 2,
@@ -162,42 +162,42 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 984879883456012
+							"sid": 988132566672448
 						}
 					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 699819849551345,
+							"sid": 330581055918729,
 							"parameters": {
 								"variable": "MinAllowedDiff",
-								"value": "1"
+								"value": "2"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 390718987680600,
+							"sid": 678433014302769,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
-								"value": "3"
+								"value": "5"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 958335805266814,
+							"sid": 789091913929094,
 							"parameters": {
 								"variable": "SpawnCooldown",
-								"value": "16"
+								"value": "6"
 							}
 						}
 					],
-					"sid": 863941401230015
+					"sid": 756178664793449
 				}
 			],
-			"sid": 426218184762814
+			"sid": 408975442119569
 		},
 		{
 			"eventType": "block",
@@ -205,22 +205,22 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 334870625883295
+					"sid": 790104275019120
 				}
 			],
 			"actions": [
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 747766352145383,
+					"sid": 900713867380794,
 					"parameters": {
 						"variable": "currentDay",
-						"value": "1"
+						"value": "3"
 					}
 				},
 				{
 					"callFunction": "PlayMusic",
-					"sid": 752427207676356,
+					"sid": 264626173740050,
 					"parameters": [
 						"\"LonePeakMusic - 26 Library Of Babel -Retro Gaming Version-\"",
 						"0.80",
@@ -229,14 +229,14 @@
 				},
 				{
 					"callFunction": "CreateSVMessage",
-					"sid": 918635455166835,
+					"sid": 823870760283175,
 					"parameters": [
-						"\"Hello, welcome to your first shift. <br/><br/>Since this is your first shift, your workstation is configured to process simple report tickets from users. Use this time to familiarize yourself with the applications. <br/>Key things to remember, keep the platform credibility stable. You will be penalized for incorrect decisions.\""
+						"\"Hello, welcome to your third and last shift.<br/><br/>Incoming report feeds are operating at maximum capacity. Clear the queue, protect the platform credibility, and complete your contract.\""
 					]
 				}
 			],
-			"sid": 513325524849604
+			"sid": 573635336385750
 		}
 	],
-	"sid": 599706902636925
+	"sid": 372029476401766
 }

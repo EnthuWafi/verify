@@ -18,5 +18,189 @@
   {
     "tags": "news energy blackout grid",
     "truth": "The national energy grid is operating at 100% capacity. No blackouts are scheduled."
+  },
+  {
+    "tags": "bank negara opr rate malaysia",
+    "truth": "Bank Negara Malaysia has kept the overnight policy rate unchanged at 2.75%, extending its pause in monetary policy."
+  },
+  {
+    "tags": "bnm opr rate cut rumor",
+    "truth": "Bank Negara Malaysia has not cut the OPR; the rate remains unchanged at 2.75%."
+  },
+  {
+    "tags": "malaysia fuel petroleum supply security",
+    "truth": "The government has confirmed secure and sufficient petroleum supply levels from July 2026 through December 2026."
+  },
+  {
+    "tags": "petrol subsidy scrap rumor",
+    "truth": "No decision has been made to scrap the petrol subsidy; existing subsidy arrangements remain in place."
+  },
+  {
+    "tags": "civil servant retirement age malaysia",
+    "truth": "The government has decided there is no need to increase the mandatory retirement age for civil servants at this time."
+  },
+  {
+    "tags": "civil servant retirement age increase rumor",
+    "truth": "The mandatory retirement age for civil servants has not been raised and remains unchanged."
+  },
+  {
+    "tags": "johor state election polling date july 11",
+    "truth": "The 16th Johor state election polling is set for July 11, 2026, with early voting held on July 7."
+  },
+  {
+    "tags": "johor state election postponed rumor",
+    "truth": "The Johor state election has not been postponed; polling proceeded as scheduled on July 11, 2026."
+  },
+  {
+    "tags": "lrt3 shah alam line cost delay",
+    "truth": "The government has acknowledged concerns over the LRT3 Shah Alam Line's cost and delays and is seeking to clarify the matter with the Selangor Sultan."
+  },
+  {
+    "tags": "lrt3 project cancellation rumor",
+    "truth": "The LRT3 project has not been cancelled and construction continues as planned."
+  },
+  {
+    "tags": "johor election commission offences reported",
+    "truth": "The Election Commission has reported hundreds of election offences during the Johor state election campaign period."
+  },
+  {
+    "tags": "election commission fraud cancel results rumor",
+    "truth": "The Election Commission has not cancelled any early voting results; no fraud invalidating the results has been confirmed."
+  },
+  {
+    "tags": "moh dengue advisory stagnant water",
+    "truth": "The Ministry of Health has issued an advisory urging the public to clear stagnant water amid a rise in dengue cases."
+  },
+  {
+    "tags": "moh lockdown dengue rumor",
+    "truth": "The Ministry of Health has not declared any nationwide lockdown; no such directive has been issued over dengue cases."
+  },
+  {
+    "tags": "gta 6 release date confirmed",
+    "truth": "The publisher has officially confirmed a release date for Grand Theft Auto 6."
+  },
+  {
+    "tags": "gta 6 delay indefinite rumor",
+    "truth": "Grand Theft Auto 6 has not been delayed indefinitely; an official release window remains in place."
+  },
+  {
+    "tags": "nintendo switch 2 sales milestone",
+    "truth": "Nintendo Switch 2 sales have officially passed a major unit milestone."
+  },
+  {
+    "tags": "nintendo switch 2 discontinued rumor",
+    "truth": "Nintendo has not discontinued the Switch 2; the console remains in active production and sale."
+  },
+  {
+    "tags": "cloud gaming subscription library expansion",
+    "truth": "A major cloud gaming subscription service has added a new library of games."
+  },
+  {
+    "tags": "cloud gaming service shutdown rumor",
+    "truth": "No major cloud gaming service has announced plans to shut down permanently."
+  },
+  {
+    "tags": "formula 1 calendar new race addition",
+    "truth": "Formula 1 has confirmed the addition of a new race to next season's calendar."
+  },
+  {
+    "tags": "football transfer one dollar rumor",
+    "truth": "No football club has completed a player transfer for a nominal fee of one dollar; such claims are fabricated."
+  },
+  {
+    "tags": "capcom resident evil new game announcement",
+    "truth": "Capcom has officially announced a new entry in the Resident Evil series."
+  },
+  {
+    "tags": "messaging app privacy rumor",
+    "truth": "No evidence supports claims that the messaging app reads private user messages; the company denies the allegation."
+  },
+  {
+    "tags": "tech company ai chip data center",
+    "truth": "A major technology company has officially unveiled a new AI chip designed for data centers."
+  },
+  {
+    "tags": "smartphone battery explosion recall rumor",
+    "truth": "No nationwide recall has been issued; claims of mass battery explosions for the smartphone model are unverified."
+  },
+  {
+    "tags": "who covid-19 pandemic emergency status",
+    "truth": "The WHO's COVID-19 global health emergency (PHEIC) ended in May 2023 and has not been reinstated, though the virus continues to circulate globally."
+  },
+  {
+    "tags": "who covid lockdown rumor",
+    "truth": "WHO has not declared any new global COVID-19 lockdown; no such directive has been issued."
+  },
+  {
+    "tags": "malaysia digital asset exchange approval",
+    "truth": "The Securities Commission Malaysia has approved a new licensed digital asset exchange to operate in the country."
+  },
+  {
+    "tags": "cryptocurrency ban malaysia rumor",
+    "truth": "Cryptocurrency has not been declared illegal in Malaysia; regulated trading remains permitted."
+  },
+  {
+    "tags": "met malaysia heatwave warning",
+    "truth": "The Malaysian Meteorological Department has issued a heatwave warning for several states."
+  },
+  {
+    "tags": "met malaysia tsunami warning rumor",
+    "truth": "The Malaysian Meteorological Department has not issued any tsunami warning for the west coast."
+  },
+  {
+    "tags": "malaysia badminton tournament title win",
+    "truth": "A Malaysian shuttler has won the title at a major international badminton tournament."
+  },
+  {
+    "tags": "badminton doping ban rumor",
+    "truth": "No Malaysian badminton player has been banned for a doping violation; the claim is unsubstantiated."
+  },
+  {
+    "tags": "satellite launch mission space",
+    "truth": "A new satellite mission has been successfully launched as scheduled."
+  },
+  {
+    "tags": "nasa asteroid earth impact rumor",
+    "truth": "NASA has not confirmed any asteroid impact threat to Earth; no such warning has been issued."
+  },
+  {
+    "tags": "ai company new model release",
+    "truth": "A major AI company has officially released a new model with expanded capabilities."
+  },
+  {
+    "tags": "ai chatbot sentience rumor",
+    "truth": "No credible report confirms any AI chatbot has gained sentience or refused shutdown; such claims are fabricated."
+  },
+  {
+    "tags": "streaming platform series renewal",
+    "truth": "A streaming platform has officially renewed a popular series for a new season."
+  },
+  {
+    "tags": "streaming platform shutdown rumor",
+    "truth": "The streaming platform has not announced any plans to shut down; it remains fully operational."
+  },
+  {
+    "tags": "ringgit exchange rate us dollar",
+    "truth": "The ringgit has strengthened against the US dollar this week, according to currency market data."
+  },
+  {
+    "tags": "ringgit currency replacement rumor",
+    "truth": "The ringgit is not being replaced by a new currency; no such policy has been announced."
+  },
+  {
+    "tags": "malaysia highway toll rate freeze",
+    "truth": "The Ministry of Transport has announced a freeze on highway toll rate increases."
+  },
+  {
+    "tags": "highway toll abolished rumor",
+    "truth": "Highway tolls have not been abolished nationwide; existing toll structures remain in place."
+  },
+  {
+    "tags": "malaysia haze air quality decrease",
+    "truth": "Malaysia has reported a decrease in haze levels compared to the same period last year."
+  },
+  {
+    "tags": "air quality hazardous schools closed rumor",
+    "truth": "Air quality has not reached hazardous levels nationwide and no nationwide school closure has been ordered."
   }
 ]

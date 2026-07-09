@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "UpgradeCPUTime",
 			"type": "number",
-			"initialValue": "2",
+			"initialValue": "3",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -19,7 +19,7 @@
 			"eventType": "variable",
 			"name": "UpgradeNetworkTime",
 			"type": "number",
-			"initialValue": "3",
+			"initialValue": "5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "UpgradeCredibilityDrainRate",
 			"type": "number",
-			"initialValue": "0.5",
+			"initialValue": "0.3",
 			"comment": "lower is better",
 			"isStatic": false,
 			"isConstant": false,
@@ -193,7 +193,26 @@
 							"sid": 281996076772531
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "LayoutVisualTransition",
+							"sid": 308541992580138
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 561659281594268,
+							"parameters": {
+								"audio-file": {
+									"path": "Windows XP Logon Sound"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
 					"sid": 969755265217924,
 					"children": [
 						{
@@ -396,6 +415,68 @@
 						}
 					],
 					"sid": 989405108359630
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 561148703447551,
+							"parameters": {
+								"first-value": "PlatformCredibility",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 296649241504853
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 976891723232493,
+							"parameters": {
+								"audio-file": {
+									"path": "Windows XP Shutdown"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 164277933315290,
+							"parameters": {
+								"variable": "isWinning",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 816795923105993,
+							"parameters": {
+								"variable": "loseReason",
+								"value": "\"During Employee ID #4402 shift, the platform credibility level dropped below acceptable thresholds. Your profile has been purged from the company.\""
+							}
+						},
+						{
+							"callFunction": "LayoutChange",
+							"sid": 714297543658421,
+							"parameters": [
+								"\"endOfDay\""
+							]
+						}
+					],
+					"sid": 918720857942156
 				}
 			],
 			"sid": 939124944060005
@@ -551,15 +632,99 @@
 					],
 					"actions": [
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 645313801786365,
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 154760817815456,
 							"parameters": {
-								"layout": "endOfDay"
+								"audio-file": {
+									"path": "Windows XP Shutdown"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
 							}
+						},
+						{
+							"callFunction": "CalculateEndofShift",
+							"sid": 935906995296710
 						}
 					],
-					"sid": 376220468077672
+					"sid": 376220468077672,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 634547605100575,
+									"parameters": {
+										"first-value": "TotalSavings",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 637765064818481,
+									"parameters": {
+										"variable": "isWinning",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 512034569057617
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 422123315159090
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 776437103393623,
+									"parameters": {
+										"variable": "isWinning",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 550898443233526,
+									"parameters": {
+										"variable": "loseReason",
+										"value": "\"Employee ID #4402 was found unconscious on corporate perimeter grounds during non-shift hours. The company has decided that physical malnutrition as an unapproved optimization liability. Your profile has been purged from the company.\""
+									}
+								}
+							],
+							"sid": 229846865207151
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "LayoutChange",
+									"sid": 911087058763089,
+									"parameters": [
+										"\"endOfDay\""
+									]
+								}
+							],
+							"sid": 358364105457823
+						}
+					]
 				}
 			],
 			"sid": 629140581142858
@@ -618,6 +783,34 @@
 							}
 						},
 						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 650310416733117,
+							"parameters": {
+								"audio-file": {
+									"path": "Windows XP Balloon"
+								},
+								"loop": "not-looping",
+								"volume": "10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 512361968116037,
+							"parameters": {
+								"audio-file": {
+									"path": "windowsding"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
 							"sid": 888650572252757,
@@ -648,20 +841,6 @@
 								"string": "\"<div class='tooltip'>\n<img src='general_icon/icons8-check-mark-48.png' class='tooltip-icon' draggable='false' />\n  <div class='tooltip-content'>\n    <div class='tooltip-title'>Verification Success</div>\n    <div class='tooltip-message'>Report correctly handled. Platform credibility maintained.</div>\n  </div>\n</div>\"",
 								"selector": "\"\"",
 								"type": "one"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 576485511908028,
-							"parameters": {
-								"audio-file": {
-									"path": "Windows XP Balloon"
-								},
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
 							}
 						},
 						{
@@ -851,6 +1030,34 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 992215569718173,
+									"parameters": {
+										"audio-file": {
+											"path": "Windows XP Balloon"
+										},
+										"loop": "not-looping",
+										"volume": "10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 405407796965715,
+									"parameters": {
+										"audio-file": {
+											"path": "erro-2"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 195971641883577,
@@ -881,20 +1088,6 @@
 										"string": "\"<div class='tooltip'>\n<img src='general_icon/icons8-cancel-48.png' class='tooltip-icon' draggable='false' />\n  <div class='tooltip-content'>\n    <div class='tooltip-title'>\" & top & \"</div>\n    <div class='tooltip-message'>\" & message & \"</div>\n  </div>\n</div>\"",
 										"selector": "\"\"",
 										"type": "one"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 167411641383732,
-									"parameters": {
-										"audio-file": {
-											"path": "Windows XP Balloon"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
 									}
 								},
 								{
@@ -1906,6 +2099,173 @@
 				}
 			],
 			"sid": 623501195503216
+		},
+		{
+			"eventType": "variable",
+			"name": "DestinationLayoutName",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 235319021564446
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "layout control",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "LayoutChange",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "destinationLayout",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 990840255921660
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 194618568707877,
+							"parameters": {
+								"variable": "DestinationLayoutName",
+								"value": "destinationLayout"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "transitionFX",
+							"sid": 877017163664733,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"opacity100\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.3",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 398568362412752,
+							"parameters": {
+								"seconds": "0.3",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 560735361374061,
+							"parameters": {
+								"layout": "DestinationLayoutName"
+							}
+						}
+					],
+					"sid": 219626957319627
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "transitionFX",
+							"sid": 740912709870100,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"opacity100\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 289881064453569
+				},
+				{
+					"functionName": "LayoutVisualTransition",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "transitionFX",
+							"sid": 267763548570212,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"opacity0\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.3",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 256579835125140
+				}
+			],
+			"sid": 757266345213363
+		},
+		{
+			"functionName": "PlaySound",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "audioName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 260074537867162
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 661377490023414,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "audioName",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 994487922156653
 		}
 	],
 	"sid": 442786421369605

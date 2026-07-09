@@ -1,5 +1,83 @@
 {
 	"name": "win",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked-id",
+					"objectClass": "menuChoice",
+					"sid": 458493521063718,
+					"parameters": {
+						"id": "\"menu-start\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "LayoutChange",
+					"sid": 794513706835459,
+					"parameters": [
+						"\"start\""
+					]
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 206706563742499,
+					"parameters": {
+						"audio-file": {
+							"path": "button-click"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 625495889799485
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 311184324473105
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "LayoutVisualTransition",
+					"sid": 386495727171525
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 657454761891699,
+					"parameters": {
+						"audio-file": {
+							"path": "tada_1"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"callFunction": "PlayMusic",
+					"sid": 968376784110054,
+					"parameters": [
+						"\"LonePeakMusic - 23 Modern Plague -Retro Gaming Version-\"",
+						"1",
+						"0"
+					]
+				}
+			],
+			"sid": 821953637452355
+		}
+	],
 	"sid": 477031541704816
 }

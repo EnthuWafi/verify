@@ -115,6 +115,13 @@
 						"variable": "systemWaiting",
 						"value": "false"
 					}
+				},
+				{
+					"callFunction": "ChangeCursorStyle",
+					"sid": 586215052389792,
+					"parameters": [
+						"\"Normal\""
+					]
 				}
 			],
 			"sid": 934073730400362
@@ -786,6 +793,15 @@
 							}
 						},
 						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 411940037844538,
+							"parameters": {
+								"key": "\"usedTicketJSON\"",
+								"value": "usedTicketDictionary.AsJSON"
+							}
+						},
+						{
 							"callFunction": "ProceedToNextLevel",
 							"sid": 518367459638980
 						},
@@ -1302,8 +1318,24 @@
 					}
 				},
 				{
-					"callFunction": "ClearUsedTicket",
-					"sid": 851410158128482
+					"id": "set-size",
+					"objectClass": "reportTicketArray",
+					"sid": 825754158011028,
+					"parameters": {
+						"width": "0",
+						"height": "4",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "reportTicketPoolArray",
+					"sid": 763820668648081,
+					"parameters": {
+						"width": "0",
+						"height": "4",
+						"depth": "1"
+					}
 				}
 			],
 			"sid": 511799555831553

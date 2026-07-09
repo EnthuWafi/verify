@@ -501,23 +501,31 @@
 						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 419082261667869,
+							"sid": 291449459869356,
 							"parameters": {
 								"variable": "ShiftTimer",
-								"value": "dt * 60"
+								"value": "dt * 120"
 							}
 						},
 						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 606248186332920,
+							"sid": 864345917304605,
 							"parameters": {
 								"variable": "TimeSinceLastSpawn",
 								"value": "dt"
 							}
 						}
 					],
-					"sid": 512939371069024
+					"sid": 512939371069024,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 419352902296507
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -525,9 +533,9 @@
 						{
 							"id": "every-x-seconds",
 							"objectClass": "System",
-							"sid": 131657002607764,
+							"sid": 291021485486079,
 							"parameters": {
-								"interval-seconds": "1"
+								"interval-seconds": "0.5"
 							}
 						}
 					],
@@ -1532,25 +1540,6 @@
 						}
 					],
 					"sid": 356268660611690
-				},
-				{
-					"functionName": "ClearUsedTicket",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "clear",
-							"objectClass": "usedTicketDictionary",
-							"sid": 137066331999441
-						}
-					],
-					"sid": 971994500671049
 				},
 				{
 					"functionName": "AddToReportTicketPool",

@@ -317,6 +317,39 @@
 						{
 							"id": "on-item-get",
 							"objectClass": "LocalStorage",
+							"sid": 816601048341998,
+							"parameters": {
+								"key": "\"usedTicketJSON\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "usedTicketDictionary",
+							"sid": 987712954675156,
+							"parameters": {
+								"json": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 170113629034409,
+							"parameters": {
+								"variable": "loadCompleted",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 473585293839773
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
 							"sid": 711677762087551,
 							"parameters": {
 								"key": "\"upgradeCPU\""

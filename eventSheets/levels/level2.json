@@ -49,7 +49,7 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 440468118432488,
+							"sid": 798449933632145,
 							"parameters": {
 								"variable": "MinAllowedDiff",
 								"value": "1"
@@ -109,19 +109,19 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 311680097617841,
+							"sid": 111474874196281,
 							"parameters": {
 								"variable": "MinAllowedDiff",
-								"value": "2"
+								"value": "1"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 563127118794815,
+							"sid": 690123104131416,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
-								"value": "2"
+								"value": "3"
 							}
 						},
 						{
@@ -169,19 +169,19 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 478410030874633,
+							"sid": 187546120179008,
 							"parameters": {
 								"variable": "MinAllowedDiff",
-								"value": "2"
+								"value": "1"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 282758726992449,
+							"sid": 616613192929590,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
-								"value": "3"
+								"value": "4"
 							}
 						},
 						{
@@ -233,6 +233,15 @@
 					"parameters": [
 						"\"Hello, welcome to your second shift. <br/><br/>Network traffic has expanded significantly for the seocnd day. Workstation hardware upgrades are highly recommended to avoid being overwhelmed.\""
 					]
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 443812331302788,
+					"parameters": {
+						"variable": "StartHour",
+						"value": "16"
+					}
 				}
 			],
 			"sid": 672475296810001

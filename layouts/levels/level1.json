@@ -137,7 +137,7 @@
 					"world": {
 						"x": 32,
 						"y": 32,
-						"width": 82,
+						"width": 96,
 						"height": 75,
 						"originX": 0,
 						"originY": 0,
@@ -153,7 +153,7 @@
 					"type": "startMenu",
 					"properties": {
 						"tag": "div",
-						"content": "<div class=\"start-menu\" id=\"start-menu-container\">\n  <div class=\"start-menu-accent\"></div>\n\n  <ul class=\"start-menu-list\">\n    <li class=\"menu-item\" id=\"menu-feed\">\n      <img src=\"feed-icon.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Feed App</span>\n    </li>\n    \n    <hr class=\"menu-divider\" />\n    \n    <li class=\"menu-item\" id=\"menu-shutdown\">\n      <img src=\"shutdown-icon.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Shut Down...</span>\n    </li>\n  </ul>\n</div>",
+						"content": "<div class=\"start-menu\" id=\"start-menu-container\">\n  <div class=\"start-menu-accent\"></div>\n\n  <ul class=\"start-menu-list\">\n    <li class=\"menu-item\" id=\"menu\">\n      <img src=\"image_icon/program.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Nothing..</span>\n    </li>\n    \n    <hr class=\"menu-divider\" />\n    \n    <li class=\"menu-item\" id=\"menu-shutdown\">\n      <img src=\"image_icon/this_computer.png\" class=\"menu-icon\" />\n      <span class=\"menu-text\">Shut Down...</span>\n    </li>\n  </ul>\n</div>",
 						"content-type": "html",
 						"initially-visible": false,
 						"id": "",
@@ -245,7 +245,7 @@
 					"world": {
 						"x": 32,
 						"y": 128,
-						"width": 82,
+						"width": 96,
 						"height": 75,
 						"originX": 0,
 						"originY": 0,
@@ -341,7 +341,7 @@
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
-			"isHTMLElementsLayer": false,
+			"isHTMLElementsLayer": true,
 			"color": [
 				1,
 				1,

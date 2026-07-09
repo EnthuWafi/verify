@@ -401,6 +401,20 @@
 					],
 					"actions": [
 						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 799989419158611,
+							"parameters": {
+								"audio-file": {
+									"path": "button-click"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
 							"id": "set-boolean-instvar",
 							"objectClass": "windowBody",
 							"sid": 186324451783236,
@@ -450,7 +464,22 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 799989419158611,
+							"parameters": {
+								"audio-file": {
+									"path": "button-click"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
 					"sid": 638221473754056,
 					"children": [
 						{
@@ -691,6 +720,20 @@
 							],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 799989419158611,
+									"parameters": {
+										"audio-file": {
+											"path": "button-click"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"callFunction": "ProcessReportDecision",
 									"sid": 146967345191552,
 									"parameters": [
@@ -714,6 +757,20 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 799989419158611,
+									"parameters": {
+										"audio-file": {
+											"path": "button-click"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"callFunction": "ProcessReportDecision",
 									"sid": 901827857259522,
@@ -1146,9 +1203,9 @@
 											"actions": [
 												{
 													"callFunction": "AddToShiftSalary",
-													"sid": 455701209316317,
+													"sid": 695132462208112,
 													"parameters": [
-														"10"
+														"7"
 													]
 												}
 											],
@@ -1463,7 +1520,22 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 799989419158611,
+									"parameters": {
+										"audio-file": {
+											"path": "button-click"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
 							"sid": 155424334072781,
 							"children": [
 								{
@@ -2356,7 +2428,22 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 799989419158611,
+							"parameters": {
+								"audio-file": {
+									"path": "button-click"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
 					"sid": 583607851810946,
 					"children": [
 						{
@@ -2981,7 +3068,22 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 799989419158611,
+							"parameters": {
+								"audio-file": {
+									"path": "button-click"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
 					"sid": 717345954081533,
 					"children": [
 						{
@@ -3086,6 +3188,20 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 799989419158611,
+									"parameters": {
+										"audio-file": {
+											"path": "button-click"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "set-visible",
 									"objectClass": "startMenu",
@@ -3581,10 +3697,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 669795150927236,
+									"sid": 311541490175517,
 									"parameters": {
 										"variable": "createdWindowUID",
-										"value": "Functions.createWindow(\"critical_layer\", 0, 0)"
+										"value": "Functions.createWindow(\"critical_layer\", 400, 200)"
 									}
 								},
 								{
@@ -3727,6 +3843,20 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 799989419158611,
+							"parameters": {
+								"audio-file": {
+									"path": "button-click"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
@@ -4594,10 +4724,10 @@
 								{
 									"id": "set-content",
 									"objectClass": "windowBody",
-									"sid": 303901021142833,
+									"sid": 945062930576516,
 									"parameters": {
 										"content-type": "html",
-										"string": "\"<div style='display: flex; align-items: flex-start; gap: 16px; padding: 12px; box-sizing: border-box; width: 100%; height: 100%;'>\n  <img src='image_icon/mail.png' width='32' height='32' draggable='false' style='flex-shrink: 0; '/>\n  <div style='flex-grow: 1;  font-weight: bold;'>\n    \" & message & \"\n  </div>\n</div>\"",
+										"string": "\"<div style='display: flex; align-items: flex-start; gap: 16px; padding: 12px; box-sizing: border-box; width: 100%; height: 100%;'>\n  <img src='image_icon/mail.png' width='32' height='32' draggable='false' style='flex-shrink: 0; '/>\n  <div style='flex-grow: 1;'>\n    \" & message & \"\n  </div>\n</div>\"",
 										"selector": "\".window-body\"",
 										"type": "one"
 									}

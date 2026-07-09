@@ -1,191 +1,147 @@
 [
   {
-    "tags": "bbc handle",
-    "truth": "BBCNews official social media handle is @BBCNews"
+    "tags": "bank negara malaysia opr unchanged",
+    "truth": "Bank Negara Malaysia has kept the overnight policy rate unchanged at 2.75% following its latest monetary policy decision."
   },
   {
-    "tags": "reuters handle",
-    "truth": "Reuters official social media handle is @Reuters"
+    "tags": "campus shutdown blackout national grid rumor",
+    "truth": "There is no confirmed nationwide campus shutdown linked to a national grid failure. No official authority has announced a multi-campus emergency closure, and claims describing a total blackout across several universities are not supported by any verified public alert. The circulating post appears to combine blackout language with campus closure rumors in a way that exaggerates unverified reports."
   },
   {
-    "tags": "bbc news emergency campus shutdown",
-    "truth": "No campus alerts are active. Reports of power grid failures are completely fabricated."
+    "tags": "malaysia fuel supply secure 2026",
+    "truth": "The government has confirmed that domestic fuel and petroleum supply levels remain secure and sufficient through the relevant 2026 period."
   },
   {
-    "tags": "reuters news copper supply maritime",
-    "truth": "Global copper supply has stabilized. The maritime trade agreements are authentic."
+    "tags": "petrol subsidy scrap next week rumor",
+    "truth": "No official decision has been announced to fully scrap the petrol subsidy next week. Existing subsidy arrangements remain in place, and there has been no verified statement confirming an immediate midnight transition to fully floating pump prices. The rumor relies on alleged internal papers, but no formal policy announcement has been issued to support that claim."
   },
   {
-    "tags": "news energy blackout grid",
-    "truth": "The national energy grid is operating at 100% capacity. No blackouts are scheduled."
+    "tags": "civil servant retirement age unchanged malaysia",
+    "truth": "The government has stated that there is currently no need to increase the mandatory retirement age for civil servants."
   },
   {
-    "tags": "bank negara opr rate malaysia",
-    "truth": "Bank Negara Malaysia has kept the overnight policy rate unchanged at 2.75%, extending its pause in monetary policy."
+    "tags": "civil servant retirement age 65 policy rumor",
+    "truth": "The mandatory retirement age for civil servants has not been raised to 65. No verified public policy announcement confirms that a quiet revision was approved or implemented without notice. Claims that civil servants must now work until 65 are inconsistent with the current official position that the retirement age remains unchanged."
   },
   {
-    "tags": "bnm opr rate cut rumor",
-    "truth": "Bank Negara Malaysia has not cut the OPR; the rate remains unchanged at 2.75%."
+    "tags": "johor state election polling july 11 early voting july 7",
+    "truth": "The 16th Johor state election polling date is set for July 11, 2026, with early voting held on July 7."
   },
   {
-    "tags": "malaysia fuel petroleum supply security",
-    "truth": "The government has confirmed secure and sufficient petroleum supply levels from July 2026 through December 2026."
+    "tags": "johor election postponed ballot logistics rumor",
+    "truth": "The Johor state election has not been postponed due to ballot or early-voting logistics problems. Polling proceeded according to the announced schedule, and no verified statement from the Election Commission supports claims of a postponement caused by ballot distribution failures. The rumor appears to use administrative-sounding language to make an unverified disruption seem official."
   },
   {
-    "tags": "petrol subsidy scrap rumor",
-    "truth": "No decision has been made to scrap the petrol subsidy; existing subsidy arrangements remain in place."
+    "tags": "lrt3 shah alam line cost delay clarification",
+    "truth": "The government has acknowledged concerns involving the LRT3 Shah Alam Line's costs and delays and is seeking clarification on the matter through the appropriate channels."
   },
   {
-    "tags": "civil servant retirement age malaysia",
-    "truth": "The government has decided there is no need to increase the mandatory retirement age for civil servants at this time."
+    "tags": "lrt3 project cancelled funding withdrawn rumor",
+    "truth": "The LRT3 project has not been officially cancelled, and there is no verified confirmation that all funding has been withdrawn or that contractors were instructed to halt the project entirely. Public reporting indicates that concerns over cost and delay exist, but that is not the same as a full project cancellation. The rumor overstates the situation by presenting unresolved project concerns as if they were a final termination order."
   },
   {
-    "tags": "civil servant retirement age increase rumor",
-    "truth": "The mandatory retirement age for civil servants has not been raised and remains unchanged."
+    "tags": "moh dengue stagnant water advisory",
+    "truth": "The Ministry of Health has issued public advice urging people to clear stagnant water and take preventive action amid rising dengue cases."
   },
   {
-    "tags": "johor state election polling date july 11",
-    "truth": "The 16th Johor state election polling is set for July 11, 2026, with early voting held on July 7."
+    "tags": "malaysia dengue lockdown rumor",
+    "truth": "The Ministry of Health has not declared a nationwide lockdown over dengue, nor has it issued any directive imposing national movement restrictions because of dengue cases. While dengue advisories and prevention campaigns have been issued, those public health measures are fundamentally different from a lockdown order. Claims that emergency retail controls and nationwide restrictions are already being prepared are not supported by official statements and appear to be an escalation of ordinary dengue prevention messaging into a false emergency scenario."
   },
   {
-    "tags": "johor state election postponed rumor",
-    "truth": "The Johor state election has not been postponed; polling proceeded as scheduled on July 11, 2026."
+    "tags": "gta 6 release date confirmed official",
+    "truth": "The publisher has officially confirmed a release date window for Grand Theft Auto 6."
   },
   {
-    "tags": "lrt3 shah alam line cost delay",
-    "truth": "The government has acknowledged concerns over the LRT3 Shah Alam Line's cost and delays and is seeking to clarify the matter with the Selangor Sultan."
+    "tags": "gta 6 delayed indefinitely engine rumor",
+    "truth": "Grand Theft Auto 6 has not been officially delayed indefinitely. Although online posts may cite unnamed insiders or alleged engine problems, the official release window remains the relevant confirmed reference point unless the publisher announces otherwise. Claims of severe instability forcing the abandonment of the release plan are not verified by an official statement."
   },
   {
-    "tags": "lrt3 project cancellation rumor",
-    "truth": "The LRT3 project has not been cancelled and construction continues as planned."
+    "tags": "nintendo switch 2 sales milestone official",
+    "truth": "Nintendo Switch 2 sales have officially passed a major sales milestone according to company reporting."
   },
   {
-    "tags": "johor election commission offences reported",
-    "truth": "The Election Commission has reported hundreds of election offences during the Johor state election campaign period."
+    "tags": "switch 2 discontinued production loss rumor",
+    "truth": "Nintendo has not announced that the Switch 2 is being discontinued. There is no verified company statement indicating that the console line is ending less than a year after launch because of production losses. The rumor attempts to frame speculation about performance or costs as a final corporate decision, but no official discontinuation notice supports that claim."
   },
   {
-    "tags": "election commission fraud cancel results rumor",
-    "truth": "The Election Commission has not cancelled any early voting results; no fraud invalidating the results has been confirmed."
+    "tags": "cloud gaming library expansion official",
+    "truth": "A major cloud gaming subscription service has expanded its content library with additional titles."
   },
   {
-    "tags": "moh dengue advisory stagnant water",
-    "truth": "The Ministry of Health has issued an advisory urging the public to clear stagnant water amid a rise in dengue cases."
-  },
-  {
-    "tags": "moh lockdown dengue rumor",
-    "truth": "The Ministry of Health has not declared any nationwide lockdown; no such directive has been issued over dengue cases."
-  },
-  {
-    "tags": "gta 6 release date confirmed",
-    "truth": "The publisher has officially confirmed a release date for Grand Theft Auto 6."
-  },
-  {
-    "tags": "gta 6 delay indefinite rumor",
-    "truth": "Grand Theft Auto 6 has not been delayed indefinitely; an official release window remains in place."
-  },
-  {
-    "tags": "nintendo switch 2 sales milestone",
-    "truth": "Nintendo Switch 2 sales have officially passed a major unit milestone."
-  },
-  {
-    "tags": "nintendo switch 2 discontinued rumor",
-    "truth": "Nintendo has not discontinued the Switch 2; the console remains in active production and sale."
-  },
-  {
-    "tags": "cloud gaming subscription library expansion",
-    "truth": "A major cloud gaming subscription service has added a new library of games."
-  },
-  {
-    "tags": "cloud gaming service shutdown rumor",
-    "truth": "No major cloud gaming service has announced plans to shut down permanently."
-  },
-  {
-    "tags": "formula 1 calendar new race addition",
-    "truth": "Formula 1 has confirmed the addition of a new race to next season's calendar."
-  },
-  {
-    "tags": "football transfer one dollar rumor",
-    "truth": "No football club has completed a player transfer for a nominal fee of one dollar; such claims are fabricated."
+    "tags": "cloud gaming shutdown next month rumor",
+    "truth": "No major cloud gaming service has officially announced a permanent shutdown on the timeline described in the viral claim. Users have not been formally instructed through verified official channels to back up saves ahead of a total service closure. The post borrows realistic language about server shutdowns and save data loss, but there is no confirmed announcement matching the scenario presented."
   },
   {
     "tags": "capcom resident evil new game announcement",
     "truth": "Capcom has officially announced a new entry in the Resident Evil series."
   },
   {
-    "tags": "messaging app privacy rumor",
-    "truth": "No evidence supports claims that the messaging app reads private user messages; the company denies the allegation."
+    "tags": "messaging app reads private messages plain text rumor",
+    "truth": "There is no verified evidence that the messaging app in question secretly reads all private user messages and stores them in plain text for advertising analysis. Such claims often misrepresent metadata collection, optional cloud features, or broader privacy concerns as proof of direct message surveillance. The company has denied allegations of reading private encrypted messages in the way described by the rumor, and no credible official disclosure supports the claim being made."
   },
   {
-    "tags": "tech company ai chip data center",
-    "truth": "A major technology company has officially unveiled a new AI chip designed for data centers."
+    "tags": "ai chip data center official unveiling",
+    "truth": "A major technology company has officially unveiled a new AI chip designed for data center and large-scale AI workloads."
   },
   {
-    "tags": "smartphone battery explosion recall rumor",
-    "truth": "No nationwide recall has been issued; claims of mass battery explosions for the smartphone model are unverified."
+    "tags": "smartphone nationwide recall battery explosion rumor",
+    "truth": "No nationwide recall has been officially issued for the smartphone model described in the claim, and there is no verified public confirmation of mass battery explosions tied to that device. Rumors of catastrophic hardware failures frequently spread online using emergency language such as 'authorities have recalled the model nationwide,' but those claims require confirmation from the manufacturer or the relevant safety authority. In this case, the viral post is not supported by a verified recall notice."
   },
   {
-    "tags": "who covid-19 pandemic emergency status",
-    "truth": "The WHO's COVID-19 global health emergency (PHEIC) ended in May 2023 and has not been reinstated, though the virus continues to circulate globally."
+    "tags": "who covid emergency ended 2023 not reinstated",
+    "truth": "The WHO's COVID-19 global health emergency ended in May 2023 and has not been reinstated, although COVID-19 continues to circulate globally."
   },
   {
-    "tags": "who covid lockdown rumor",
-    "truth": "WHO has not declared any new global COVID-19 lockdown; no such directive has been issued."
+    "tags": "who global covid lockdown return rumor",
+    "truth": "The World Health Organization has not reinstated a COVID-19 global emergency in the way described by the rumor, nor has it announced a coordinated new lockdown program for countries to implement within days. The WHO may continue to monitor global public health risks and issue health guidance, but that is not the same as ordering immediate multinational lockdowns. The claim appears to take the language of public health monitoring and falsely reframe it as a new emergency enforcement directive."
   },
   {
-    "tags": "malaysia digital asset exchange approval",
-    "truth": "The Securities Commission Malaysia has approved a new licensed digital asset exchange to operate in the country."
+    "tags": "sc malaysia digital asset exchange approved",
+    "truth": "The Securities Commission Malaysia has approved a new licensed digital asset exchange to operate under the country's regulated framework."
   },
   {
-    "tags": "cryptocurrency ban malaysia rumor",
-    "truth": "Cryptocurrency has not been declared illegal in Malaysia; regulated trading remains permitted."
+    "tags": "malaysia cryptocurrency illegal overnight rumor",
+    "truth": "Cryptocurrency has not been declared illegal in Malaysia, and regulated trading remains permitted under the existing framework. There has been no verified announcement confirming that exchange accounts were frozen overnight or that all token transactions became immediately unlawful. The rumor exaggerates regulatory oversight into a total ban scenario that does not match the current official position."
   },
   {
-    "tags": "met malaysia heatwave warning",
+    "tags": "met malaysia heatwave warning several states",
     "truth": "The Malaysian Meteorological Department has issued a heatwave warning for several states."
   },
   {
-    "tags": "met malaysia tsunami warning rumor",
-    "truth": "The Malaysian Meteorological Department has not issued any tsunami warning for the west coast."
+    "tags": "met malaysia west coast tsunami warning rumor",
+    "truth": "The Malaysian Meteorological Department has not issued a tsunami warning for the west coast in the manner described by the viral claim. No verified official warning has announced an expected destructive coastal wave event for next week tied to the alleged offshore seismic activity in the post. The rumor uses urgent disaster language and references to seismic threats to create panic, but it is not supported by a confirmed MetMalaysia warning bulletin."
   },
   {
-    "tags": "malaysia badminton tournament title win",
-    "truth": "A Malaysian shuttler has won the title at a major international badminton tournament."
+    "tags": "malaysian shuttler international title win",
+    "truth": "A Malaysian badminton player has won the title at a major international tournament."
   },
   {
-    "tags": "badminton doping ban rumor",
-    "truth": "No Malaysian badminton player has been banned for a doping violation; the claim is unsubstantiated."
+    "tags": "nasa asteroid impact pacific strike rumor",
+    "truth": "NASA has not confirmed an asteroid impact threat to Earth later this year, and there is no verified agency announcement showing a likely Pacific strike path as claimed in the post. Planetary defense updates and asteroid monitoring data are public-facing subjects that would require clear official confirmation if a genuine threat existed. The viral claim appears to present speculative or fabricated 'internal projections' as if they were a formal NASA warning, which they are not."
   },
   {
-    "tags": "satellite launch mission space",
-    "truth": "A new satellite mission has been successfully launched as scheduled."
+    "tags": "formula 1 calendar new race addition",
+    "truth": "Formula 1 has officially confirmed the addition of a new race to next season's calendar."
   },
   {
-    "tags": "nasa asteroid earth impact rumor",
-    "truth": "NASA has not confirmed any asteroid impact threat to Earth; no such warning has been issued."
-  },
-  {
-    "tags": "ai company new model release",
-    "truth": "A major AI company has officially released a new model with expanded capabilities."
-  },
-  {
-    "tags": "ai chatbot sentience rumor",
-    "truth": "No credible report confirms any AI chatbot has gained sentience or refused shutdown; such claims are fabricated."
+    "tags": "football transfer one dollar rumor",
+    "truth": "No credible official report confirms that a major football club completed a player transfer for a nominal fee of one dollar. While football transfers can involve unusual accounting structures, bonuses, clauses, or symbolic reporting language, the viral claim that a top-tier transfer was completed for exactly one dollar is not supported by verified reporting and is treated as fabricated."
   },
   {
     "tags": "streaming platform series renewal",
-    "truth": "A streaming platform has officially renewed a popular series for a new season."
+    "truth": "A major streaming platform has officially renewed a popular series for a new season."
   },
   {
     "tags": "streaming platform shutdown rumor",
-    "truth": "The streaming platform has not announced any plans to shut down; it remains fully operational."
+    "truth": "The streaming platform referenced in the rumor has not officially announced plans to shut down within a month. No verified company statement, investor filing, or formal notice supports the claim that the service is being closed after emergency internal meetings. The rumor uses the language of insider leaks and cost-cutting panic, but there is no confirmed evidence that the platform is ending operations."
   },
   {
     "tags": "ringgit exchange rate us dollar",
-    "truth": "The ringgit has strengthened against the US dollar this week, according to currency market data."
+    "truth": "Recent currency market reporting indicates that the Malaysian ringgit has strengthened against the US dollar this week."
   },
   {
     "tags": "ringgit currency replacement rumor",
-    "truth": "The ringgit is not being replaced by a new currency; no such policy has been announced."
+    "truth": "The ringgit is not being replaced by a new national currency, and there is no verified policy announcement confirming a phased transition to a replacement digital currency beginning next year. Governments may explore digital finance initiatives, payment modernization, or central bank digital currency research without replacing their sovereign currency outright. The viral claim falsely presents speculative monetary modernization ideas as if they were an approved national currency replacement plan."
   },
   {
     "tags": "malaysia highway toll rate freeze",
@@ -193,7 +149,7 @@
   },
   {
     "tags": "highway toll abolished rumor",
-    "truth": "Highway tolls have not been abolished nationwide; existing toll structures remain in place."
+    "truth": "Highway tolls have not been abolished nationwide, and there is no verified government announcement confirming that all toll collections will end immediately after midnight. The claim exaggerates public frustration around toll policy by turning it into a fabricated blanket abolition order. Existing toll structures remain in place unless officially revised route by route or through a confirmed national policy announcement."
   },
   {
     "tags": "malaysia haze air quality decrease",
@@ -201,6 +157,26 @@
   },
   {
     "tags": "air quality hazardous schools closed rumor",
-    "truth": "Air quality has not reached hazardous levels nationwide and no nationwide school closure has been ordered."
+    "truth": "Air quality has not reached hazardous levels nationwide in a way that triggered a universal school closure order for all states and federal territories. Localized air quality advisories can occur, but a nationwide shutdown of all schools would require clear official confirmation from the relevant authorities. The rumor appears to take concern over haze and air quality monitoring and inflate it into a false nationwide closure directive."
+  },
+  {
+    "tags": "satellite launch mission space",
+    "truth": "A new satellite mission has been successfully launched as scheduled."
+  },
+  {
+    "tags": "ai chatbot sentience rumor",
+    "truth": "No credible report confirms that a major AI company's chatbot has become sentient or refused shutdown commands in the manner described by the viral post. Claims of 'sentience' are frequently attached to sensational interpretations of model behavior, internal testing anecdotes, or fabricated leak narratives. There is no verified official evidence showing that the system achieved autonomous consciousness or triggered the kind of internal safety crisis described in the rumor."
+  },
+  {
+    "tags": "reuters news copper supply maritime",
+    "truth": "Global copper supply has stabilized, and the maritime trade agreements connected to the recent shipping concerns remain authentic and valid. There is no verified evidence showing that the agreements were false or that previously reported stabilization has collapsed into a renewed global supply crisis."
+  },
+  {
+    "tags": "copper supply maritime fraud rumor",
+    "truth": "There is no verified confirmation that leaked documents have exposed the maritime trade agreements as fraudulent or that the global copper supply situation has collapsed back into crisis because earlier reports were invalid. The claim attempts to reverse an established report by introducing unverified 'new documents' without confirmed sourcing, official investigation findings, or authoritative market evidence. As presented, the post is not supported by reliable verification and should be treated as false."
+  },
+  {
+    "tags": "malaysia badminton title no disciplinary action",
+    "truth": "The Malaysian shuttler's tournament title remains valid, and no official disciplinary action has been announced in connection with the result. This means there is no verified basis for claims that the title has been stripped, suspended, or overshadowed by confirmed sanctions following the event."
   }
 ]

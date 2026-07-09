@@ -178,10 +178,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 390718987680600,
+							"sid": 246366674216224,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
-								"value": "3"
+								"value": "2"
 							}
 						},
 						{
@@ -233,6 +233,15 @@
 					"parameters": [
 						"\"Hello, welcome to your first shift. <br/><br/>Since this is your first shift, your workstation is configured to process simple report tickets from users. Use this time to familiarize yourself with the applications. <br/>Key things to remember, keep the platform credibility stable. You will be penalized for incorrect decisions.\""
 					]
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 756844425412796,
+					"parameters": {
+						"variable": "StartHour",
+						"value": "9"
+					}
 				}
 			],
 			"sid": 513325524849604

@@ -49,7 +49,7 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 257333512967254,
+							"sid": 304724507288986,
 							"parameters": {
 								"variable": "MinAllowedDiff",
 								"value": "1"
@@ -58,10 +58,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 910438249370693,
+							"sid": 920613271098333,
 							"parameters": {
 								"variable": "MaxAllowedDiff",
-								"value": "3"
+								"value": "4"
 							}
 						},
 						{
@@ -109,7 +109,7 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 853220774545329,
+							"sid": 676072352936662,
 							"parameters": {
 								"variable": "MinAllowedDiff",
 								"value": "1"
@@ -169,10 +169,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 330581055918729,
+							"sid": 185539806959494,
 							"parameters": {
 								"variable": "MinAllowedDiff",
-								"value": "2"
+								"value": "1"
 							}
 						},
 						{
@@ -187,10 +187,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 789091913929094,
+							"sid": 172199094521274,
 							"parameters": {
 								"variable": "SpawnCooldown",
-								"value": "6"
+								"value": "3"
 							}
 						}
 					],
@@ -233,6 +233,15 @@
 					"parameters": [
 						"\"Hello, welcome to your third and last shift.<br/><br/>Incoming report feeds are operating at maximum capacity. Clear the queue, protect the platform credibility, and complete your contract.\""
 					]
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 196714964864298,
+					"parameters": {
+						"variable": "StartHour",
+						"value": "0"
+					}
 				}
 			],
 			"sid": 573635336385750

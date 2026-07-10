@@ -3906,6 +3906,10 @@
 							],
 							"actions": [
 								{
+									"callFunction": "ResetGameVariables",
+									"sid": 459356922400346
+								},
+								{
 									"callFunction": "LayoutChange",
 									"sid": 565666723160716,
 									"parameters": [

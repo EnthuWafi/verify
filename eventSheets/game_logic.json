@@ -174,6 +174,16 @@
 			"sid": 914707883522751
 		},
 		{
+			"eventType": "variable",
+			"name": "isInstructionShowing",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 506877520531726
+		},
+		{
 			"eventType": "comment",
 			"text": "shift timer activations"
 		},
@@ -1863,6 +1873,7 @@
 								{
 									"callFunction": "MarkTicketAsSpent",
 									"sid": 944639048425988,
+									"disabled": true,
 									"parameters": [
 										"newID"
 									]

@@ -229,22 +229,127 @@
 				},
 				{
 					"callFunction": "CreateSVMessage",
-					"sid": 918635455166835,
+					"sid": 540521311045846,
 					"parameters": [
-						"\"Hello, welcome to your first shift. <br/><br/>Since this is your first shift, your workstation is configured to process simple report tickets from users. Use this time to familiarize yourself with the applications. <br/>Key things to remember, keep the platform credibility stable. You will be penalized for incorrect decisions.\""
+						"\"<strong>Hello, welcome to your first shift.</strong><br/><br/>Since this is your first shift, you are allowed to process simple report tickets from users. Use this time to familiarize yourself with the applications. Trusted Database or Fact_DB, as the name suggests, is a trustworthy source. Use it to review the tickets from Report Feed or R_Feed app.<br/>Key things to remember, keep the platform credibility stable. You will be penalized for incorrect decisions.\""
 					]
 				},
 				{
-					"id": "set-eventvar-value",
+					"id": "wait",
 					"objectClass": "System",
-					"sid": 756844425412796,
+					"sid": 637200548801275,
 					"parameters": {
-						"variable": "StartHour",
-						"value": "9"
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 760579224030796,
+					"parameters": {
+						"layer": "\"instruction_layer\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 107474812539957,
+					"parameters": {
+						"layer": "\"critical_layer\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 134392978309861,
+					"parameters": {
+						"variable": "isInstructionShowing",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 567623311661305,
+					"parameters": {
+						"time-scale": "0"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 860134346350633,
+					"parameters": {
+						"audio-file": {
+							"path": "windowsding"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],
 			"sid": 513325524849604
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 598789726022115
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 314835944995565,
+					"parameters": {
+						"variable": "isInstructionShowing"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 847363634663121,
+					"parameters": {
+						"time-scale": "1"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 993852672928854,
+					"parameters": {
+						"layer": "\"instruction_layer\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 187932830936241,
+					"parameters": {
+						"variable": "isInstructionShowing",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 802931640011915,
+					"parameters": {
+						"layer": "\"critical_layer\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 647516031465843
 		}
 	],
 	"sid": 599706902636925

@@ -984,55 +984,6 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "for-each-element",
-											"objectClass": "reportTicketArray",
-											"sid": 261015687733895,
-											"parameters": {
-												"axes": "x"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 274551667969144,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 535033606162634,
-													"parameters": {
-														"first-value": "reportTicketArray.At(reportTicketArray.CurX, 0)",
-														"comparison": 0,
-														"second-value": "str(currentReportTicketID)"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 381107439423905,
-													"parameters": {
-														"variable": "expectedAction",
-														"value": "reportTicketArray.At(reportTicketArray.CurX, 3)"
-													}
-												},
-												{
-													"id": "stop-loop",
-													"objectClass": "System",
-													"sid": 941836924090994
-												}
-											],
-											"sid": 176850736645992
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
 											"id": "compare-two-values",
 											"objectClass": "System",
 											"sid": 353962669642058,
@@ -1046,6 +997,62 @@
 									"actions": [],
 									"sid": 433956755597541,
 									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each-element",
+													"objectClass": "reportTicketArray",
+													"sid": 167859884730326,
+													"parameters": {
+														"axes": "x"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 859231390207018,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 193247256408153,
+															"parameters": {
+																"first-value": "reportTicketArray.At(reportTicketArray.CurX, 0)",
+																"comparison": 0,
+																"second-value": "str(currentReportTicketID)"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 637791098670205,
+															"parameters": {
+																"variable": "expectedAction",
+																"value": "reportTicketArray.At(reportTicketArray.CurX, 3)"
+															}
+														},
+														{
+															"callFunction": "MarkTicketAsSpent",
+															"sid": 145256620836859,
+															"parameters": [
+																"str(currentReportTicketID)"
+															]
+														},
+														{
+															"id": "stop-loop",
+															"objectClass": "System",
+															"sid": 158964733225907
+														}
+													],
+													"sid": 635332678056922
+												}
+											]
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -1203,9 +1210,9 @@
 											"actions": [
 												{
 													"callFunction": "AddToShiftSalary",
-													"sid": 695132462208112,
+													"sid": 255956710843905,
 													"parameters": [
-														"7"
+														"10"
 													]
 												}
 											],
@@ -2100,10 +2107,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 249573714693835,
+									"sid": 834368673422255,
 									"parameters": {
 										"variable": "createdWindowUID",
-										"value": "Functions.createWindow(\"windows_layer\", 0, 0)"
+										"value": "Functions.createWindow(\"windows_layer\", 360, 100)"
 									}
 								}
 							],
@@ -4751,13 +4758,6 @@
 									}
 								},
 								{
-									"callFunction": "ResizeWindow",
-									"sid": 382516989951615,
-									"parameters": [
-										"windowBody.UID"
-									]
-								},
-								{
 									"id": "play",
 									"objectClass": "Audio",
 									"sid": 456110437594448,
@@ -4770,6 +4770,13 @@
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
+								},
+								{
+									"callFunction": "ResizeWindow",
+									"sid": 636215968457065,
+									"parameters": [
+										"windowBody.UID"
+									]
 								}
 							],
 							"sid": 795013299925230

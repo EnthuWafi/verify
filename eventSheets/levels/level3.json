@@ -187,10 +187,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 172199094521274,
+							"sid": 614526088365222,
 							"parameters": {
 								"variable": "SpawnCooldown",
-								"value": "3"
+								"value": "6"
 							}
 						}
 					],
@@ -220,7 +220,7 @@
 				},
 				{
 					"callFunction": "PlayMusic",
-					"sid": 264626173740050,
+					"sid": 171236364432057,
 					"parameters": [
 						"\"LonePeakMusic - 26 Library Of Babel -Retro Gaming Version-\"",
 						"0.80",
@@ -229,19 +229,10 @@
 				},
 				{
 					"callFunction": "CreateSVMessage",
-					"sid": 823870760283175,
+					"sid": 510183310309733,
 					"parameters": [
-						"\"Hello, welcome to your third and last shift.<br/><br/>Incoming report feeds are operating at maximum capacity. Clear the queue, protect the platform credibility, and complete your contract.\""
+						"\"<strong>Hello, welcome to your third and last shift.</strong><br/><br/>Incoming report feeds are operating at maximum capacity. Clear the queue, protect the platform credibility, and complete your contract.\""
 					]
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 196714964864298,
-					"parameters": {
-						"variable": "StartHour",
-						"value": "0"
-					}
 				}
 			],
 			"sid": 573635336385750

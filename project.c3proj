@@ -183,7 +183,8 @@
 			"Audio",
 			"LocalStorage",
 			"menuChoice",
-			"transitionFX"
+			"transitionFX",
+			"SpriteInstruction"
 		],
 		"subfolders": []
 	},

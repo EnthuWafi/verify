@@ -67,7 +67,7 @@
 			"eventType": "variable",
 			"name": "rentCost",
 			"type": "number",
-			"initialValue": "50",
+			"initialValue": "40",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -1156,7 +1156,7 @@
 					"actions": [
 						{
 							"callFunction": "LayoutChange",
-							"sid": 144636418065612,
+							"sid": 424581539806116,
 							"parameters": [
 								"\"level\" & (currentDay + 1)"
 							]

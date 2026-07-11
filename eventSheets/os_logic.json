@@ -1037,13 +1037,6 @@
 															}
 														},
 														{
-															"callFunction": "MarkTicketAsSpent",
-															"sid": 145256620836859,
-															"parameters": [
-																"str(currentReportTicketID)"
-															]
-														},
-														{
 															"id": "stop-loop",
 															"objectClass": "System",
 															"sid": 158964733225907
@@ -4100,7 +4093,7 @@
 							"eventType": "variable",
 							"name": "titleBarHTML",
 							"type": "string",
-							"initialValue": "<img src='image_icon/program.png' width='12' height='12' draggable='false' style='padding-right: 10px'/><span>sys_montor.exe</span>",
+							"initialValue": "<img src='image_icon/program.png' width='12' height='12' draggable='false' style='padding-right: 10px'/><span>sys_monitor.exe</span>",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,

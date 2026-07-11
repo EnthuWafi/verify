@@ -368,6 +368,181 @@
 			"global": false
 		},
 		{
+			"name": "fx",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "screenStaticFX",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 22,
+					"sid": 544706976635133,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"effects": {
+						"ScanLines": {
+							"isEnabled": true,
+							"parameters": {
+								"line-height": 3
+							}
+						},
+						"Noise": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 0.4,
+								"color": 1
+							}
+						},
+						"GlowHorizontal": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"GlowVertical": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Vignette": {
+							"isEnabled": true,
+							"parameters": {
+								"start-radius": 0.3,
+								"end-radius": 0.75
+							}
+						},
+						"BlurHorizontal": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Pixellate": {
+							"isEnabled": true,
+							"parameters": {
+								"size": 1.17
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -25,
+						"y": -32,
+						"width": 1327,
+						"height": 771,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.25
+						],
+						"z": 0,
+						"angle": 0,
+						"blendMode": "screen"
+					}
+				},
+				{
+					"type": "transitionFX",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 39,
+					"sid": 662454950123692,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -32,
+						"y": -32,
+						"width": 1376,
+						"height": 800,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"z": 0,
+						"angle": 0
+					}
+				}
+			],
+			"sid": 672179532184153,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": false,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": true,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": true
+		},
+		{
 			"name": "instruction_layer",
 			"overriden": 0,
 			"subLayers": [],
@@ -411,7 +586,7 @@
 						"text": "Your report feed app, here is where you decide to keep or delete posts",
 						"enable-bbcode": true,
 						"font": "Perfect DOS VGA 437 Win",
-						"size": 20,
+						"size": 21,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -493,7 +668,7 @@
 						"text": "Your trusted database app, where you can search for certain keywords to fact check",
 						"enable-bbcode": true,
 						"font": "Perfect DOS VGA 437 Win",
-						"size": 20,
+						"size": 21,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -674,7 +849,7 @@
 						"text": "Start Menu, you can exit the game or restart it via Shut Down menu option",
 						"enable-bbcode": true,
 						"font": "Perfect DOS VGA 437 Win",
-						"size": 20,
+						"size": 21,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -770,7 +945,7 @@
 						"x": 752.7827779048339,
 						"y": 498.7245556688583,
 						"width": 8.3236354082924,
-						"height": 443.1825404825429,
+						"height": 443.18254048254295,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -786,10 +961,10 @@
 				{
 					"type": "generalText",
 					"properties": {
-						"text": "You have the option to either Keep or Delete the report post.",
+						"text": "In Report Feed app, you have the option to either Keep or Delete the reported post.",
 						"enable-bbcode": true,
 						"font": "Perfect DOS VGA 437 Win",
-						"size": 20,
+						"size": 21,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -816,10 +991,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 119,
-						"y": 442,
-						"width": 382,
-						"height": 133,
+						"x": 31,
+						"y": 422,
+						"width": 476,
+						"height": 139,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -895,181 +1070,6 @@
 			"blendMode": "normal",
 			"zElevation": 0,
 			"global": false
-		},
-		{
-			"name": "fx",
-			"overriden": 0,
-			"subLayers": [],
-			"instances": [
-				{
-					"type": "screenStaticFX",
-					"properties": {
-						"initially-visible": true,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0,
-						"enable-tile-randomization": false,
-						"x-random": 1,
-						"y-random": 1,
-						"angle-random": 1,
-						"blend-margin-x": 0.1,
-						"blend-margin-y": 0.1
-					},
-					"uid": 22,
-					"sid": 544706976635133,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"effects": {
-						"ScanLines": {
-							"isEnabled": true,
-							"parameters": {
-								"line-height": 3
-							}
-						},
-						"Noise": {
-							"isEnabled": true,
-							"parameters": {
-								"intensity": 0.4,
-								"color": 1
-							}
-						},
-						"GlowHorizontal": {
-							"isEnabled": true,
-							"parameters": {
-								"intensity": 1
-							}
-						},
-						"GlowVertical": {
-							"isEnabled": true,
-							"parameters": {
-								"intensity": 1
-							}
-						},
-						"Vignette": {
-							"isEnabled": true,
-							"parameters": {
-								"start-radius": 0.3,
-								"end-radius": 0.75
-							}
-						},
-						"BlurHorizontal": {
-							"isEnabled": true,
-							"parameters": {
-								"intensity": 1
-							}
-						},
-						"Pixellate": {
-							"isEnabled": true,
-							"parameters": {
-								"size": 1.17
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -25,
-						"y": -32,
-						"width": 1327,
-						"height": 771,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							0.25
-						],
-						"z": 0,
-						"angle": 0,
-						"blendMode": "screen"
-					}
-				},
-				{
-					"type": "transitionFX",
-					"properties": {
-						"initially-visible": true,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0,
-						"enable-tile-randomization": false,
-						"x-random": 1,
-						"y-random": 1,
-						"angle-random": 1,
-						"blend-margin-x": 0.1,
-						"blend-margin-y": 0.1
-					},
-					"uid": 39,
-					"sid": 662454950123692,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -32,
-						"y": -32,
-						"width": 1376,
-						"height": 800,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							0
-						],
-						"z": 0,
-						"angle": 0
-					}
-				}
-			],
-			"sid": 672179532184153,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"isInitiallyInteractive": false,
-			"isHTMLElementsLayer": false,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
-				1
-			],
-			"isTransparent": true,
-			"sampling": "auto",
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
-			"forceOwnTexture": true,
-			"renderingMode": "3d",
-			"drawOrder": "z-order",
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"zElevation": 0,
-			"global": true
 		}
 	],
 	"sid": 981591719992072,

@@ -1873,7 +1873,6 @@
 								{
 									"callFunction": "MarkTicketAsSpent",
 									"sid": 944639048425988,
-									"disabled": true,
 									"parameters": [
 										"newID"
 									]

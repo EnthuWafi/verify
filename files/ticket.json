@@ -9,7 +9,7 @@
   {
     "id": 102,
     "user": "@CampusSignalMY",
-    "text": "Breaking: several universities are shutting down tonight after a total national grid failure reportedly triggered emergency blackout procedures across multiple campuses.",
+    "text": "Breaking news: several universities are shutting down tonight after a total national grid failure reportedly triggered emergency blackout procedures across multiple campuses.",
     "correctAction": "delete",
     "difficulty": 4
   },
@@ -86,7 +86,7 @@
   {
     "id": 113,
     "user": "@RockstarGames",
-    "text": "The publisher has officially confirmed a release date window for Grand Theft Auto 6.",
+    "text": "We have officially confirmed a release date window for Grand Theft Auto 6.",
     "correctAction": "keep",
     "difficulty": 2
   },
